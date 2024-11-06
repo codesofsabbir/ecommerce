@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Phone, User, Lock, Eye, EyeClosed } from 'lucide-react';
+import { Phone, User, Lock, Eye, EyeClosed, MapPin } from 'lucide-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -10,29 +10,51 @@ function SignUp() {
     
     const formik = useFormik({
         initialValues: {
-            name: '',
-            phone: '',
-            password: '',
-            confirmPassword: ''
+            userName: '',
+            userPhone: '',
+            userPassword: '',
+            confirmPassword: '',
+            userAddress: '',
+            userProfilePic: ''
         },
         validationSchema: Yup.object({
-            name: Yup.string()
+            userName: Yup.string()
                 .required('Name is required')
                 .min(2, 'Name must be at least 2 characters'),
-            phone: Yup.string()
+            userPhone: Yup.string()
                 .required('Phone number is required')
-                .matches(/^\d{11}$/, 'Phone number must be exactly 10 digits'),
-            password: Yup.string()
+                .matches(/^\d{11}$/, 'Phone number must be exactly 11 digits'),
+            userPassword: Yup.string()
                 .required('Password is required')
                 .min(6, 'Password must be at least 6 characters'),
             confirmPassword: Yup.string()
                 .required('Please confirm your password')
-                .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+                .oneOf([Yup.ref('userPassword'), null], 'Passwords must match'),            
+            userAddress: Yup.string()
+                .required('Please confirm your Address')
         }),
-        onSubmit: (values, { resetForm }) => {
-            console.log(values);
-            resetForm();
-            // Navigate to another page or perform further actions here
+        onSubmit: async (values, { resetForm }) => {
+            const { confirmPassword, ...dataToSubmit } = values;
+            try {
+                const response = await fetch('http://localhost:5001/usersInfo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataToSubmit),
+                });
+
+                if (response.ok) {
+                    console.log('User info submitted successfully');
+                    resetForm();
+                    navigate('/login'); // Redirect to the login page
+                } else {
+                    console.error('Failed to submit user info');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            
         }
     });
 
@@ -48,49 +70,49 @@ function SignUp() {
                             <div className='relative h-fit'>
                                 <input 
                                     type="text" 
-                                    name="name" 
-                                    value={formik.values.name} 
+                                    name="userName" 
+                                    value={formik.values.userName} 
                                     onChange={formik.handleChange} 
                                     onBlur={formik.handleBlur}
                                     placeholder='Name' 
                                     className='w-full rounded-md bg-transparent border border-white outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
                                 />
                                 <User className='absolute top-1/2 left-2 -translate-y-1/2' />
-                                {formik.touched.name && formik.errors.name ? (
-                                    <div className="text-red-500 text-xs">{formik.errors.name}</div>
+                                {formik.touched.userName && formik.errors.userName ? (
+                                    <div className="text-red-500 text-xs">{formik.errors.userName}</div>
                                 ) : null}
                             </div>
                             <div className='relative h-fit'>
                                 <input 
                                     type="text" 
-                                    name="phone" 
-                                    value={formik.values.phone} 
+                                    name="userPhone" 
+                                    value={formik.values.userPhone} 
                                     onChange={formik.handleChange} 
                                     onBlur={formik.handleBlur}
                                     placeholder='Phone' 
                                     className='w-full rounded-md bg-transparent border border-white outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
                                 />
                                 <Phone className='absolute top-1/2 left-2 -translate-y-1/2' />
-                                {formik.touched.phone && formik.errors.phone ? (
-                                    <div className="text-red-500 text-xs">{formik.errors.phone}</div>
+                                {formik.touched.userPhone && formik.errors.userPhone ? (
+                                    <div className="text-red-500 text-xs">{formik.errors.userPhone}</div>
                                 ) : null}
                             </div>
                             <div className='relative h-fit'>
                                 <input 
                                     type={passwordShow ? 'text' : 'password'} 
-                                    name="password" 
-                                    value={formik.values.password} 
+                                    name="userPassword" 
+                                    value={formik.values.userPassword} 
                                     onChange={formik.handleChange} 
                                     onBlur={formik.handleBlur}
                                     placeholder='Password' 
-                                    className='w-full rounded-md bg-transparent border border-black outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
+                                    className='w-full rounded-md bg-transparent border border-white outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
                                 />
                                 <Lock className='absolute top-1/2 left-2 -translate-y-1/2' />
                                 <i className='absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer' onClick={() => { setPasswordShow(!passwordShow); }}>
                                     {passwordShow ? <EyeClosed /> : <Eye />}
                                 </i>
-                                {formik.touched.password && formik.errors.password ? (
-                                    <div className="text-red-500 text-xs">{formik.errors.password}</div>
+                                {formik.touched.userPassword && formik.errors.userPassword ? (
+                                    <div className="text-red-500 text-xs">{formik.errors.userPassword}</div>
                                 ) : null}
                             </div>
                             <div className='relative h-fit'>
@@ -106,6 +128,21 @@ function SignUp() {
                                 <Lock className='absolute top-1/2 left-2 -translate-y-1/2' />
                                 {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
                                     <div className="text-red-500 text-xs">{formik.errors.confirmPassword}</div>
+                                ) : null}
+                            </div>
+                            <div className='relative h-fit'>
+                                <input 
+                                    type='text'
+                                    name="userAddress" 
+                                    value={formik.values.userAddress} 
+                                    onChange={formik.handleChange} 
+                                    onBlur={formik.handleBlur}
+                                    placeholder='Address' 
+                                    className='w-full rounded-md bg-transparent border border-white outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
+                                />
+                                <MapPin className='absolute top-1/2 left-2 -translate-y-1/2' />
+                                {formik.touched.userAddress && formik.errors.userAddress ? (
+                                    <div className="text-red-500 text-xs">{formik.errors.userAddress}</div>
                                 ) : null}
                             </div>
                             <button type="submit" className='bg-[#1E90FF] py-2 rounded-md hover:bg-[#1E90cf] cursor-pointer'>Sign Up</button>
