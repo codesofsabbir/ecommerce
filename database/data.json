@@ -1,0 +1,3354 @@
+{
+    "header": {
+        "logo": "https://i.ibb.co.com/MnBCZ5L/epicdeals.png",
+        "deliveryOffer": "free shipping this week order over - $55",
+        "contact":{
+          "number":"+880 130 31 42498",
+          "mail" : "imsabbiir@gmail.com"
+        },
+        "icons": [
+            {
+                "id": "search",
+                "name": "search",
+                "status": true,
+                "link": ""
+            },
+            {
+                "id": "shopping",
+                "name": "shopping",
+                "status": true,
+                "link": ""
+            },
+            {
+                "id": "favourite",
+                "name": "favourite",
+                "status": false,
+                "link": ""
+            },
+            {
+                "id": "user",
+                "name": "user",
+                "status": true,
+                "link": ""
+            }
+        ],
+        "socialMedia": [
+            {
+                "status": true,
+                "id": "sm01",
+                "platform": "facebook",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "status": true,
+                "id": "sm02",
+                "platform": "instagram",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "status": true,
+                "id": "sm03",
+                "platform": "linkedin",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "status": true,
+                "id": "sm04",
+                "platform": "twitter",
+                "icon": "",
+                "link": ""
+            }
+        ],
+        "currencyMenu": {
+            "label": "USD $",
+            "options": [
+                "USD $",
+                "EUR €",
+                "GBP £"
+            ]
+        },
+        "languageMenu": {
+            "label": "English",
+            "options": [
+                "English",
+                "Spanish",
+                "French",
+                "German"
+            ]
+        }
+    },
+
+    "pages":[
+        {
+            "id": "pg01",
+            "name": "home"
+        },
+        {
+            "id": "pg02",
+            "name": "about us"
+        },
+        {
+            "id": "pg03",
+            "name": "help center"
+        },
+        {
+            "id": "pg04",
+            "name": "privacy policy"
+        },
+        {
+            "id": "pg05",
+            "name": "terms and conditions"
+        },
+        {
+            "id": "pg06",
+            "name": "returns & refunds"
+        },
+        {
+            "id": "pg07",
+            "name": "how to buy"
+        },
+        {
+            "id": "pg08",
+            "name": "track your order"
+        }
+    ],
+
+    "hero": [
+        {
+        "id": 1,
+        "title": "Big Sale on Electronics",
+        "subtitle": "Get up to 50% off on top brands!",
+        "image": "https://example.com/images/electronics-banner.jpg",
+        "buttonText": "Shop Now",
+        "buttonLink": "/shop/electronics",
+        "backgroundColor": "#f5f5f5"
+        },
+        {
+        "id": 2,
+        "title": "New Arrivals in Fashion",
+        "subtitle": "Explore the latest trends",
+        "image": "https://example.com/images/fashion-banner.jpg",
+        "buttonText": "Explore",
+        "buttonLink": "/shop/fashion",
+        "backgroundColor": "#ffefd5"
+        },
+        {
+        "id": 3,
+        "title": "Free Shipping Worldwide",
+        "subtitle": "On all orders above $99",
+        "image": "https://example.com/images/shipping-banner.jpg",
+        "buttonText": "Learn More",
+        "buttonLink": "/shipping-info",
+        "backgroundColor": "#e0f7fa"
+        },
+        {
+        "id": 4,
+        "title": "Modern Furniture Collection",
+        "subtitle": "Upgrade your home with stylish designs",
+        "image": "https://example.com/images/furniture-banner.jpg",
+        "buttonText": "Discover Now",
+        "buttonLink": "/shop/furniture",
+        "backgroundColor": "#faf0e6"
+        },
+        {
+        "id": 5,
+        "title": "Beauty & Care Essentials",
+        "subtitle": "Self-care starts with the right products",
+        "image": "https://example.com/images/beauty-banner.jpg",
+        "buttonText": "Shop Beauty",
+        "buttonLink": "/shop/beauty-care",
+        "backgroundColor": "#ffe4e1"
+        },
+        {
+        "id": 6,
+        "title": "Accessories for Every Occasion",
+        "subtitle": "Find the perfect match for your outfit",
+        "image": "https://example.com/images/accessories-banner.jpg",
+        "buttonText": "Browse Accessories",
+        "buttonLink": "/shop/accessories",
+        "backgroundColor": "#f0f8ff"
+        }
+    ],
+    
+    "banner": [
+        "https://i.ibb.co.com/RSpTfsH/banner.png",
+        "https://i.ibb.co.com/fttg1Cz/zdrop-01.png",
+        "https://i.ibb.co.com/KVJYxBt/zdrop-02.png",
+        "https://i.ibb.co.com/C9Grkpy/skincare.png",
+        "https://i.ibb.co.com/9T5MWdB/electronics.png",
+        "https://i.ibb.co.com/Jrj7NTn/baby.gif",
+        "https://i.ibb.co.com/syMqCrc/haircare.png"
+    ],
+
+    "categories": [
+        {
+            "id": 1,
+            "name": "Electronics",
+            "tagline": "Upgrade your life with the latest tech essentials.",
+            "image": "https://example.com/images/electronics.jpg",
+            "subcategories": [
+            { "id": 101, "name": "Mobile Phones", "image": "https://i.ibb.co.com/7K3kD6F/mobile.png", "punchline": "Stay connected, stay ahead" },
+            { "id": 102, "name": "Laptops", "image": "https://i.ibb.co.com/qmVKCJ1/laptop.png", "punchline": "Work smarter, not harder" },
+            { "id": 103, "name": "Televisions", "image": "https://i.ibb.co.com/ypBkgLt/monitor.png", "punchline": "Entertainment in every pixel" },
+            { "id": 104, "name": "Cameras", "image": "https://i.ibb.co.com/0sghPcr/camera.jpg", "punchline": "Capture moments that matter" },
+            { "id": 105, "name": "Kitchen Accessories", "image": "https://i.ibb.co.com/tZxtckp/freeze.jpg", "punchline": "Enhance your tech game" }
+            ]
+        },
+        {
+        
+            "id": 2,
+            "name": "Furniture",
+            "tagline": "Transform your space with stylish and comfy furniture.",
+            "image": "https://example.com/images/furniture.jpg",
+            "subcategories": [
+            { "id": 201, "name": "Sofas", "image": "https://i.ibb.co.com/S5W1HBf/blue-sofa-1.jpg", "punchline": "Comfort meets elegance" },
+            { "id": 202, "name": "Tables", "image": "https://i.ibb.co.com/T2gPgNk/table.jpg", "punchline": "Dining with style" },
+            { "id": 203, "name": "Chairs", "image": "https://i.ibb.co.com/brTJ8ZY/chair.jpg", "punchline": "Seating for every need" },
+            { "id": 205, "name": "Wardrobes", "image": "https://i.ibb.co.com/fH7JjkT/wardrobe.png", "punchline": "Organize with style" },
+            { "id": 204, "name": "Beds", "image": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png", "punchline": "Dream in comfort" }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "man's ware",
+            "tagline": "Elevate your style with men's fashion that makes a statement.",
+            "image": "https://example.com/images/clothes.jpg",
+            "subcategories": [
+            { "id": 301, "name": "T-Shirt", "image": "https://i.ibb.co.com/GR5zJPM/Tops-Tees.png", "punchline": "Casual, comfortable, cool" },
+            { "id": 302, "name": "Shirt", "image": "https://i.ibb.co.com/5MB28dW/Shirts.png", "punchline": "Dressed for success" },
+            { "id": 303, "name": "Jeans", "image": "https://i.ibb.co.com/P4rkJ1R/Pants.png", "punchline": "Durable, timeless fashion" },
+            { "id": 304, "name": "Jackets", "image": "https://i.ibb.co.com/Qj0KP08/Coats-Jackets.png", "punchline": "Layer up in style" },
+            { "id": 305, "name": "Sweaters", "image": "https://i.ibb.co.com/hgqzWyp/Hoodies-Sweatshirts.png", "punchline": "Warmth with a touch of trend" },
+            { "id": 306, "name": "Blazer", "image": "https://i.ibb.co.com/1KW2nVq/Suits-Blazer.png", "punchline": "Warmth with a touch of trend" }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "women's ware",
+            "tagline": "Unleash your elegance with fashion that defines you.",
+            "image": "https://example.com/images/clothes.jpg",
+            "subcategories": [
+            { "id": 401, "name": "Dresses", "image": "https://i.ibb.co.com/CsJ7rk0/Dresses.png", "punchline": "Elegance for every occasion" },
+            { "id": 402, "name": "Tops", "image": "https://i.ibb.co.com/zQ1wJsR/tops-tees.png", "punchline": "Trendy and timeless" },
+            { "id": 403, "name": "Jeans", "image": "https://i.ibb.co.com/H79zfxN/Jeans.png", "punchline": "Style that moves with you" },
+            { "id": 404, "name": "Skirts", "image": "https://i.ibb.co.com/DWsZSJY/Skirts.png", "punchline": "Chic and versatile" },
+            { "id": 405, "name": "Blouses", "image": "https://i.ibb.co.com/NZPPDCQ/Shirts-Blouses.png", "punchline": "Finesse in every detail" },
+            { "id": 406, "name": "Bikini", "image": "https://i.ibb.co.com/CzymN2L/Bikinis.png", "punchline": "Sun, sand, and style" },
+            { "id": 407, "name": "Sweaters", "image": "https://i.ibb.co.com/yBCk8MQ/Women-Coats-Jackets.png", "punchline": "Cozy and fashionable" }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Shoes",
+            "tagline": "Step up your game with shoes that fit every occasion.",
+            "image": "https://example.com/images/shoes.jpg",
+            "subcategories": [
+            { "id": 501, "name": "Sneakers", "image": "https://i.ibb.co.com/xq9XYYF/Sneakers.png", "punchline": "Comfort meets street style" },
+            { "id": 502, "name": "Loafers", "image": "https://i.ibb.co.com/rm5thdQ/loafer.jpg", "punchline": "Classic and comfortable" },
+            { "id": 503, "name": "Formal Shoes", "image": "https://i.ibb.co.com/Bs5Drh0/formal.png", "punchline": "Step into elegance" },
+            { "id": 504, "name": "Boots", "image": "https://i.ibb.co.com/j432nnJ/Men-Shoes.png", "punchline": "Built for every terrain" },
+            { "id": 505, "name": "Sandals", "image": "https://i.ibb.co.com/mhw9m8p/sandal.webp", "punchline": "Breezy and effortless" },
+            { "id": 506, "name": "Heels", "image": "https://i.ibb.co.com/yyHPqZK/heal.webp", "punchline": "Elevate your style" },
+            { "id": 507, "name": "Flats", "image": "https://i.ibb.co.com/mhw9m8p/sandal.webp", "punchline": "Fashion without compromise" }
+            ]
+        },
+        
+        {
+            "id": 6,
+            "name": "Accessories",
+            "tagline": "Complete your look with must-have accessories that shine.",
+            "image": "https://example.com/images/accessories.jpg",
+            "subcategories": [
+            { "id": 601, "name": "Bags", "image": "https://i.ibb.co.com/bzGycBz/bag.png", "punchline": "Carry your world in style" },
+            { "id": 602, "name": "Watches", "image": "https://i.ibb.co.com/WkMzTCy/Mens-Watches.png", "punchline": "Timeless elegance" },
+            { "id": 603, "name": "Jewelry", "image": "https://i.ibb.co.com/sthVYRJ/Fashion-Jewelry.png", "punchline": "Sparkle every day" },
+            { "id": 604, "name": "Sunglasses", "image": "https://i.ibb.co.com/JzJR2G9/sunglass.png", "punchline": "Shade in style" },
+            { "id": 605, "name": "Belts", "image": "https://i.ibb.co.com/gv35SjK/Belts.png", "punchline": "Tie your look together" },
+            { "id": 606, "name": "hats", "image": "https://i.ibb.co.com/Pj6skqG/Hats-Caps.png", "punchline": "Tie your look together" }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Beauty and Care",
+            "tagline": "Glow inside and out with beauty products you'll love.",
+            "image": "https://example.com/images/beauty_and_care.jpg",
+            "subcategories": [
+            { "id": 701, "name": "Skincare", "image": "https://i.ibb.co.com/wNMfBPR/Skin-Care.png", "punchline": "Glow from within" },
+            { "id": 702, "name": "Haircare", "image": "https://i.ibb.co.com/LQGMcYm/Hair-Care-Styling.png", "punchline": "Nourish your crown" },
+            { "id": 703, "name": "Makeup", "image": "https://i.ibb.co.com/kQQpB3s/Makeup.png", "punchline": "Unleash your creativity" },
+            { "id": 704, "name": "Fragrances", "image": "https://i.ibb.co.com/Gkdzc86/Fragrances-Deodorants.png", "punchline": "Make an unforgettable impression" },
+            { "id": 705, "name": "Men's Grooming", "image": "https://i.ibb.co.com/cNtG7m7/man-s-grooming.png", "punchline": "Look sharp, feel sharper" }
+            ]
+        },
+        {
+          "id": 8,
+            "name": "Gadgets",
+            "tagline": "Explore Innovation, Experience the Future.",
+            "image": "https://example.com/images/beauty_and_care.jpg",
+            "subcategories": [
+            { "id": 801, "name": "Mouse", "image": "https://i.ibb.co.com/Swn2JLv/mouse.webp", "punchline": "Glow from within" },
+            { "id": 802, "name": "Keyboard", "image": "https://i.ibb.co.com/fDMmg5b/keyboard.webp", "punchline": "Nourish your crown" },
+            { "id": 803, "name": "Sound Box", "image": "https://i.ibb.co.com/s3wc8T1/jbl.webp", "punchline": "Unleash your creativity" },
+            { "id": 804, "name": "HeadPhone", "image": "https://i.ibb.co.com/ngVMcwz/headphone.jpg", "punchline": "Make an unforgettable impression" },
+            { "id": 805, "name": "Others", "image": "https://www.startech.com.bd/image/cache/catalog/keyboard/eksa/et100-pro-01-228x228.webp", "punchline": "Look sharp, feel sharper" }
+            ]
+        }
+    ],
+
+    "paymant":[
+      "https://i.ibb.co.com/hVdQLTK/mastercard.png",
+      "https://i.ibb.co.com/Jt8s0hN/nagad.png",
+      "https://i.ibb.co.com/YTQPFgM/rocket.png",
+      "https://i.ibb.co.com/tq13Xxr/visa.png",
+      "https://i.ibb.co.com/S6SC6Y9/amex.png",
+      "https://i.ibb.co.com/xFzKBfr/bkash.png"
+    ],
+
+    "helpCenter":[
+        {
+            "id" : 0,
+            "img": "https://zdrop.com.bd/images/aboutzdrop.svg",
+            "title": "About EpicDeals",
+            "subtitle": "Why, we are the best"
+        },
+        {
+            "id" : 1,
+            "img": "https://zdrop.com.bd/images/shield.svg",
+            "title": "Privacy Policy",
+            "subtitle": "We care about your Privacy"
+        },
+        {
+            "id" : 2,
+            "img": "https://zdrop.com.bd/images/return-exchange.svg",
+            "title": "Return & Exchange",
+            "subtitle": "Return or Exchange items"
+        },
+        {
+            "id" : 3,
+            "img": "https://zdrop.com.bd/images/shipping.svg",
+            "title": "Shipping & Delivery",
+            "subtitle": "Know about our Shipping & Delivery methods"
+        },
+        {
+            "id" : 4,
+            "img": "https://zdrop.com.bd/images/terms-conditions.svg",
+            "title": "Terms & Conditins",
+            "subtitle": "Learn about our Terms & Conditions"
+        },
+        {
+            "id" : 5,
+            "img": "https://zdrop.com.bd/images/payment.svg",
+            "title": "Payments",
+            "subtitle": "We made our payment process easier"
+        }
+    ],
+
+    "trackOrder":[
+      {
+        "orderId": "6151",
+        "phoneNumber": "01303142498",
+        "address": "Birabo, Kanchon, Rupganj, Narayanganj - 1720",
+        "orderDate": "23/10/2024",
+        "deliverDate": "30/10/2024",
+        "paymentMethod": "Cash on delivery",
+        "orderTracker": [
+          {
+            "name": "Order Placed",
+            "action": "done",
+            "icon": "CircleEllipsis"
+          },
+          {
+            "name": "Order Confirmed",
+            "action": "done",
+            "icon": "ShoppingBag"
+          },
+          {
+            "name": "Shipping Company Assigned",
+            "action": "done",
+            "icon": "PackageCheck"
+          },
+          {
+            "name": "In Transit",
+            "action": "done",
+            "icon": "Truck"
+          },
+          {
+            "name": "Out for Delivery",
+            "action": "done",
+            "icon": "MapPinCheckInside"
+          },
+          {
+            "name": "Delivered ",
+            "action": "",
+            "icon": "House"
+          }
+        ],
+        "orderStage": 4,
+        "orderProducts":[
+          {
+            "productId": 1,
+            "quantity": 1,
+            "color": "black",
+            "storage": ""
+          },
+          {
+            "productId": 2,
+            "quantity": 1,
+            "color": "black",
+            "storage": ""
+          },
+          {
+            "productId": 3,
+            "quantity": 1,
+            "color": "black",
+            "storage": "12GB / 512GB"
+          }
+        ]
+      },
+      {
+        "orderId": "5274",
+        "phoneNumber": "01956364548",
+        "address": "Karar Chor, Shibpur, Narsingdi",
+        "orderDate": "22/10/2024",
+        "deliverDate": "29/10/2024",
+        "paymentMethod": "Bkash",
+        "orderTracker": [
+          {
+            "name": "Order Placed",
+            "action": "done",
+            "icon": "CircleEllipsis"
+          },
+          {
+            "name": "Order Confirmed",
+            "action": "done",
+            "icon": "ShoppingBag"
+          },
+          {
+            "name": "Shipping Company Assigned",
+            "action": "done",
+            "icon": "PackageCheck"
+          },
+          {
+            "name": "In Transit",
+            "action": "done",
+            "icon": "Truck"
+          },
+          {
+            "name": "Out for Delivery",
+            "action": "",
+            "icon": "MapPinCheckInside"
+          },
+          {
+            "name": "Delivered ",
+            "action": "",
+            "icon": "House"
+          }
+        ],
+        "orderStage": 3,
+        "orderProducts":[
+          {
+            "productId": 64,
+            "quantity": 1,
+            "color": "black",
+            "storage": ""
+          },
+          {
+            "productId": 65,
+            "quantity": 1,
+            "color": "black",
+            "storage": ""
+          },
+          {
+            "productId": 66,
+            "quantity": 1,
+            "color": "black",
+            "storage": ""
+          }
+        ]
+      }
+    ],
+
+    "usersInfo":[
+        {
+            "userId": "SA01",
+            "userName": "Sabbir Ahmed",
+            "userProfilePic": "https://i.ibb.co.com/mCs7cyw/sabbir.jpg",
+            "userPhone": "01303142498",
+            "userPassword": "(Sabbir)?28",
+            "userAddress": "Birabo, Rupganj, Narayanganj, Dhaka, Bangladesh"
+        },
+        {
+            "userId": "MH01",
+            "userName": "Mehedi Hasan",
+            "userProfilePic": "https://i.ibb.co.com/g3XsQgv/mehedi.jpg",
+            "userPhone": "01762404704",
+            "userPassword": "(Mehedi)?28",
+            "userAddress": "Gajipur, Dhaka"
+        },
+        {
+            "userId": "MR01",
+            "userName": "Mamun Or Rashid",
+            "userProfilePic": "https://i.ibb.co.com/qrB3kYq/Imtiaz.jpg",
+            "userPhone": "01710293373",
+            "userPassword": "(Mamun)?28",
+            "userAddress": "Gajipur, Dhaka"
+        },
+        {
+            "userId": "SH01",
+            "userName": "Sahariyar Hasan",
+            "userProfilePic": "https://i.ibb.co.com/5j2ZcgR/sahariyar.jpg",
+            "userPhone": "01733739807",
+            "userPassword": "(Emon)?28",
+            "userAddress": "Birabo, Rupganj, Narayanganj"
+        }
+    ],
+
+    "productInfo":[
+        {
+            "id" : 1,
+            "productName": "Men's Casual Shirt",
+            "productCode": "SHIRT12345",
+            "brand": "Easy",
+            "category": "man's ware",
+            "subCategory": ["shirt"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+                "type": "S",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+                "type": "M",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+                "type": "L",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://easyfashion.com.bd/wp-content/uploads/2024/10/3Y2A8748-Edit-Edit-Edit-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8761-Edit-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8642-Edit-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8734-Edit-scaled.webp"
+            ]
+        },
+        {
+            "id" : 2,
+            "productName": "Men's Formal Shirt",
+            "productCode": "SHIRT12346",
+            "brand": "Easy",
+            "category": "man's ware",
+            "subCategory": ["shirt"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "S",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "M",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "L",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://easyfashion.com.bd/wp-content/uploads/2024/03/DSC01536-copyk-17-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/03/DSC01536-copyk-14-2-600x800.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/03/DSC01536-copyk-30-600x800.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/03/DSC01536-copyk-16-600x800.webp"
+            ]
+        },
+        {
+            "id" : 3,
+            "productName": "Men's Printed T-shirt",
+            "productCode": "TSHIRT1234",
+            "brand": "Easy",
+            "category": "man's ware",
+            "subCategory": ["t-shirt"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "S",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "M",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "L",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://easyfashion.com.bd/wp-content/uploads/2024/10/3Y2A8878-Edit-Edit-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8869-Edit-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8863-Edit-600x800.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8841-Edit-600x800.webp"
+            ]
+        },
+        {
+            "id" : 4,
+            "productName": "Men's Polo T-shirt",
+            "productCode": "TSHIRT1235",
+            "brand": "Easy",
+            "category": "man's ware",
+            "subCategory": ["t-shirt"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "S",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "M",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "L",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://easyfashion.com.bd/wp-content/uploads/2024/06/3Y2A0598-Edit-600x800.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8846-Edit-1-600x800.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/08/3Y2A5317-Edit-1-scaled.webp",
+            "https://easyfashion.com.bd/wp-content/uploads/2024/09/3Y2A8884-Edit-scaled.webp"
+            ]
+        },
+        {
+            "id" : 5,
+            "productName": "Men's Gabardine Pant",
+            "productCode": "PANT123456",
+            "brand": "Easy",
+            "category": "man's ware",
+            "subCategory": ["Jeans"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "34",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "36",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "40",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://easyfashion.com.bd/wp-content/uploads/2023/03/DSC00618-copy-1-600x800.jpg",
+            "https://easyfashion.com.bd/wp-content/uploads/2023/02/DSC00612-copy1-2-scaled-1.jpg",
+            "https://easyfashion.com.bd/wp-content/uploads/2023/02/DSC00609-copy-scaled-1.jpg",
+            "https://easyfashion.com.bd/wp-content/uploads/2023/09/DSC07308-copyh-600x800.webp"
+            ]
+        },
+        {
+            "id" : 6,
+            "productName": "Men's Winter Jacket with Detachable Hood",
+            "productCode": "Jacket1234",
+            "brand": "Ajio",
+            "category": "man's ware",
+            "subCategory": ["jackets"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "34",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "36",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "40",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://assets.ajio.com/medias/sys_master/root/20240826/fdRE/66cc67bd6f60443f312a0ede/-473Wx593H-469669070-mouse-MODEL7.jpg",
+            "https://assets.ajio.com/medias/sys_master/root/20240826/PEDs/66cc67b86f60443f312a0e54/-473Wx593H-469669070-mouse-MODEL6.jpg",
+            "https://assets.ajio.com/medias/sys_master/root/20240826/QtRh/66cc67b81d763220fa99d6a9/-473Wx593H-469669070-mouse-MODEL3.jpg",
+            "https://assets.ajio.com/medias/sys_master/root/20231011/0pLF/6526899bddf77915193342a9/-473Wx593H-460776374-black-MODEL.jpg"
+            ]
+        },
+        {
+            "id" : 7,
+            "productName": "Men's Check Slim-fit Blazer",
+            "productCode": "Blazer123",
+            "brand": "richman",
+            "category": "man's ware",
+            "subCategory": ["blazer"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "34",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "36",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "40",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/2a-3.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/19a-2.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/18a.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/22a.jpg"
+            ]
+        },
+        {
+            "id" : 8,
+            "productName": "Men's Check Slim-fit Blazer",
+            "productCode": "Blazer123",
+            "brand": "richman",
+            "category": "man's ware",
+            "subCategory": ["blazer"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "34",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "36",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "40",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/2a-3.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/19a-2.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/18a.jpg",
+            "https://infinitymegamall.com/wp-content/uploads/2023/11/22a.jpg"
+            ]
+        },
+        {
+            "id" : 9,
+            "productName": "Women Top Tunic",
+            "productCode": "Tops1234",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["tops"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://www.lerevecraze.com/wp-content/uploads/2024/10/3ae65f9a-2866-472d-bd43-dd11ffe8e74a.jpg",
+            "https://www.lerevecraze.com/wp-content/uploads/2024/10/973e94bb-7516-4514-82db-e3d6a44a2ac9.jpg",
+            "https://www.lerevecraze.com/wp-content/uploads/2024/10/98a0d767-31e3-4edb-8a7f-8bc3cccba535.jpg",
+            "https://www.lerevecraze.com/wp-content/uploads/2024/10/172a5d48-a2f5-4ef3-aa7e-b8a8df6e87b0.jpg"
+            ]
+        },
+        {
+            "id" : 10,
+            "productName": "Women Shirt",
+            "productCode": "WSHIRT1234",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["blouses"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+            "https://n.nordstrommedia.com/id/sr3/1169ba04-9a70-4eac-a2be-a92436fb79ed.jpeg?crop=pad&w=1950&h=2990",
+            "https://n.nordstrommedia.com/id/sr3/f3b58e67-60a7-4e1c-a201-7391be18da4e.jpeg?crop=pad&w=1950&h=2990",
+            "https://n.nordstrommedia.com/id/sr3/7926beef-3e89-4c55-bac9-f600497a9e7a.jpeg?crop=pad&w=1950&h=2990",
+            "https://n.nordstrommedia.com/id/sr3/83b93832-094f-434b-b30c-7d0935675bc1.jpeg?crop=pad&w=1950&h=2990"
+            ]
+        },
+        {
+            "id" : 11,
+            "productName": "Women Shirt",
+            "productCode": "WSHIRT1235",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["blouses"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://n.nordstrommedia.com/id/sr3/7926beef-3e89-4c55-bac9-f600497a9e7a.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/83b93832-094f-434b-b30c-7d0935675bc1.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/1169ba04-9a70-4eac-a2be-a92436fb79ed.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/f3b58e67-60a7-4e1c-a201-7391be18da4e.jpeg?crop=pad&w=1950&h=2990"
+            ]
+        },
+        {
+            "id" : 12,
+            "productName": "Women Shirt",
+            "productCode": "WSHIRT1237",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["blouses"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://n.nordstrommedia.com/id/sr3/50cd60e8-c6e4-4a1e-b635-008278ea60be.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/21be0a83-a792-4749-858e-1406e997c3a9.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/c0178baf-9335-4454-ad55-3953a7f58fce.jpeg?crop=pad&w=1950&h=2990",
+                "https://n.nordstrommedia.com/id/sr3/eaf5ede9-94d8-4fa9-8648-ea18ca76e19a.jpeg?crop=pad&w=1950&h=2990"
+            ]
+        },
+        {
+            "id" : 13,
+            "productName": "Women Skirt",
+            "productCode": "WSKIRT1239",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["skirts"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/125b6a74-3b05-49d9-92eb-46a45b63310b.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/3a36cf8f-5aaa-4e84-a15e-f786bc9b6bc9.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/02/77741aac-45b5-4a1f-8d6b-ecaf8b0f71ba.jpg"
+            ]
+        },
+        {
+            "id" : 14,
+            "productName": "Women Sweaters",
+            "productCode": "WSWEATERS9",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["Sweaters"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/1a1311ac-2717-4a10-8948-b5973a7eb36a.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/87cb30ab-e165-442a-9d5a-4233497c8771.jpg",
+                "https://rukminim2.flixcart.com/image/832/832/xif0q/sweater/5/3/g/s-hair5-firozi-ewools-original-imaghxxq2x3hfcw4.jpeg?q=70&crop=false",
+                "https://rukminim2.flixcart.com/image/832/832/xif0q/sweater/s/d/7/s-hair5-firozi-ewools-original-imaghxxq5q7qthep.jpeg?q=70&crop=false"
+            ]
+        },
+        {
+            "id" : 15,
+            "productName": "Women Bikinis",
+            "productCode": "WSKIRT1239",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["bikinis"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://img-va.myshopline.com/image/store/1658737544834/imageName1706165615766.jpeg?w=669&h=873&q=80",
+                "https://img-va.myshopline.com/image/store/1658737544834/ugzi57-yzdiqer-ltp7g89m_432x.jpg?w=900&h=1200",
+                "https://img-va.myshopline.com/image/store/1658737544834/2-15_432x.png?w=900&h=1200",
+                "https://img-va.myshopline.com/image/store/1658737544834/7g1ogd-yk2e2er-luuufz92.jpeg?w=675&h=900&q=80"
+            ]
+        },
+        {
+            "id" : 16,
+            "productName": "Women Sweaters",
+            "productCode": "WSWEATERS9",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["Sweaters"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://rukminim2.flixcart.com/image/832/832/xif0q/sweater/5/3/g/s-hair5-firozi-ewools-original-imaghxxq2x3hfcw4.jpeg?q=70&crop=false",
+                "https://rukminim2.flixcart.com/image/832/832/xif0q/sweater/s/d/7/s-hair5-firozi-ewools-original-imaghxxq5q7qthep.jpeg?q=70&crop=false","https://www.lerevecraze.com/wp-content/uploads/2024/10/1a1311ac-2717-4a10-8948-b5973a7eb36a.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/87cb30ab-e165-442a-9d5a-4233497c8771.jpg"
+            ]
+        },
+        {
+            "id" : 17,
+            "productName": "Women Dreasses",
+            "productCode": "WSWEATERS9",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["Dresses"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/bb76e3c5-547b-4ad5-8f0f-87e08a4611f1.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/47fc6f64-a67d-4992-80ed-e7f5da77c78f.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/0ac765a9-5ed0-447b-b1ff-722b8b074502.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/10/51ac73bf-68a6-4a20-b5e1-f8be84d74ad8.jpg"
+            ]
+        },
+        {
+            "id" : 18,
+            "productName": "Women Flat Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Apex",
+            "category": "Shoes",
+            "subCategory": ["flats"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://storage.apex4u.com/72651A66%20(1).png",
+                "https://storage.apex4u.com/72651A66%20(8).png",
+                "https://storage.apex4u.com/72651A66%20(7).png",
+                "https://storage.apex4u.com/72651A66%20(4).png"
+            ]
+        },
+        {
+            "id" : 19,
+            "productName": "Women Flat Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Apex",
+            "category": "Shoes",
+            "subCategory": ["flats"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://storage.apex4u.com/72610A56%20(1).png",
+                "https://storage.apex4u.com/72610A56%20(8).png",
+                "https://storage.apex4u.com/72610A56%20(7).png",
+                "https://storage.apex4u.com/72610A56%20(4).png"
+            ]
+        },
+        {
+            "id" : 20,
+            "productName": "Women Flat Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Apex",
+            "category": "Shoes",
+            "subCategory": ["flats"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+                "type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://storage.apex4u.com/72611A66%20(1).png",
+                "https://storage.apex4u.com/72611A66%20(8).png",
+                "https://storage.apex4u.com/72611A66%20(7).png",
+                "https://storage.apex4u.com/72611A66%20(4).png"
+            ]
+        },
+        {
+            "id" : 21,
+            "productName": "Women Heels Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Bata",
+            "category": "Shoes",
+            "subCategory": ["heels"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.batabd.com/cdn/shop/products/1_b872bbad-51c5-4b74-877b-be1c94776f6c_1024x1024.jpg?v=1681634763",
+                "https://www.batabd.com/cdn/shop/products/2_f50b7533-debb-4430-866f-63ca81e16534_1024x1024.jpg?v=1681634763",
+                "https://www.batabd.com/cdn/shop/products/3_6569ad6d-b8ef-4d77-af21-79f08a862b2c_1024x1024.jpg?v=1681634763",
+                "https://www.batabd.com/cdn/shop/products/4_29e681df-45a1-4f26-9d02-bc4f8946cfcc_1024x1024.jpg?v=1681634763"
+            ]
+        },
+        {
+            "id" : 22,
+            "productName": "Women Sandals Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Bata",
+            "category": "Shoes",
+            "subCategory": ["sandals"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.batabd.com/cdn/shop/files/1_cb3e7d7e-2f5e-4aaa-a285-407ed21ea0d4_1024x1024.jpg?v=1710405614",
+                "https://www.batabd.com/cdn/shop/files/2_9288e60c-bbec-41f9-a1b3-bd7bb4b75b91_1024x1024.jpg?v=1710405613",
+                "https://www.batabd.com/cdn/shop/files/3_e9496218-ce9e-49ed-9ed7-8b1f2eb7a207_1024x1024.jpg?v=1710405614",
+                "https://www.batabd.com/cdn/shop/files/4_4120ed5c-b40b-43c8-b401-895e8d9ffdbc_1024x1024.jpg?v=1710405614"
+            ]
+        },
+        {
+            "id" : 23,
+            "productName": "Women Sneakers Shoes",
+            "productCode": "FLATSHOE9",
+            "brand": "Bata",
+            "category": "Shoes",
+            "subCategory": ["sneakers"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.batabd.com/cdn/shop/files/1_988184e1-2954-4620-9c8f-5d0f1b9c08f9_1024x1024.jpg?v=1728386610",
+                "https://www.batabd.com/cdn/shop/files/3_1681918e-5763-49aa-9470-5bd4e35fcdb6_1024x1024.jpg?v=1728386614",
+                "https://www.batabd.com/cdn/shop/files/4_7a781784-6086-4271-acce-695286d3dfe8_1024x1024.jpg?v=1728386616",
+                "https://www.batabd.com/cdn/shop/files/5_4fd57dd3-2702-4a2a-929a-665e86d68560_1024x1024.jpg?v=1728386618"
+            ]
+        },
+        {
+            "id" : 24,
+            "productName": "Belt",
+            "productCode": "FLATSHOE9",
+            "brand": "Bata",
+            "category": "Accessories",
+            "subCategory": ["belts"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://easyfashion.com.bd/product/easy-leather-belt-7/",
+                "https://easyfashion.com.bd/wp-content/uploads/2023/04/PXL_20230322_140835674-scaled.jpg",
+                "https://easyfashion.com.bd/wp-content/uploads/2023/04/PXL_20230322_064012260-scaled.jpg",
+                "https://easyfashion.com.bd/wp-content/uploads/2023/04/PXL_20230322_071030311-scaled.jpg"
+            ]
+        },
+        {
+            "id" : 25,
+            "productName": "Cap With Dhaka Text",
+            "productCode": "CAP9",
+            "brand": "cap",
+            "category": "Accessories",
+            "subCategory": ["caps"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://headgearbd.com/cdn/shop/files/IMG_5740_720x.jpg?v=1700036979",
+                "https://headgearbd.com/cdn/shop/files/IMG_5733_720x.jpg?v=1700036993",
+                "https://headgearbd.com/cdn/shop/files/IMG_5722_720x.jpg?v=1700036993",
+                "https://headgearbd.com/cdn/shop/files/IMG_5718_720x.jpg?v=1700036993"
+            ]
+        },
+        {
+            "id" : 26,
+            "productName": "Female Causal Tote Bag ",
+            "productCode": "bag54",
+            "brand": "patchee",
+            "category": "Accessories",
+            "subCategory": ["bags"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://aodour.oss-ap-southeast-1.aliyuncs.com/product/2024-05-14/7e27b4bb-a620-4f23-98ee-4f5cabfbbcc5.jpg",
+                "https://aodour.oss-ap-southeast-1.aliyuncs.com/product/2024-05-14/54a02879-f700-4f9f-8379-595fbe333bf2.jpg",
+                "https://aodour.oss-ap-southeast-1.aliyuncs.com/product/2024-05-14/b9ab0259-36d5-45c5-bc26-89b9e0a9275d.jpg",
+                "https://aodour.oss-ap-southeast-1.aliyuncs.com/productStyle/2024-05-14/fd464336-41d6-437b-933a-ad4859dbec47.jpg"
+            ]
+        },
+        {
+            "id" : 27,
+            "productName": "Fossil Men's Watch",
+            "productCode": "bag54",
+            "brand": "patchee",
+            "category": "Accessories",
+            "subCategory": ["watches"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://timeaccess-store.com/cdn/shop/files/FS5696_700x.jpg?v=1724414078",
+                "https://timeaccess-store.com/cdn/shop/files/FS5696t7_700x.jpg?v=1724413775",
+                "https://timeaccess-store.com/cdn/shop/files/FS5696_fw_700x.webp?v=1724413800",
+                "https://timeaccess-store.com/cdn/shop/files/FS5696t4_700x.webp?v=1724413775"
+            ]
+        },
+        {
+            "id" : 28,
+            "productName": "Vincent Chase Polarized Sunglasses",
+            "productCode": "bag54",
+            "brand": "patchee",
+            "category": "Accessories",
+            "subCategory": ["sunglasses"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://luxotix.com/wp-content/uploads/2024/10/VC-S13820-C3-1-polarized.jpg",
+                "https://luxotix.com/wp-content/uploads/2024/10/VC-S13820-C3-4.jpg",
+                "https://luxotix.com/wp-content/uploads/2024/10/VC-S13820-C3-8.jpg",
+                "https://luxotix.com/wp-content/uploads/2024/10/VC-S13820-C3-6.jpg"
+            ]
+        },
+        {
+            "id" : 29,
+            "productName": "Chanel Coco Noir Eau De",
+            "productCode": "K71HBCGS",
+            "brand": "Chanel",
+            "category": "beauty and care",
+            "subCategory": ["fragrances"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png"
+            ]
+        },
+        {
+            "id" : 30,
+            "productName": "Gucci Bloom Eau de",
+            "productCode": "FFKZ6HOF",
+            "brand": "Gucci",
+            "category": "beauty and care",
+            "subCategory": ["fragrances"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/2.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png"
+            ]
+        },
+        {
+            "id" : 31,
+            "productName": "Dolce Shine Eau de",
+            "productCode": "1NBFK980",
+            "brand": "Dolce & Gabbana",
+            "category": "beauty and care",
+            "subCategory": ["fragrances"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
+                "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png"
+            ]
+        },
+        {
+            "id" : 32,
+            "productName": "Eyeshadow Palette with Mirror",
+            "productCode": "MVCFH27F",
+            "brand": "Glamour Beauty",
+            "category": "beauty and care",
+            "subCategory": ["makeup"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png",
+                "https://lavishta.com/wp-content/uploads/2024/01/35mi-Magic-Mirror-Artistry-Palette.jpg?x74101",
+                "https://lavishta.com/wp-content/uploads/2023/05/MORPHE_18A_BlueYaAway_Open_PDP_1400x-1.jpg?x74101"
+            ]
+        },
+        {
+            "id" : 33,
+            "productName": "Dove Daily Moisture 2 in 1 Shampoo",
+            "productCode": "8718114561561",
+            "brand": "Dove",
+            "category": "beauty and care",
+            "subCategory": ["Hair care"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://carnesia.com/wp-content/uploads/2024/05/download.jpg",
+                "https://carnesia.com/wp-content/uploads/2024/05/Dove-Hair-Fall-Rescue-Shampoo-330ml-4.jpg",
+                "https://carnesia.com/wp-content/uploads/2024/05/dove-intense-repair-shampoo-330ml-paikaree.webp"
+            ]
+        },
+        {
+            "id" : 34,
+            "productName": "Beauty of Joseon Calming Serum",
+            "productCode": "8809657114953sd2",
+            "brand": "Joseon",
+            "category": "beauty and care",
+            "subCategory": ["skin care"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://carnesia.com/wp-content/uploads/2024/08/Beauty-of-Joseon-Calming-Serum-Green-teaPanthenol-2.jpg",
+                "https://carnesia.com/wp-content/uploads/2024/07/370097243-692533582612635-8979022633354708765-nweb-800x800.jpg?crop=1",
+                "https://carnesia.com/wp-content/uploads/2024/08/Beauty-of-Joseon-Calming-Serum-Green-teaPanthenol-2.jpg"
+            ]
+        },
+        {
+            "id" : 35,
+            "productName": "Beauty Formulas Brightening Vitamin C",
+            "productCode": "5012251013376",
+            "brand": "Beauty Formulas",
+            "category": "beauty and care",
+            "subCategory": ["skin care"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://carnesia.com/wp-content/uploads/2024/07/c1c8d9a785416db3eeb337d188d19295.webp",
+                "https://carnesia.com/wp-content/uploads/2024/07/Beauty-Formulas-Brightening-Vitamin-C-Facial-Tonic-800x800.jpg?crop=1",
+                "https://carnesia.com/wp-content/uploads/2024/07/Beauty-Formulas-Brightening-Vitamin-C-Facial-Tonic-800x800.jpg?crop=1"
+            ]
+        },
+        {
+            "id" : 36,
+            "productName": "Annibale Colombo Bed",
+            "productCode": "4KMDTZWF",
+            "brand": "Annibale Colombo",
+            "category": "furniture",
+            "subCategory": ["beds"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/1.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/2.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/3.png"
+            ]
+        },
+        {
+            "id" : 37,
+            "productName": "Annibale Colombo Sofa",
+            "productCode": "LUU95CQP",
+            "brand": "Annibale Colombo",
+            "category": "furniture",
+            "subCategory": ["Sofas"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/1.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/2.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/3.png"
+            ]
+        },
+        {
+            "id" : 38,
+            "productName": "Bedside Table African Cherry",
+            "productCode": "OWPLTZYX",
+            "brand": "Furniture Co.",
+            "category": "furniture",
+            "subCategory": ["tables"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/1.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/2.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/3.png"
+            ]
+        },
+        {
+            "id" : 39,
+            "productName": "Knoll Saarinen Executive Conference Chair",
+            "productCode": "RKHVJ4FE",
+            "brand": "Knoll",
+            "category": "furniture",
+            "subCategory": ["chairs"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/1.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/2.png",
+                "https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/3.png"
+            ]
+        },
+        {
+            "id" : 40,
+            "productName": "Furniture Co. Sofa",
+            "productCode": "LUU95CQS",
+            "brand": "Furniture Co.",
+            "category": "furniture",
+            "subCategory": ["Sofas"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://i.ibb.co.com/mbXVHch/blue-sofa-set.jpg",
+                "https://i.ibb.co.com/9bQyn8H/blue-sofa-2.jpg",
+                "https://i.ibb.co.com/S5W1HBf/blue-sofa-1.jpg"
+            ]
+        },
+        {
+            "id" : 41,
+            "productName": "Furniture Co. Sofa",
+            "productCode": "LUU95SQS",
+            "brand": "Furniture Co.",
+            "category": "furniture",
+            "subCategory": ["Sofas"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://i.ibb.co.com/jRkg4wW/sofa-set.jpg",
+                "https://i.ibb.co.com/74dxnyP/sofa-1.jpg",
+                "https://i.ibb.co.com/3F47Xbb/sofa-2.jpg",
+                "https://i.ibb.co.com/h8cPtYT/sofa-3.jpg"
+            ]
+        },
+        {
+            "id" : 42,
+            "productName": "RFL Wardrobe Double 5D KD Elegant Floral",
+            "productCode": "NUU95SQS",
+            "brand": "RFL",
+            "category": "furniture",
+            "subCategory": ["wardrobes"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://rfleshop.com/images/thumbnails/435/537/detailed/58/0322741_royal-wardrobe-double-5d-kd-elegant-floral.jpeg",
+                "https://rfleshop.com/images/thumbnails/435/537/detailed/58/0322740_royal-wardrobe-double-5d-kd-elegant-floral_p6yo-4p.jpeg",
+                "https://rfleshop.com/images/thumbnails/435/537/detailed/58/0322739_royal-wardrobe-double-5d-kd-elegant-floral.jpeg"
+            ]
+        },
+        {
+            "id" : 43,
+            "productName": "Logitech G502 Lightspeed Lightsync RGB",
+            "productCode": "NUS95SQS",
+            "brand": "G502 Lightspeed",
+            "category": "gadgets",
+            "subCategory": ["mouse"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://i.ibb.co.com/Swn2JLv/mouse.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g502-x/g502-x-06-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g502-x-plus/g502-x-plus-01-500x500.webp"
+            ]
+        },
+        {
+            "id" : 44,
+            "productName": "Dareu EK871 Bluetooth Wireless Mechanical Keyboard",
+            "productCode": "18072",
+            "brand": "Dareu",
+            "category": "gadgets",
+            "subCategory": ["mouse"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: EK871",
+            "Compact, tenkeyless Mini 60% Keyboard design",
+            "Connect with 3 Bluetooth-enabled devices ",
+            "Standard Keys: 71-Key Layout ",
+            "Backlight: White, Battery: 1900mAh"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-02-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-03-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-04-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 45,
+            "productName": "Dareu EK871 Bluetooth Wireless Mechanical Keyboard",
+            "productCode": "18072",
+            "brand": "Dareu",
+            "category": "gadgets",
+            "subCategory": ["keyboard"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: EK871",
+            "Compact, tenkeyless Mini 60% Keyboard design",
+            "Connect with 3 Bluetooth-enabled devices ",
+            "Standard Keys: 71-Key Layout ",
+            "Backlight: White, Battery: 1900mAh"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-02-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-03-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/dareu/ek871/ek871-04-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 46,
+            "productName": "JBL FLIP 6 Portable Bluetooth Speaker",
+            "productCode": "22599",
+            "brand": "JBL",
+            "category": "gadgets",
+            "subCategory": ["sound box"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 },
+                { "color": "Blue", "inStock": false, "sold": 7, "stock": 1 },
+                { "color": "Green", "inStock": false, "sold": 7, "stock": 2 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: EK871",
+            "Compact, tenkeyless Mini 60% Keyboard design",
+            "Connect with 3 Bluetooth-enabled devices ",
+            "Standard Keys: 71-Key Layout ",
+            "Backlight: White, Battery: 1900mAh"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/portable-speaker/Jbl/jbl-flip-6/jbl-flip-6-black-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/portable-speaker/Jbl/jbl-flip-6/jbl-flip-6-07-500x500.png",
+                "https://www.startech.com.bd/image/cache/catalog/portable-speaker/Jbl/jbl-flip-6/jbl-flip-6-blue-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/portable-speaker/Jbl/jbl-flip-6/jbl-flip-6-white-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 47,
+            "productName": "Hoco W35 Wireless Headphone",
+            "productCode": "23753",
+            "brand": "Hoco",
+            "category": "gadgets",
+            "subCategory": ["headphone"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: EK871",
+            "Compact, tenkeyless Mini 60% Keyboard design",
+            "Connect with 3 Bluetooth-enabled devices ",
+            "Standard Keys: 71-Key Layout ",
+            "Backlight: White, Battery: 1900mAh"
+            ],
+            "images": [
+                "https://i.ibb.co.com/ngVMcwz/headphone.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/headphone/hoco/w35/w35-03-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/headphone/hoco/w35/w35-05-500x500.jpeg"
+            ]
+        },
+        {
+            "id" : 48,
+            "productName": "Zyxel P-661HNU-F1 300Mbps ADSL2+ Wireless Router",
+            "productCode": "14308",
+            "brand": "Zyxel",
+            "category": "gadgets",
+            "subCategory": ["others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: EK871",
+            "Compact, tenkeyless Mini 60% Keyboard design",
+            "Connect with 3 Bluetooth-enabled devices ",
+            "Standard Keys: 71-Key Layout ",
+            "Backlight: White, Battery: 1900mAh"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/router/zyxel/p-661hnu-f1/p-661hnu-f1-01-500x500.jpeg",
+                "https://www.startech.com.bd/image/cache/catalog/router/zyxel/p-661hnu-f1/p-661hnu-f1-03-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/router/zyxel/p-661hnu-f1/p-661hnu-f1-04-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/router/zyxel/p-661hnu-f1/p-661hnu-f1-05-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 49,
+            "productName": "Cheerlux C8 1800 Lumens Wi-Fi Mini LED Projector",
+            "productCode": "22315",
+            "brand": "Cheerlux",
+            "category": "gadgets",
+            "subCategory": ["others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: C8 with Wi-Fi",
+            "Multiple interfaces for multiple devices",
+            "Built-in TV Card, contrast ratio: 2000:1",
+            "Brightness:1800 lumens ",
+            "Lamp Life: 50000 Hours"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-mini/cheerlux-c8-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-1800-lumens-wi-fi/cheerlux-c8-wifi-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-1800-lumens-wi-fi/cheerlux-c8-wifi-03-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 50,
+            "productName": "Canon Pixma IP 2770 Inkjet Printer",
+            "productCode": "8605",
+            "brand": "Canon",
+            "category": "gadgets",
+            "subCategory": ["others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: iP 2770",
+            "Speed: Black/Color- 7/4.8ipm ",
+            "Resolution:4800 x 1200dpi ",
+            "Connectivity:USB2.0 Hi-Speed"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/printer/Canon/ip-2770/ip-2770-1-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/printer/Canon/ip-2770/ip-2770-3-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/printer/Canon/ip-2770/ip-2770-2-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 51,
+            "productName": "Remax RPP-626 20000mAh 2.1A Power Bank",
+            "productCode": "37452",
+            "brand": "Remax",
+            "category": "gadgets",
+            "subCategory": ["others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "gray", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 },
+                { "color": "blue", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: RPP-626",
+            "Battery capacity: 20000mAh ",
+            "Output Interface: Micro USB, Type C",
+            "Battery display: LED digital display"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/power-bank/remax/rpp-626/rpp-626-01-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/power-bank/remax/rpp-626/rpp-626-grey-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/power-bank/remax/rpp-626/rpp-626-white-500x500.webp"
+            ]
+        },
+        {
+            "id" : 52,
+            "productName": "MeeTion MT-C505 Keyboard Mouse Headset Gaming Combo",
+            "productCode": "20104",
+            "brand": "MeeTion",
+            "category": "gadgets",
+            "subCategory": ["keyboard","mouse","headphone","others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "gray", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 },
+                { "color": "blue", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: RPP-626",
+            "Battery capacity: 20000mAh ",
+            "Output Interface: Micro USB, Type C",
+            "Battery display: LED digital display"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/meetion/mt-c505/mt-c505-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/meetion/mt-c505/mt-c505-03-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/meetion/mt-c505/mt-c505-04-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/keyboard/meetion/mt-c505/mt-c505-02-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 53,
+            "productName": "Meta Quest 2 128 GB All-in-One VR System",
+            "productCode": "21288",
+            "brand": "Meta",
+            "category": "gadgets",
+            "subCategory": ["others"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "gray", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 5 },
+                { "color": "blue", "inStock": false, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: Quest 2",
+            "Blazing-fast processor and highest-resolution display",
+            "Two Touch Controllers ",
+            "Storage: 128 GB"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/gaming-console/oculus/quest-2/quest-2-01-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/gaming-console/oculus/quest-2/quest-2-05-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/gaming-console/oculus/quest-2/quest-2-06-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/gaming-console/oculus/quest-2/quest-2-07-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 54,
+            "productName": "32-Inch HD Smart Android TV",
+            "productCode": "24004",
+            "brand": "OnePlus",
+            "category": "electronics",
+            "subCategory": ["televisions"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: Quest 2",
+            "Blazing-fast processor and highest-resolution display",
+            "Two Touch Controllers ",
+            "Storage: 128 GB"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/television/oneplus/Y1G-02-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/television/oneplus/Y1G-1-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/television/oneplus/Y1G-03-500x500.webp"
+            ]
+        },
+        {
+            "id" : 55,
+            "productName": "Samsung QA98Q80C 98 Inch QLED 4K UHD Smart TV",
+            "productCode": "33339",
+            "brand": "Samsung",
+            "category": "electronics",
+            "subCategory": ["televisions"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "Model: QA98Q80C",
+            "Resolution: 98 Crystal UHD 4K (3840 x 2160) Display",
+            "Quantum Processor 4K",
+            "Built-in Voice Assistant",
+            "Dolby Digital Plus Support"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/television/samsung/qn98q80c/qn98q80c-01-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/television/samsung/qn98q80c/qn98q80c-02-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/television/samsung/qn98q80c/qn98q80c-03-500x500.webp"
+            ]
+        },
+        {
+            "id" : 56,
+            "productName": "Canon Eos 4000D 18MP DSLR Camera With 18-55mm Lens",
+            "productCode": "8479",
+            "brand": "Canon",
+            "category": "electronics",
+            "subCategory": ["cameras"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "Model: Canon Eos 4000D",
+                "Effective Pixels: Approx. 18.0 megapixels",
+                "Flash Coverage up to 17mm focal length (35mm equivalent: 28mm)",
+                "Display: 6.8 cm (2.7) TFT LCD, approx. 230 K dots",
+                "Shutter: Electronically-Controlled Focal-Plane Shutter"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/camera/dslr-camera/canon/eos-4000d/eos-4000d-02-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/camera/dslr-camera/canon/eos-4000d/eos-4000d-04-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/camera/dslr-camera/canon/eos-4000d/eos-4000d-03-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/camera/dslr-camera/canon/eos-4000d/eos-4000d-06-500x500.webp"
+            ]
+        },
+        {
+            "id" : 57,
+            "productName": "Sony Alpha A6400 Mirrorless Digital Camera",
+            "productCode": "10919",
+            "brand": "Sony",
+            "category": "electronics",
+            "subCategory": ["cameras"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "Model: Sony Alpha A6400",
+                "24.2MP APS-C Exmor CMOS Sensor",
+                "BIONZ X Image Processor",
+                "Real-Time Eye AF; Real-Time Tracking",
+                "XGA Tru-Finder 2.36m-Dot OLED EVF"
+            ],
+            "images": [
+                "https://i.ibb.co.com/0sghPcr/camera.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/digital-camera/sony/alpha-a6400/alpha-a6400-5-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/digital-camera/sony/alpha-a6400/alpha-a6400-6-500x500.jpg",
+                "https://www.startech.com.bd/image/cache/catalog/digital-camera/sony/alpha-a6400/alpha-a6400-3-500x500.jpg"
+            ]
+        },
+        {
+            "id" : 58,
+            "productName": "Lenovo IdeaPad Slim 1i 14IGL7 Intel Celeron N4020 14 FHD Laptop",
+            "productCode": "35438",
+            "brand": "Lenovo",
+            "category": "electronics",
+            "subCategory": ["laptops"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "MPN: 82V6007SIN",
+                "Model: IdeaPad Slim 1i 14IGL7",
+                "Processor: Intel Celeron N4020 (4M Cache, 1.10 GHz up to 2.80 GHz)",
+                "RAM: 8GB DDR4, Storage: 256GB SSD",
+                "Display: 14 FHD (1920 x 1080) TN",
+                "Features: Type-C, Privacy Shutter, Stereo speakers"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-01-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-06-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-04-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-05-500x500.webp"
+            ]
+        },
+        {
+            "id" : 59,
+            "productName": "Lenovo IdeaPad Flex 5 14IRU8 Core i5 13th Gen 14 WUXGA Touch Laptop Abyss Blue",
+            "productCode": "34845",
+            "brand": "Lenovo",
+            "category": "electronics",
+            "subCategory": ["laptops"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "MPN: 82Y0007DLK",
+                "Model: IdeaPad Flex 5 14IRU8",
+                "Processor: Intel Core i5-1335U (12M Cache, 3.4 GHz up to 4.6 GHz)",
+                "Ram: 16GB LPDDR4x-4266, Storage: 512GB M.2 PCIe Gen4 SSD",
+                "Display: 14 WUXGA (1920x1200) IPS",
+                "Features: Backlit Keyboard, Fingerprint, Touch, Privacy Shutter"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-flex-5-14iru8-abyss-blue/ideapad-flex-5-14iru8-abyss-blue-01-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-flex-5-14iru8-abyss-blue/ideapad-flex-5-14iru8-abyss-blue-04-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-flex-5-14iru8-abyss-blue/ideapad-flex-5-14iru8-abyss-blue-05-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-flex-5-14iru8-abyss-blue/ideapad-flex-5-14iru8-abyss-blue-06-500x500.webp"
+            ]
+        },
+        {
+            "id" : 60,
+            "productName": "iPhone 16 Pro Max",
+            "productCode": "37804",
+            "brand": "Apple",
+            "category": "electronics",
+            "subCategory": ["mobile phones"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "256GB",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "white", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "gray", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "512GB",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                    { "color": "black", "inStock": true, "sold": 7, "stock": 5 },
+                    { "color": "white", "inStock": true, "sold": 7, "stock": 5 },
+                    { "color": "gray", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "1024GB",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                    { "color": "black", "inStock": true, "sold": 7, "stock": 5 },
+                    { "color": "white", "inStock": true, "sold": 7, "stock": 5 },
+                    { "color": "gray", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "Model: iPhone 16 Pro Max",
+                "Display: 6.9 Super Retina XDR OLED Display",
+                "Processor: A18 Pro Chip (3nm), Storage: 256GB",
+                "Camera: Triple 48MP Fusion + 48MP Ultra Wide + 12MP Telephoto on Back, 12MP on Front",
+                "Features: New Camera Control Button, Face ID, USB Type-C, Spatial Video Support"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-black-titanium-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-white-titanium-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-natural-titanium-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-desert-titanium-500x500.webp"
+            ]
+        },
+        {
+            "id" : 61,
+            "productName": "Samsung Galaxy S24 Ultra",
+            "productCode": "33612",
+            "brand": "Samsung",
+            "category": "electronics",
+            "subCategory": ["mobile phones"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+                "type": "256GB",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 2 },
+                { "color": "white", "inStock": true, "sold": 7, "stock": 1 },
+                { "color": "gray", "inStock": true, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+                "type": "512GB",
+                "price": 154.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                    { "color": "black", "inStock": true, "sold": 7, "stock": 9 },
+                    { "color": "white", "inStock": true, "sold": 7, "stock": 1 },
+                    { "color": "gray", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+                "type": "1024GB",
+                "price": 222.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                    { "color": "black", "inStock": true, "sold": 7, "stock": 7 },
+                    { "color": "white", "inStock": true, "sold": 7, "stock": 12 },
+                    { "color": "gray", "inStock": true, "sold": 7, "stock": 2 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "Model: Galaxy S24 Ultra",
+                "Display: 6.8 Dynamic LTPO AMOLED 2X 120Hz Display",
+                "Processor: Qualcomm SM8650-AC Snapdragon 8 Gen 3 (4 nm)",
+                "Camera: Quad 200+50+10+12MP on Rear, 12MP Selfie",
+                "Features: Under Display Fingerprint, 45W Fast Charging, IP68"
+            ],
+            "images": [
+                "https://www.startech.com.bd/image/cache/catalog/mobile/samsung/galaxy-s24-ultra/galaxy-s24-ultra-titanium-gray-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/samsung/galaxy-s24-ultra/galaxy-s24-ultra-titanium-green-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/samsung/galaxy-s24-ultra/galaxy-s24-ultra-titanium-blue-500x500.webp",
+                "https://www.startech.com.bd/image/cache/catalog/mobile/samsung/galaxy-s24-ultra/galaxy-s24-ultra-titanium-violet-500x500.webp"
+            ]
+        },
+        {
+            "id" : 62,
+            "productName": "Walton Washing machine",
+            "productCode": "33612",
+            "brand": "Walton",
+            "category": "electronics",
+            "subCategory": ["kitchen accessories"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "cream", "inStock": true, "sold": 7, "stock": 5 }
+                
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "OXYFRESH Technology",
+                "CIM Inverter Motor",
+                "16 Wash Programs",
+                "Capacity: 8.00 kg"
+            ],
+            "images": [
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/4/5/4582_product/thumb500x500/3818451668/WWM-AFT80W.png",
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/4/5/4582_product/thumb500x500/622965294/03.png",
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/4/5/4582_product/thumb500x500/2533453374/04.png",
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/4/5/4582_product/thumb500x500/1608638798/01.png"
+            ]
+        },
+        {
+            "id" : 63,
+            "productName": "Walton Non-Frost Refrigerator",
+            "productCode": "33612",
+            "brand": "Walton",
+            "category": "electronics",
+            "subCategory": ["kitchen accessories"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "",
+                "price": 104.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "black", "inStock": true, "sold": 7, "stock": 5 }
+                
+                ]
+            }
+            ],
+            "keyFeatures": [
+                "Type: Non-Frost",
+                "HCFC free : Cyclopentane",
+                "Gross Volume: 646 Ltr (V.0101)",
+                "Net Volume: 598 Ltr (V.0101)",
+                "CFC Free: R600a"
+            ],
+            "images": [
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/7/1/7120_product/thumb500x500/15788576/wni-6a9-gdne-wd-id-3.jpg",
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/6/7/6709_product/thumb500x500/653578851/wnr-6d6-gdfs-dd-id-02.jpg",
+                "https://waltonbd.com/image/magictoolbox_cache/cf3e6ec01aac7cb79461bcfe9d0d075e/7/1/7120_product/thumb500x500/2410684288/wni-6a9-gdne-wd-id-5.jpg"
+            ]
+        },
+        {
+            "id" : 64,
+            "productName": "Women Skirt",
+            "productCode": "WSKIRT1239",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["skirts"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/125b6a74-3b05-49d9-92eb-46a45b63310b.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/3a36cf8f-5aaa-4e84-a15e-f786bc9b6bc9.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/02/77741aac-45b5-4a1f-8d6b-ecaf8b0f71ba.jpg"
+            ]
+        },
+        {
+            "id" : 65,
+            "productName": "Women Skirt",
+            "productCode": "WSKIRT1239",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["skirts"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/3a36cf8f-5aaa-4e84-a15e-f786bc9b6bc9.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/125b6a74-3b05-49d9-92eb-46a45b63310b.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/02/77741aac-45b5-4a1f-8d6b-ecaf8b0f71ba.jpg"
+            ]
+        },
+        {
+            "id" : 66,
+            "productName": "Women Skirt",
+            "productCode": "WSKIRT1239",
+            "brand": "lereve",
+            "category": "women's ware",
+            "subCategory": ["skirts"],
+            "rating": 4.5,
+            "variants": [
+            {
+                "typeStatus": true,
+"type": "s",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "m",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Blue", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "Black", "inStock": true, "sold": 7, "stock": 5 }
+                ]
+            },
+            {
+                "typeStatus": true,
+"type": "l",
+                "price": 29.99,
+                "discount": true,
+                "discountAmount": 5,
+                "colors": [
+                { "color": "Red", "inStock": true, "sold": 7, "stock": 5 },
+                { "color": "White", "inStock": false, "sold": 7, "stock": 0 }
+                ]
+            }
+            ],
+            "keyFeatures": [
+            "100% Cotton",
+            "Slim Fit",
+            "Machine Washable",
+            "Lightweight and Comfortable"
+            ],
+            "images": [
+                "https://www.lerevecraze.com/wp-content/uploads/2024/02/77741aac-45b5-4a1f-8d6b-ecaf8b0f71ba.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/125b6a74-3b05-49d9-92eb-46a45b63310b.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg",
+                "https://www.lerevecraze.com/wp-content/uploads/2024/03/3a36cf8f-5aaa-4e84-a15e-f786bc9b6bc9.jpg"
+            ]
+        }
+    ]
+}
+      
+    
+        
+      

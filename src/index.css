@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .bg{
+        background: url('https://i.ibb.co.com/ZK2Vh7v/Group-1.png');
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: fit;
+        width: 100%;
+        padding: 100px 0;
+    }
+}
