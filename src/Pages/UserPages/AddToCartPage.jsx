@@ -14,21 +14,23 @@ function AddToCartPage() {
   
   const [products, setProducts] = useState([]);
 
-  // const updateProductQuantity = (id, quantity) => {
-  //   fetch(`http://localhost:5001/userCart/${id}`, {
-  //     method: "PATCH",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ quantity })
-  //   })
-  //   .then(response => response.json())
-  //   .then(updatedProduct => {
-  //     setProducts(prevProducts => prevProducts.map(product =>
-  //       product.id === id ? updatedProduct : product
-  //     ));
-  //   });
-  // };
+  const updateProductQuantity = (id, quantity) => {
+    console.log('update',quantity)
+    fetch(`http://localhost:5001/userCart/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ quantity })
+    })
+    .then(response => response.json())
+    .then(updatedProduct => {
+      setProducts(prevProducts => prevProducts.map(product =>
+        product.id === id ? updatedProduct : product
+      ));
+    });
+  };
   
-  const handleIncreaseQuantity = (id) => {
+  const handleIncreaseQuantity = (id, quantity) => {
+    console.log('increase',quantity)
     setProducts((prevProducts) =>
       prevProducts.map((product) =>
         product.id === id
@@ -36,6 +38,8 @@ function AddToCartPage() {
           : product
       )
     );
+    const newQuantity = quantity + 1;
+    updateProductQuantity(id, newQuantity);
   };
 
   const handleRemoveProduct = (id) => {
@@ -48,7 +52,7 @@ function AddToCartPage() {
   };
 
   // Function to decrease the quantity of a specific product
-  const handleDecreaseQuantity = (id) => {
+  const handleDecreaseQuantity = (id, quantity) => {
     setProducts((prevProducts) =>
       prevProducts.map((product) =>
         product.id === id && product.quantity > 1
@@ -56,17 +60,19 @@ function AddToCartPage() {
           : product
       )
     );
+    const newQuantity = quantity - 1;
+    updateProductQuantity(id, newQuantity);
   };
 
   useEffect(()=>{
     fetch('http://localhost:5001/userCart')
     .then(res=>res.json())
     .then((data)=>{
-      const filteredData = data.filter((item) => item.userId = loginUser.id);
+      const filteredData = data.filter((item) => item.userId === loginUser.id);
       setProducts(filteredData);
-      setCartProductQuantity(products.length)
+      setCartProductQuantity(filteredData.length)
     })
-  }, [])
+  }, [loginUser.id, setCartProductQuantity])
   console.log(products);
 
   return (
@@ -107,13 +113,13 @@ function AddToCartPage() {
                   <div className="flex py-1 items-center w-fit px-5 border border-gray-300 rounded-full mx-auto">
                     <Minus
                       size={20}
-                      onClick={() => handleDecreaseQuantity(product.id)}
+                      onClick={() => handleDecreaseQuantity(product.id, product.quantity)}
                       className="cursor-pointer text-gray-500 hover:text-gray-700"
                     />
                     <span className="mx-5">{product.quantity}</span>
                     <Plus
                       size={20}
-                      onClick={() => handleIncreaseQuantity(product.id)}
+                      onClick={() => handleIncreaseQuantity(product.id, product.quantity)}
                       className="cursor-pointer text-gray-500 hover:text-gray-700"
                     />
                   </div>
