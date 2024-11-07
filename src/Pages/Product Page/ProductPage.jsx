@@ -1,15 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import useFetch from '../../Hooks/UseFetch';
 import SwiperSlider from '../../Components/product_img_slider/SwiperSlider';
+import { UserContext } from '../../Hooks/UserContext';
 
 function ProductPage() {
+  const {loginUser} = useContext(UserContext);
   const { id } = useParams();
   const { data: product } = useFetch(`http://localhost:5001/productInfo/${id}`);
   const [selectedVariant, setSelectedVariant] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
+  console.log(loginUser.id)
+
+  const userId = loginUser.id;
 
   const handleIncreaseQuantity = () => {
     if (currentColor && quantity < currentColor.stock) {
@@ -23,10 +28,39 @@ function ProductPage() {
     setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1)); // Prevent going below 1
   };
 
-  const handleAddToCard =()=>{
-    if(quantity <= currentColor.stock){
-      console.log("add to card")
-    } else{
+  const handleAddToCard = async ()=>{
+    if (quantity <= currentColor.stock) {
+      const cartItem = {
+        productId: product.id,
+        productName: product.productName,
+        variantType: selectedVariant?.type,
+        color: selectedColor,
+        quantity,
+        price: selectedVariant?.discount
+          ? selectedVariant.price - selectedVariant.discountAmount
+          : selectedVariant?.price,
+        userId,
+        image: product.images[0]
+      };
+      try {
+        const response = await fetch("http://localhost:5001/userCart", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(cartItem)
+        });
+
+        if (response.ok) {
+          alert("Product added to cart!");
+        } else {
+          alert("Failed to add product to cart.");
+        }
+      } catch (error) {
+        console.error("Error adding to cart:", error);
+      }
+    }
+    else{
       alert(`Can not order ${quantity} product. We have only ${currentColor.stock} product in our Stock.`)
     }
   }

@@ -1,8 +1,10 @@
 import { Button } from '@mui/material';
 import { X, Minus, Plus, MoveLeft } from 'lucide-react';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../Hooks/UserContext';
 
 function AddToCartPage() {
+  const {loginUser} = useContext(UserContext)
   const [activeButton, setActiveButton] = useState('Bkash');
 
   const handleButtonClick = (buttonName) => {
@@ -10,15 +12,21 @@ function AddToCartPage() {
   };
  
   
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Mouse G502', img: 'https://i.ibb.co.com/Swn2JLv/mouse.webp', price: 55, quantity: 1, color: 'black', type: '' },
-    { id: 2, name: 'Gucci Bloom Eau De', img: 'https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png', price: 55, quantity: 1, color: '', type: '250ml' },
-    { id: 3, name: 'Chanel Coco Noir Eau De', img: 'https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png', price: 55, quantity: 1, color: '', type: '250ml' },
-    { id: 4, name: 'Dolce Shine Eau de', img: 'https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png', price: 55, quantity: 1, color: '', type: '250ml' },
-    { id: 5, name: 'Eyeshadow Palette with Mirror', img: 'https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png', price: 55, quantity: 1, color: '', type: '12 Shades' },
-    
-  ]);
+  const [products, setProducts] = useState([]);
 
+  // const updateProductQuantity = (id, quantity) => {
+  //   fetch(`http://localhost:5001/userCart/${id}`, {
+  //     method: "PATCH",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ quantity })
+  //   })
+  //   .then(response => response.json())
+  //   .then(updatedProduct => {
+  //     setProducts(prevProducts => prevProducts.map(product =>
+  //       product.id === id ? updatedProduct : product
+  //     ));
+  //   });
+  // };
   
   const handleIncreaseQuantity = (id) => {
     setProducts((prevProducts) =>
@@ -31,8 +39,13 @@ function AddToCartPage() {
   };
 
   const handleRemoveProduct = (id) => {
-    console.log(id)
-  }
+    fetch(`http://localhost:5001/userCart/${id}`, { method: "DELETE" })
+      .then((response) => {
+        if (response.ok) {
+          setProducts((prevProducts) => prevProducts.filter(product => product.id !== id));
+        }
+      });
+  };
 
   // Function to decrease the quantity of a specific product
   const handleDecreaseQuantity = (id) => {
@@ -44,6 +57,15 @@ function AddToCartPage() {
       )
     );
   };
+
+  useEffect(()=>{
+    fetch('http://localhost:5001/userCart')
+    .then(res=>res.json())
+    .then((data)=>{
+      const filteredData = data.filter(item => item.userId = loginUser.id);
+      setProducts(filteredData);
+    })
+  }, [loginUser.id])
 
   return (
     <div className="w-full">
@@ -68,7 +90,7 @@ function AddToCartPage() {
               <tr key={product.id} className='hover:bg-gray-50 text-center' style={{ height: '100px' }}>
                 <td className='p-1 border-b border-gray-200'>
                   <div className='flex items-center gap-5'>
-                    <img src={product.img} alt="" className='h-16 rounded-md border border-gray-200'/>
+                    <img src={product.image} alt="" className='h-16 rounded-md border border-gray-200'/>
                     <div>
                       <h2 className='font-medium'>{product.name}</h2>
                       <div className='flex gap-3 text-sm text-gray-500'>
@@ -94,7 +116,7 @@ function AddToCartPage() {
                     />
                   </div>
                 </td>
-                <td className='p-1 border-b border-gray-200'>{product.price * product.quantity}</td>
+                <td className='p-1 border-b border-gray-200'>{(product.price * product.quantity).toFixed(2)}</td>
                 <td className='p-1 border-b border-gray-200'>
                   <X 
                     size={20} 

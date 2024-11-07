@@ -733,6 +733,30 @@
       "userProfilePic": "https://i.ibb.co/qFssnBz/141906.jpg"
     }
   ],
+  "userCart": [
+    {
+      "id": "8fe7",
+      "productId": "56",
+      "productName": "Canon Eos 4000D 18MP DSLR Camera With 18-55mm Lens",
+      "variantType": "",
+      "color": "black",
+      "quantity": 1,
+      "price": 99.99,
+      "userId": "SA01",
+      "image": "https://www.startech.com.bd/image/cache/catalog/camera/dslr-camera/canon/eos-4000d/eos-4000d-02-500x500.webp"
+    },
+    {
+      "id": "9074",
+      "productId": "58",
+      "productName": "Lenovo IdeaPad Slim 1i 14IGL7 Intel Celeron N4020 14 FHD Laptop",
+      "variantType": "",
+      "color": "black",
+      "quantity": 3,
+      "price": 99.99,
+      "userId": "SA01",
+      "image": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-01-500x500.webp"
+    }
+  ],
   "productInfo": [
     {
       "id": "1",
