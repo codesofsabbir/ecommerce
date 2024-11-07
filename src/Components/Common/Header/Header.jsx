@@ -7,7 +7,7 @@ import UserLoginButton from "./UserLoginButton";
 import UserNavItem from "./UserNavItem";
 import Badge from '@mui/material/Badge';
 function Header() {
-    const { userLogedIn, loginUser, headerData, setHeaderData } = useContext(UserContext);
+    const { userLogedIn, loginUser, headerData, setHeaderData, cartProductQuantity } = useContext(UserContext);
     const navigate = useNavigate();
     const [helpLineBoxOpen, setHelpLineBoxOpen] = useState(false);
     const [userLoginBox, setUserLoginBox] = useState(false);
@@ -77,7 +77,7 @@ function Header() {
                         <Bell className="cursor-pointer" />
                         
                         {userLogedIn && 
-                            <Badge badgeContent={5} color="primary">
+                            <Badge badgeContent={cartProductQuantity} color="primary">
                                 <ShoppingCart className="cursor-pointer" onClick={()=>{navigate('addtocard')}}/>
                             </Badge>
                         }

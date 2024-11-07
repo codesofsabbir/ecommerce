@@ -23,8 +23,9 @@ function App() {
   const [productData, setProductData] = useState();
   const [userLogedIn, setUserLogedIn] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
+  const [cartProductQuantity, setCartProductQuantity] = useState(0);
   return (
-    <UserContext.Provider value={{headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser}}>
+    <UserContext.Provider value={{headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
       <BrowserRouter>
       <Header />
         <Routes>

@@ -4,9 +4,9 @@ import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../Hooks/UserContext';
 
 function AddToCartPage() {
-  const {loginUser} = useContext(UserContext)
+  const {loginUser, setCartProductQuantity} = useContext(UserContext)
   const [activeButton, setActiveButton] = useState('Bkash');
-
+  console.log(loginUser.id)
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   };
@@ -62,10 +62,12 @@ function AddToCartPage() {
     fetch('http://localhost:5001/userCart')
     .then(res=>res.json())
     .then((data)=>{
-      const filteredData = data.filter(item => item.userId = loginUser.id);
+      const filteredData = data.filter((item) => item.userId = loginUser.id);
       setProducts(filteredData);
+      setCartProductQuantity(products.length)
     })
-  }, [loginUser.id])
+  }, [])
+  console.log(products);
 
   return (
     <div className="w-full">
