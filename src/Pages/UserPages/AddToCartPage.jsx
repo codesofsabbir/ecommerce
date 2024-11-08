@@ -2,20 +2,21 @@ import { Button } from '@mui/material';
 import { X, Minus, Plus, MoveLeft } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../Hooks/UserContext';
+import useFetch from '../../Hooks/UseFetch';
 
 function AddToCartPage() {
+  let deliveryFee = 2.00;
   const {loginUser, setCartProductQuantity} = useContext(UserContext)
-  const [activeButton, setActiveButton] = useState('Bkash');
-  console.log(loginUser.id)
-  const handleButtonClick = (buttonName) => {
-    setActiveButton(buttonName);
-  };
+  const [selectedPaymentSystem, setSelectedPaymentSystem] = useState(0);
+
+
+  const {data: paymentSystem} = useFetch("http://localhost:5001/paymant");
  
   
   const [products, setProducts] = useState([]);
 
   const updateProductQuantity = (id, quantity) => {
-    console.log('update',quantity)
+
     fetch(`http://localhost:5001/userCart/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +31,7 @@ function AddToCartPage() {
   };
   
   const handleIncreaseQuantity = (id, quantity) => {
-    console.log('increase',quantity)
+
     setProducts((prevProducts) =>
       prevProducts.map((product) =>
         product.id === id
@@ -72,8 +73,12 @@ function AddToCartPage() {
       setProducts(filteredData);
       setCartProductQuantity(filteredData.length)
     })
+
   }, [loginUser.id, setCartProductQuantity])
-  console.log(products);
+  const subTotal = products.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="w-full">
@@ -100,7 +105,11 @@ function AddToCartPage() {
                   <div className='flex items-center gap-5'>
                     <img src={product.image} alt="" className='h-16 rounded-md border border-gray-200'/>
                     <div>
-                      <h2 className='font-medium'>{product.name}</h2>
+                      <h2 className='font-medium'>
+                        {
+                          product?.productName.split(" ").length > 6 ?`${product.productName.split(" ").slice(0, 6).join(" ")}...` : product?.productName
+                        }
+                      </h2>
                       <div className='flex gap-3 text-sm text-gray-500'>
                         {product.type ? <span>{product.type}</span> : null}
                         {product.color ? <span>{product.color}</span> : null}
@@ -161,93 +170,36 @@ function AddToCartPage() {
                     />
                   </div>
                   <div className='w-full flex justify-between items-center'>
-                    <h4 className='text-md font-light text-[#212529]'>Subtotal</h4>
-                    <span className='text-md font-light text-[#212529]'>412</span>
+                    <h4 className='text-md font-light my-2 text-[#212529]'>Subtotal</h4>
+                    <span className='text-md font-light my-2 text-[#212529]'>{subTotal.toFixed(2)}</span>
                   </div>
                   <div className='w-full flex justify-between items-center'>
-                    <h4 className='text-md font-light my-2 text-[#212529]'>Shipping</h4>
-                    <span className='text-md font-light my-2 text-[#212529]'>Free</span>
+                    <h4 className='text-md font-light my-2 text-[#212529]'>Delivery Fee</h4>
+                    <span className='text-md font-light my-2 text-[#212529]'>{deliveryFee.toFixed(2)}</span>
                   </div>
-                  <div className='w-full flex justify-between items-center'>
-                    <h4 className='text-md font-light text-[#212529]'>Add coupon code</h4>
-                    <input 
-                      type="text" 
-                      className='text-md text-[#212529] py-1 px-2 bg-transparent border rounded-lg w-1/2 outline-none focus:border-blue-500 border-gray-600 transition-colors duration-200'
-                    />
-                  </div>
-                  <div className='w-full flex justify-end mt-3'>
-                    <Button variant="contained" sx={{backgroundColor: '#007BFF', '&:hover': {backgroundColor: '#007BFF',},}}className='px-10 py-3 rounded-md text-sm text-white'>
-                      Apply
-                    </Button>
-                  </div>
+                  
 
                 </div>
                 <div className='w-full px-5 py-4 bg-[rgba(0,0,0,.1)] flex justify-between items-center'>
                   <h4 className='text-md font-semibold text-[#212529]'>Total</h4>
-                  <span className='text-md font-semibold text-[#212529]'>412</span>
+                  <span className='text-md font-semibold text-[#212529]'>{(subTotal+deliveryFee).toFixed(2)}</span>
                 </div>
               </div>
               <div className='w-full bg-gray-100 my-5'>
                 <div className='w-full px-5 py-4 text-start'>
                   <h2 className='text-md font-semibold font-mono text-[#212529]'>Payment Details</h2>
                 </div>
-                <div className='flex px-5 py-2 gap-2'>
-                  <button
-                    className={`px-2 py-1 rounded-lg cursor-pointer text-sm font-light transition-colors 
-                      ${activeButton === 'Bkash' ? 'bg-[#383d50] text-white border border-[#383d50]' : 'border border-[#383d50] text-[#212529] hover:border-[#007BFF]'}`}
-                    onClick={() => handleButtonClick('Bkash')}
-                  >
-                    Bkash
-                  </button>
-                  <button
-                    className={`px-2 py-1 rounded-lg cursor-pointer text-sm font-light transition-colors 
-                      ${activeButton === 'Bank' ? 'bg-[#383d50] text-white border border-[#383d50]' : 'border border-[#383d50] text-[#212529] hover:border-[#007BFF]'} `}
-                    onClick={() => handleButtonClick('Bank')}
-                  >
-                    Bank
-                  </button>
-                  <button
-                    className={`px-2 py-1 rounded-lg cursor-pointer text-sm font-light transition-colors 
-                      ${activeButton === 'Cash On Delivery' ? 'bg-[#383d50] text-white border border-[#383d50]' : 'border border-[#383d50] text-[#212529] hover:border-[#007BFF]'}`}
-                    onClick={() => handleButtonClick('Cash On Delivery')}
-                  >
-                    Cash On Delivery
-                  </button>
+                <div className='flex flex-wrap justify-center gap-3'>
+                  {
+                    paymentSystem.map((payment, index)=>(
+                        <img key={index} src={payment} alt="" className={`w-12 cursor-pointer border rounded-md ${selectedPaymentSystem === index ? 'border border-black' : 'border-gray-300'}`} onClick={()=>{setSelectedPaymentSystem(index)}}/>
+                    ))
+                  }
                 </div>
-                {
-                  activeButton === "Bkash" ? 
-                  <div className='px-5 py-3'>
-                    <label className='flex justify-between items-center'><p className='text-sm text-[#212529]'>Bkash Number:</p> <input type="text" name="" id="" placeholder='Enter Bkash Number' className='text-sm text-[#212529] py-1 px-2 bg-transparent border rounded-lg w-1/2 outline-none focus:border-blue-500 border-gray-600 transition-colors duration-200'/></label>
-                    <label className='flex justify-between items-center my-2'><p className='text-sm text-[#212529]'>Ammount:</p> <input type="text" name="" id="" placeholder='Enter Bkash Number' className='text-sm text-[#212529] py-1 px-2 bg-transparent border rounded-lg w-1/2 outline-none focus:border-blue-500 border-gray-600 transition-colors duration-200' value='412'/></label>
-                    <div className='flex gap-5 justify-between my-5'>
-                    <Button variant="contained" sx={{backgroundColor: '#007BFF', '&:hover': {backgroundColor: '#0056b3',},}}className='capitalize px-3 py-1 rounded-md text-sm text-white font-mono font-semibold text-md'>
-                      Send Code
-                    </Button>
-                      <input type="text" name="" id="" placeholder='Enter Code Here' className='text-sm text-[#212529] py-1 px-2 bg-transparent border rounded-lg w-1/2 outline-none focus:border-blue-500 border-gray-600 transition-colors duration-200'/>
-                    </div>
-                    <Button variant="contained" sx={{backgroundColor: '#007BFF', '&:hover': {backgroundColor: '#007BFF',},}}className='px-10 py-3 rounded-md text-sm text-white'>
-                      Check Out
-                    </Button>
-                  </div> 
-                  : activeButton === "Bank" ? 
-                  <div className='px-5 py-2 flex flex-col gap-2'>
-                    <label className='flex justify-between items-center'><p className='text-sm text-[#212529]'>Holder Name:</p> <input type="text" name="" id="" placeholder='Card Holder Name' className='text-sm font-thin px-2 py-1 rounded-md outline-none border border-[#383d50] bg-transparent text-[#212529] placeholder:text-[#212529]'/></label>
-                    <label className='flex justify-between items-center'><p className='text-sm text-[#212529]'>Card Number:</p> <input type="text" name="" id="" placeholder='Card Number' className='text-sm font-thin px-2 py-1 rounded-md outline-none border border-[#383d50] bg-transparent text-[#212529] placeholder:text-[#212529]'/></label>
-                    <label className='flex justify-between items-center'><p className='text-sm text-[#212529]'>CVV Number:</p> <input type="text" name="" id="" placeholder='CVV Number' className='text-sm font-thin px-2 py-1 rounded-md outline-none border border-[#383d50] bg-transparent text-[#212529] placeholder:text-[#212529]'/></label>
-                    <label className='flex justify-between items-center'><p className='text-sm text-[#212529]'>Expire Date:</p> <input type="text" name="" id="" placeholder='Month / Year' className='text-sm font-thin px-2 py-1 rounded-md outline-none border border-[#383d50] bg-transparent text-[#212529] placeholder:text-[#212529]'/></label>
-                    <Button variant="contained" sx={{backgroundColor: '#007BFF', '&:hover': {backgroundColor: '#007BFF',},}}className='px-10 py-3 rounded-md text-sm text-white'>
-                      Check Out
-                    </Button>
-                  </div>
-                  : activeButton === "Cash On Delivery" ? 
-                  <div className='px-5 py-4'>
-                    <h2>Cash On Delivery</h2>
-                  </div>
-                  : ''
-                }
+                
               </div>
-              <Button variant="contained" sx={{backgroundColor: '#FFC107', '&:hover': {backgroundColor: '#FFA000',},}}className='capitalize px-7 py-1 rounded-lg my-5 w-2/3 text-white font-mono font-semibold text-md'>
-                Order Now
+              <Button variant="contained" sx={{backgroundColor: '#0a66c2', '&:hover': {backgroundColor: '#0a66c2',},}}className='capitalize px-7 py-1 rounded-lg my-5 w-2/3 text-white font-mono font-semibold text-md'>
+                Proceed to checkout
               </Button>
           </div>
         </div>
