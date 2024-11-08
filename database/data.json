@@ -522,12 +522,30 @@
     }
   ],
   "paymant": [
-    "https://i.ibb.co.com/hVdQLTK/mastercard.png",
-    "https://i.ibb.co.com/Jt8s0hN/nagad.png",
-    "https://i.ibb.co.com/YTQPFgM/rocket.png",
-    "https://i.ibb.co.com/tq13Xxr/visa.png",
-    "https://i.ibb.co.com/S6SC6Y9/amex.png",
-    "https://i.ibb.co.com/xFzKBfr/bkash.png"
+    {
+      "paymantSystemId": 0,
+      "paymantSystemName": "bkash",
+      "img": "https://i.ibb.co.com/xFzKBfr/bkash.png",
+      "navigatePaymantSystem": "https://payment.bkash.com/"
+    },
+    {
+      "paymantSystemId": 1,
+      "paymantSystemName": "nagad",
+      "img": "https://i.ibb.co.com/Jt8s0hN/nagad.png",
+      "navigatePaymantSystem": "https://payment.mynagad.com:30000/check-out/auth/account/"
+    },
+    {
+      "paymantSystemId": 2,
+      "paymantSystemName": "Card",
+      "img": "https://i.ibb.co.com/tq13Xxr/visa.png",
+      "navigatePaymantSystem": ""
+    },
+    {
+      "paymantSystemId": 3,
+      "paymantSystemName": "Cash On Delivery",
+      "img": "https://i.ibb.co.com/wLb7z15/cash.png",
+      "navigatePaymantSystem": ""
+    }
   ],
   "helpCenter": [
     {
@@ -569,12 +587,14 @@
   ],
   "trackOrder": [
     {
-      "orderId": "6151",
-      "phoneNumber": "01303142498",
-      "address": "Birabo, Kanchon, Rupganj, Narayanganj - 1720",
-      "orderDate": "23/10/2024",
-      "deliverDate": "30/10/2024",
-      "paymentMethod": "Cash on delivery",
+      "id": "3856",
+      "phone": "01420108567",
+      "address": "Birabo, Rupganj, Narayanganj",
+      "orderPaymentMethod": "Cash On Delivery",
+      "userId": "SA01",
+      "orderId": "order_1731056075186",
+      "orderDate": "2024-11-8",
+      "deliveryDate": "2024-11-15",
       "orderTracker": [
         {
           "name": "Order Placed",
@@ -583,59 +603,73 @@
         },
         {
           "name": "Order Confirmed",
-          "action": "done",
+          "action": "",
           "icon": "ShoppingBag"
         },
         {
           "name": "Shipping Company Assigned",
-          "action": "done",
+          "action": "",
           "icon": "PackageCheck"
         },
         {
           "name": "In Transit",
-          "action": "done",
+          "action": "",
           "icon": "Truck"
         },
         {
           "name": "Out for Delivery",
-          "action": "done",
+          "action": "",
           "icon": "MapPinCheckInside"
         },
         {
-          "name": "Delivered ",
+          "name": "Delivered",
           "action": "",
           "icon": "House"
         }
       ],
-      "orderStage": 4,
+      "orderStage": 0,
       "orderProducts": [
         {
-          "productId": 1,
-          "quantity": 1,
+          "productId": "89d8",
+          "productImage": "https://www.startech.com.bd/image/cache/catalog/television/oneplus/Y1G-02-500x500.webp",
+          "productName": "32-Inch HD Smart Android TV",
           "color": "black",
-          "storage": ""
+          "variantType": "",
+          "quantity": 1,
+          "price": 99.99,
+          "total": "99.99"
         },
         {
-          "productId": 2,
-          "quantity": 1,
+          "productId": "4df1",
+          "productImage": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-01-500x500.webp",
+          "productName": "Lenovo IdeaPad Slim 1i 14IGL7 Intel Celeron N4020 14 FHD Laptop",
           "color": "black",
-          "storage": ""
+          "variantType": "",
+          "quantity": 1,
+          "price": 99.99,
+          "total": "99.99"
         },
         {
-          "productId": 3,
+          "productId": "af5f",
+          "productImage": "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-black-titanium-500x500.webp",
+          "productName": "iPhone 16 Pro Max",
+          "color": "gray",
+          "variantType": "1024GB",
           "quantity": 1,
-          "color": "black",
-          "storage": "12GB / 512GB"
+          "price": 99.99,
+          "total": "99.99"
         }
       ]
     },
     {
-      "orderId": "5274",
-      "phoneNumber": "01956364548",
-      "address": "Karar Chor, Shibpur, Narsingdi",
-      "orderDate": "22/10/2024",
-      "deliverDate": "29/10/2024",
-      "paymentMethod": "Bkash",
+      "id": "0a00",
+      "phone": "01478523690",
+      "address": "Khulna",
+      "orderPaymentMethod": "Cash On Delivery",
+      "userId": "SA01",
+      "orderId": "order_1731059895472",
+      "orderDate": "2024-11-8",
+      "deliveryDate": "2024-11-15",
       "orderTracker": [
         {
           "name": "Order Placed",
@@ -644,17 +678,17 @@
         },
         {
           "name": "Order Confirmed",
-          "action": "done",
+          "action": "",
           "icon": "ShoppingBag"
         },
         {
           "name": "Shipping Company Assigned",
-          "action": "done",
+          "action": "",
           "icon": "PackageCheck"
         },
         {
           "name": "In Transit",
-          "action": "done",
+          "action": "",
           "icon": "Truck"
         },
         {
@@ -663,30 +697,62 @@
           "icon": "MapPinCheckInside"
         },
         {
-          "name": "Delivered ",
+          "name": "Delivered",
           "action": "",
           "icon": "House"
         }
       ],
-      "orderStage": 3,
+      "orderStage": 0,
       "orderProducts": [
         {
-          "productId": 64,
+          "productId": "f4b8",
+          "productImage": "https://www.lerevecraze.com/wp-content/uploads/2024/10/3ae65f9a-2866-472d-bd43-dd11ffe8e74a.jpg",
+          "productName": "Women Top Tunic",
+          "color": "Red",
+          "variantType": "l",
           "quantity": 1,
-          "color": "black",
-          "storage": ""
+          "price": 24.99,
+          "total": "24.99"
         },
         {
-          "productId": 65,
+          "productId": "056d",
+          "productImage": "https://www.lerevecraze.com/wp-content/uploads/2024/10/bb76e3c5-547b-4ad5-8f0f-87e08a4611f1.jpg",
+          "productName": "Women Dreasses",
+          "color": "Blue",
+          "variantType": "m",
           "quantity": 1,
-          "color": "black",
-          "storage": ""
+          "price": 24.99,
+          "total": "24.99"
         },
         {
-          "productId": 66,
+          "productId": "fcef",
+          "productImage": "https://img-va.myshopline.com/image/store/1658737544834/imageName1706165615766.jpeg?w=669&h=873&q=80",
+          "productName": "Women Bikinis",
+          "color": "Black",
+          "variantType": "m",
           "quantity": 1,
-          "color": "black",
-          "storage": ""
+          "price": 24.99,
+          "total": "24.99"
+        },
+        {
+          "productId": "1290",
+          "productImage": "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg",
+          "productName": "Women Skirt",
+          "color": "Red",
+          "variantType": "l",
+          "quantity": 1,
+          "price": 24.99,
+          "total": "24.99"
+        },
+        {
+          "productId": "9425",
+          "productImage": "https://img-va.myshopline.com/image/store/1658737544834/imageName1706165615766.jpeg?w=669&h=873&q=80",
+          "productName": "Women Bikinis",
+          "color": "Red",
+          "variantType": "l",
+          "quantity": 1,
+          "price": 24.99,
+          "total": "24.99"
         }
       ]
     }
@@ -735,37 +801,59 @@
   ],
   "userCart": [
     {
-      "id": "89d8",
-      "productId": "54",
-      "productName": "32-Inch HD Smart Android TV",
-      "variantType": "",
-      "color": "black",
+      "id": "f4b8",
+      "productId": "9",
+      "productName": "Women Top Tunic",
+      "variantType": "l",
+      "color": "Red",
       "quantity": 1,
-      "price": 99.99,
+      "price": 24.99,
       "userId": "SA01",
-      "image": "https://www.startech.com.bd/image/cache/catalog/television/oneplus/Y1G-02-500x500.webp"
+      "image": "https://www.lerevecraze.com/wp-content/uploads/2024/10/3ae65f9a-2866-472d-bd43-dd11ffe8e74a.jpg"
     },
     {
-      "id": "4df1",
-      "productId": "58",
-      "productName": "Lenovo IdeaPad Slim 1i 14IGL7 Intel Celeron N4020 14 FHD Laptop",
-      "variantType": "",
-      "color": "black",
+      "id": "056d",
+      "productId": "17",
+      "productName": "Women Dreasses",
+      "variantType": "m",
+      "color": "Blue",
       "quantity": 1,
-      "price": 99.99,
+      "price": 24.99,
       "userId": "SA01",
-      "image": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-slim-1i-15igl7/ideapad-slim-1i-15igl7-01-500x500.webp"
+      "image": "https://www.lerevecraze.com/wp-content/uploads/2024/10/bb76e3c5-547b-4ad5-8f0f-87e08a4611f1.jpg"
     },
     {
-      "id": "af5f",
-      "productId": "60",
-      "productName": "iPhone 16 Pro Max",
-      "variantType": "1024GB",
-      "color": "gray",
+      "id": "fcef",
+      "productId": "15",
+      "productName": "Women Bikinis",
+      "variantType": "m",
+      "color": "Black",
       "quantity": 1,
-      "price": 99.99,
+      "price": 24.99,
       "userId": "SA01",
-      "image": "https://www.startech.com.bd/image/cache/catalog/mobile/apple/iphone-16-pro-max/iphone-16-pro-max-black-titanium-500x500.webp"
+      "image": "https://img-va.myshopline.com/image/store/1658737544834/imageName1706165615766.jpeg?w=669&h=873&q=80"
+    },
+    {
+      "id": "1290",
+      "productId": "64",
+      "productName": "Women Skirt",
+      "variantType": "l",
+      "color": "Red",
+      "quantity": 1,
+      "price": 24.99,
+      "userId": "SA01",
+      "image": "https://www.lerevecraze.com/wp-content/uploads/2024/04/cb7caaf3-3bb7-40b2-8ea8-65de4ba68d66.jpg"
+    },
+    {
+      "id": "9425",
+      "productId": "15",
+      "productName": "Women Bikinis",
+      "variantType": "l",
+      "color": "Red",
+      "quantity": 1,
+      "price": 24.99,
+      "userId": "SA01",
+      "image": "https://img-va.myshopline.com/image/store/1658737544834/imageName1706165615766.jpeg?w=669&h=873&q=80"
     }
   ],
   "productInfo": [

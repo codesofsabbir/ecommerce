@@ -2,15 +2,14 @@ import * as Icons from 'lucide-react'
 import useFetch from '../../Hooks/UseFetch';
 import { useState } from 'react';
 function TrackOrder() {
-  const {data: trackOrder = []} = useFetch('http://localhost:5001/trackOrder')
-  const {data: products = []} = useFetch('http://localhost:5001/productInfo')
+  const {data: trackOrders = []} = useFetch('http://localhost:5001/trackOrder')
   const [openOrderId, setOpenOrderId] = useState()
   
   return (
     <div className="w-full">
         <div className="w-[90%] mx-auto">
           {
-            trackOrder.map(order=>{
+            trackOrders.map(order=>{
               const isOpen = openOrderId === order.orderId;
               const percent = order.orderStage
               return(  
@@ -18,13 +17,13 @@ function TrackOrder() {
                   <div className="flex justify-between items-center border-b pb-4 mb-6" onClick={()=>setOpenOrderId(isOpen ? null : order.orderId)}>
                     <div>
                       <h2 className="uppercase text-md font-semibold">order <span className="text-[#1E90FF]">#{order.orderId}</span></h2>
-                      <h4>{order.phoneNumber}</h4>
+                      <h4>{order.phone}</h4>
                       <address>{order.address}</address>
                     </div>
                     <div>
                       <h4 className="font-medium">Order Data: <span className="font-semibold text-[#1e90ff]">{order.orderDate}</span></h4>
-                      <h4 className="font-medium">Delivery Data: <span className="font-semibold text-[#1e90ff]">{order.deliverDate}</span></h4>
-                      <h4 className="font-medium">Payment: <span className="font-semibold text-[#1e90ff]"> {order.paymentMethod}</span></h4>
+                      <h4 className="font-medium">Delivery Data: <span className="font-semibold text-[#1e90ff]">{order.deliveryDate}</span></h4>
+                      <h4 className="font-medium">Payment: <span className="font-semibold text-[#1e90ff]"> {order.orderPaymentMethod}</span></h4>
                     </div>
                   </div>
                   <div className="relative w-full border-b py-10 mb-6">
@@ -52,20 +51,19 @@ function TrackOrder() {
                   <div className="border-b pb-4 mb-6 flex flex-col gap-5">
                     {
                       order?.orderProducts.map((orderProduct)=>{
-                        const filterproducted = products.find((product)=> product.id === orderProduct.productId)
+                        
                         return(
                           <div key={orderProduct.productId} className="flex justify-between items-center">
                             <div className="">
                               <div className="w-[70px] h-[70px] bg-[#c4c9d1] flex justify-center">
-                                <img src={filterproducted?.images[0]} alt="" className='h-[70px] object-cover object-center'/>
+                                <img src={orderProduct?.productImage} alt="" className='h-[70px] object-cover object-center'/>
                               </div>
                             </div>
                             <div className="w-4/6">
-                              <h2 className="text-md font-semibold">{filterproducted?.productName}</h2>
-                              <span className="text-sm font-semibold text-slate-500 uppercase">{orderProduct.color} | {orderProduct?.storage}</span>
+                              <h2 className="text-md font-semibold">{orderProduct?.productName}</h2>
+                              <span className="text-sm font-semibold text-slate-500 uppercase">{orderProduct.color} | {orderProduct?.variantType}</span>
                             </div>
                             <div className="w-1/6 text-end">
-                              <h4 className="text-[#0A66C2] text-lg font-bold">{filterproducted?.variants[0].price}</h4>
                               <span className="text-slate-500 text-sm font-medium">Qty: {orderProduct.quantity}</span>
                             </div>
                           </div>

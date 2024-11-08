@@ -68,8 +68,8 @@ function Footer() {
                     </div>
                     <div className="flex gap-5 mt-5">
                         {
-                            paymentSystem.map((payment, index)=>(
-                                <img key={index} src={payment} alt="" className="w-12"/>
+                            paymentSystem.map((payment)=>(
+                                <img key={payment?.paymantSystemId} src={payment?.img} alt="" className="w-12"/>
                             ))
                         }
                     </div>
