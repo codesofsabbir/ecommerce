@@ -74,12 +74,19 @@ function AddToCartPage() {
       const data = await response.json();
       console.log('Order confirmed:', data);
 
-      fetch(`http://localhost:5001/userCart/`, { method: "DELETE" })
-      .then((response) => {
-        if (response.ok) {
-          
-        }
-      });
+      const apiUrl = 'http://localhost:3000/userCart';
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(items => {
+          items.forEach(item => {
+            fetch(`${apiUrl}/${item.id}`, {
+              method: 'DELETE'
+            }).then(() => console.log(`Deleted item with id ${item.id}`));
+          });
+        })
+        .catch(error => console.error('Error fetching items:', error));
+
     }
   });
   
@@ -166,70 +173,72 @@ function AddToCartPage() {
     <div className="w-full">
       <div className="w-[90%] mx-auto my-10">
         <div className='flex justify-between items-center py-5'>
-          <h2 className='text-3xl font-semibold text-gray-700'>My Cart</h2>
-          <button className='px-5 py-2 bg-[#007BFF] rounded-full text-[white] text-sm flex gap-2 items-center cursor-pointer'><MoveLeft size={20}/>Back to Shopping</button>
+          <h2 className='text-xl md:text-3xl font-semibold text-gray-700'>My Cart</h2>
+          <button className='px-3 md:px-5 py-1 md:py-2 bg-[#007BFF] rounded-full text-[white] text-xs flex gap-2 items-center cursor-pointer'><MoveLeft size={20}/>Back to Shopping</button>
         </div>
-        <div className="flex justify-between gap-5">
-        <table className='w-2/3 border-collapse border border-gray-300 h-fit'>
-          <thead className='bg-gray-100'>
-            <tr className='text-center' style={{ height: '40px' }}>
-              <th className='p-1 border-b border-gray-300'>Product</th>
-              <th className='p-1 border-b border-gray-300'>Price</th>
-              <th className='p-1 border-b border-gray-300'>Quantity</th>
-              <th className='p-1 border-b border-gray-300'>Total</th>
-              <th className='p-1 border-b border-gray-300'></th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product.id} className='hover:bg-gray-50 text-center' style={{ height: '100px' }}>
-                <td className='p-1 border-b border-gray-200'>
-                  <div className='flex items-center gap-5'>
-                    <img src={product.image} alt="" className='h-16 rounded-md border border-gray-200'/>
-                    <div>
-                      <h2 className='font-medium'>
-                        {
-                          product?.productName.split(" ").length > 6 ?`${product.productName.split(" ").slice(0, 6).join(" ")}...` : product?.productName
-                        }
-                      </h2>
-                      <div className='flex gap-1 text-sm text-gray-500'>
-                        {product.variantType ? <span className='capitalize'>{product.variantType} |</span> : null}
-                        {product.color ? <span>{product.color}</span> : null}
+        <div className="flex flex-col md:flex-row justify-between gap-5 overflow-hidden">
+          <div className='overflow-y-auto w-full md:w-2/3'>
+          <table className='table-auto w-full border-collapse border border-gray-300 h-fit'>
+            <thead className='bg-gray-100'>
+              <tr className='text-center' style={{ height: '40px' }}>
+                <th className='p-1 border-b border-gray-300 whitespace-nowrap w-1/2'>Product</th>
+                <th className='p-1 border-b border-gray-300 whitespace-nowrap w-1/6'>Price</th>
+                <th className='p-1 border-b border-gray-300 whitespace-nowrap w-1/6'>Quantity</th>
+                <th className='p-1 border-b border-gray-300 whitespace-nowrap w-1/6'>Total</th>
+                <th className='p-1 border-b border-gray-300 whitespace-nowrap'></th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr key={product.id} className='hover:bg-gray-50 text-center' style={{ height: '100px' }}>
+                  <td className='p-1 border-b border-gray-200 whitespace-nowrap'>
+                    <div className='flex items-center gap-5'>
+                      <img src={product.image} alt="" className='h-16 rounded-md border border-gray-200'/>
+                      <div>
+                        <h2 className='font-medium'>
+                          {
+                            product?.productName.split(" ").length > 6 ?`${product.productName.split(" ").slice(0, 6).join(" ")}...` : product?.productName
+                          }
+                        </h2>
+                        <div className='flex gap-1 text-sm text-gray-500'>
+                          {product.variantType ? <span className='capitalize'>{product.variantType} |</span> : null}
+                          {product.color ? <span>{product.color}</span> : null}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td className='p-1 border-b border-gray-200'>{product.price}</td>
-                <td className='p-1 border-b border-gray-200'>
-                  <div className="flex py-1 items-center w-fit px-5 border border-gray-300 rounded-full mx-auto">
-                    <Minus
-                      size={20}
-                      onClick={() => handleDecreaseQuantity(product.id, product.quantity)}
-                      className="cursor-pointer text-gray-500 hover:text-gray-700"
+                  </td>
+                  <td className='p-1 border-b border-gray-200 whitespace-nowrap'>{product.price}</td>
+                  <td className='p-1 border-b border-gray-200 whitespace-nowrap'>
+                    <div className="flex py-1 items-center w-fit px-5 border border-gray-300 rounded-full mx-auto">
+                      <Minus
+                        size={20}
+                        onClick={() => handleDecreaseQuantity(product.id, product.quantity)}
+                        className="cursor-pointer text-gray-500 hover:text-gray-700"
+                      />
+                      <span className="mx-5">{product.quantity}</span>
+                      <Plus
+                        size={20}
+                        onClick={() => handleIncreaseQuantity(product.id, product.quantity)}
+                        className="cursor-pointer text-gray-500 hover:text-gray-700"
+                      />
+                    </div>
+                  </td>
+                  <td className='p-1 border-b border-gray-200 whitespace-nowrap'>{(product.price * product.quantity).toFixed(2)}</td>
+                  <td className='p-1 border-b border-gray-200 whitespace-nowrap'>
+                    <X 
+                      size={20} 
+                      className="cursor-pointer text-red-500 hover:text-red-700" 
+                      onClick={() => handleRemoveProduct(product.id)} 
                     />
-                    <span className="mx-5">{product.quantity}</span>
-                    <Plus
-                      size={20}
-                      onClick={() => handleIncreaseQuantity(product.id, product.quantity)}
-                      className="cursor-pointer text-gray-500 hover:text-gray-700"
-                    />
-                  </div>
-                </td>
-                <td className='p-1 border-b border-gray-200'>{(product.price * product.quantity).toFixed(2)}</td>
-                <td className='p-1 border-b border-gray-200'>
-                  <X 
-                    size={20} 
-                    className="cursor-pointer text-red-500 hover:text-red-700" 
-                    onClick={() => handleRemoveProduct(product.id)} 
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
 
-        </table>
+          </table>
+          </div>
 
-          <div className='w-1/3 text-center'>
+          <div className='w-full md:w-1/3 text-center'>
               <div className='w-full bg-gray-100'>
                 <div className='w-full px-5 py-4 text-start'>
                   <h2 className='font-semibold text-[#212529] font-mono'>Order Summary</h2>

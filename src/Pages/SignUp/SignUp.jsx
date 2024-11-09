@@ -62,7 +62,7 @@ function SignUp() {
         <div className="bg">
             <div className="w-[90%] mx-auto">
                 <div className="flex w-full h-fit justify-center items-center">
-                    <div className="w-1/3 h-fit">
+                    <div className="w-full md:w-1/2 h-fit">
                         <form 
                             className='w-full flex flex-col gap-3 bg-[#1E90FF] bg-opacity-50 backdrop-blur-md p-10 rounded-[25px] shadow-2xl' 
                             onSubmit={formik.handleSubmit}

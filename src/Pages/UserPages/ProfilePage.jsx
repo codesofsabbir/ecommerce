@@ -137,8 +137,8 @@ function ProfilePage() {
 
   return (
     <div className="w-full py-10">
-      <div className="flex w-[90%] mx-auto gap-20">
-        <div className="w-1/3">
+      <div className="flex flex-col md:flex-row w-[90%] mx-auto gap-20">
+        <div className="md:w-1/3">
           <img
             src={preview || editableData.userProfilePic || "https://i.ibb.co.com/yWLz2bS/people.png"}
             alt="Profile"
@@ -154,7 +154,7 @@ function ProfilePage() {
           </div>
         </div>
 
-        <div className="w-2/3">
+        <div className="md:w-2/3">
           {['userName', 'userPhone', 'userAddress'].map((field, idx) => (
             <label key={idx} className="text-gray-600 flex items-center gap-2 mb-2 w-full justify-between">
               <span className="capitalize">{field.replace("user", "")}:</span>

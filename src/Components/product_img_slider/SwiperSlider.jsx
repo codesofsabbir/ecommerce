@@ -10,7 +10,7 @@ function SwiperSlider({product}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="w-[35%]">
+    <div className="md:w-[35%]">
         <Swiper
             style={{
                 '--swiper-navigation-color': '#fff',
@@ -39,7 +39,7 @@ function SwiperSlider({product}) {
         >
             {product?.images?.map((image, index) => (
                 <SwiperSlide key={index} className=''>
-                    <img src={image} className={`object-cover h-[100px] w-full ${index === activeIndex ? 'border-4 border-[#1E90FF]': ''}`} />
+                    <img src={image} className={`object-cover md:h-[100px] w-full ${index === activeIndex ? 'border-4 border-[#1E90FF]': ''}`} />
                 </SwiperSlide>
             ))}
         </Swiper>

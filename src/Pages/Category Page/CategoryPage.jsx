@@ -70,8 +70,8 @@ function CategoryPage() {
   return (
     <div className='w-full'>
       <div className='w-[90%] mx-auto'>
-        <div className='w-full flex gap-10'>
-          <div className='w-1/4'>
+        <div className='w-full flex flex-col md:flex-row gap-10'>
+          <div className='md:w-1/4'>
             <h2 className='text-lg font-semibold text-gray-700 mb-2'>Select Price Range</h2>
             <PriceRange
               minPrice={priceRange.min}
@@ -99,7 +99,7 @@ function CategoryPage() {
                 ))}
             </div>
           </div>
-          <div className='w-3/4'>
+          <div className='md:w-3/4'>
             <div className='w-full h-16 flex items-center'>
               <h2 className='text-2xl font-semibold capitalize'>{displayName}</h2>
             </div>

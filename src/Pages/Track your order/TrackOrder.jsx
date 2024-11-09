@@ -1,26 +1,35 @@
 import * as Icons from 'lucide-react'
-import useFetch from '../../Hooks/UseFetch';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../Hooks/UserContext';
 function TrackOrder() {
-  const {data: trackOrders = []} = useFetch('http://localhost:5001/trackOrder')
+  const {loginUser} = useContext(UserContext);
+  const [ orderProduct, setOrderProduct] = useState([])
   const [openOrderId, setOpenOrderId] = useState()
-  
+  useEffect(()=>{
+    fetch('http://localhost:5001/trackOrder')
+    .then(res=>res.json())
+    .then((data)=>{
+      const filteredData = data.filter((item) => item.userId === loginUser.id);
+      setOrderProduct(filteredData);
+    })
+
+  }, [loginUser.id])
   return (
     <div className="w-full">
         <div className="w-[90%] mx-auto">
           {
-            trackOrders.map(order=>{
+            orderProduct.map(order=>{
               const isOpen = openOrderId === order.orderId;
               const percent = order.orderStage
               return(  
-                <div key={order.orderId} className={`max-w-4xl  mx-auto my-10 bg-white p-8 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? "h-fit" : "h-[120px]"} `} >
+                <div key={order.orderId} className={`cursor-pointer max-w-4xl  mx-auto my-10 bg-white p-8 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? "h-fit" : "h-[120px]"} `} >
                   <div className="flex justify-between items-center border-b pb-4 mb-6" onClick={()=>setOpenOrderId(isOpen ? null : order.orderId)}>
                     <div>
-                      <h2 className="uppercase text-md font-semibold">order <span className="text-[#1E90FF]">#{order.orderId}</span></h2>
-                      <h4>{order.phone}</h4>
-                      <address>{order.address}</address>
+                      <h2 className="uppercase text-sm md:text-base font-semibold"><span className="text-[#1E90FF]">#{order.orderId}</span></h2>
+                      <h4 className='text-sm font-semibold text-gray-700'>{order.phone}</h4>
+                      <address className='text-sm font-semibold text-gray-500'>{order.address}</address>
                     </div>
-                    <div>
+                    <div className='hidden md:block'>
                       <h4 className="font-medium">Order Data: <span className="font-semibold text-[#1e90ff]">{order.orderDate}</span></h4>
                       <h4 className="font-medium">Delivery Data: <span className="font-semibold text-[#1e90ff]">{order.deliveryDate}</span></h4>
                       <h4 className="font-medium">Payment: <span className="font-semibold text-[#1e90ff]"> {order.orderPaymentMethod}</span></h4>
@@ -35,10 +44,10 @@ function TrackOrder() {
                         return (
                           <div
                             key={index}
-                            className={`w-8 h-8 rounded-full flex items-center justify-center 
+                            className={`w-7 h-7 rounded-full flex items-center justify-center 
                             ${tracker.action === 'done' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
                           >
-                            {IconComponent && <IconComponent size={14} />}
+                            {IconComponent && <IconComponent size={16} />}
                           </div>
                         )
                       })
@@ -53,18 +62,18 @@ function TrackOrder() {
                       order?.orderProducts.map((orderProduct)=>{
                         
                         return(
-                          <div key={orderProduct.productId} className="flex justify-between items-center">
+                          <div key={orderProduct.productId} className="flex gap-3 justify-between items-center">
                             <div className="">
-                              <div className="w-[70px] h-[70px] bg-[#c4c9d1] flex justify-center">
-                                <img src={orderProduct?.productImage} alt="" className='h-[70px] object-cover object-center'/>
+                              <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] bg-[#c4c9d1] flex justify-center">
+                                <img src={orderProduct?.productImage} alt="" className='h-[50px] object-cover object-center'/>
                               </div>
                             </div>
-                            <div className="w-4/6">
-                              <h2 className="text-md font-semibold">{orderProduct?.productName}</h2>
-                              <span className="text-sm font-semibold text-slate-500 uppercase">{orderProduct.color} | {orderProduct?.variantType}</span>
+                            <div className="w-5/6">
+                              <h2 className="text-sm md:text-base md:font-semibold">{orderProduct?.productName}</h2>
+                              <span className="text-xs md:text-sm md:font-semibold text-slate-500 uppercase">{orderProduct.color} | {orderProduct?.variantType}</span>
                             </div>
                             <div className="w-1/6 text-end">
-                              <span className="text-slate-500 text-sm font-medium">Qty: {orderProduct.quantity}</span>
+                              <span className="text-slate-500 text-sm font-medium"><span className='hidden md:blcok'>Qty:</span> ({orderProduct.quantity})</span>
                             </div>
                           </div>
                         )
@@ -72,6 +81,11 @@ function TrackOrder() {
                     }
                     
                   </div>
+                  <div className='md:hidden text-end'>
+                      <h4 className="text-sm">Order Data: <span className="font-semibold text-[#1e90ff]">{order.orderDate}</span></h4>
+                      <h4 className="text-sm">Delivery Data: <span className="font-semibold text-[#1e90ff]">{order.deliveryDate}</span></h4>
+                      <h4 className="text-sm">Payment: <span className="font-semibold text-[#1e90ff]"> {order.orderPaymentMethod}</span></h4>
+                    </div>
                 </div>
               )
             })

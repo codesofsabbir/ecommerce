@@ -1,5 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Facebook, Instagram, Linkedin, Twitter, Headset, Search, Camera, Bell, ShoppingCart, User } from 'lucide-react';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaUser } from "react-icons/fa";
+import { PiHeadsetFill } from "react-icons/pi";
+import { CiShoppingCart } from "react-icons/ci";
+import { IoSearchOutline, IoCamera } from "react-icons/io5";
 import { UserContext } from "../../../Hooks/UserContext";
 import HelpLineOnClick from "./HelpLineOnClick";
 import { useNavigate } from "react-router-dom";
@@ -31,13 +34,13 @@ function Header() {
             <div className="w-full bg-[#F2F2F2]">
                 <div className="w-[90%] mx-auto flex justify-between items-center h-10 text-[#4A4A4A] uppercase">
                     <div className="icons flex gap-2">
-                        <Facebook size={18} color="#007BFF" className="hover:text-[#0056b3] cursor-pointer"/>
-                        <Instagram size={18} color="#007BFF" className="hover:text-[#0056b3] cursor-pointer"/>
-                        <Linkedin size={18} color="#007BFF" className="hover:text-[#0056b3] cursor-pointer"/>
-                        <Twitter size={18} color="#007BFF" className="hover:text-[#0056b3] cursor-pointer"/>
+                        <FaFacebookF className="cursor-pointer text-[#007BFF] hover:text-[#0056b3] text-xs md:text-lg" />
+                        <FaInstagram className="cursor-pointer text-[#007BFF] hover:text-[#0056b3] text-xs md:text-lg" />
+                        <FaLinkedinIn className="cursor-pointer text-[#007BFF] hover:text-[#0056b3] text-xs md:text-lg" />
+                        <FaTwitter className="cursor-pointer text-[#007BFF] hover:text-[#0056b3] text-xs md:text-lg" />
                     </div>
-                    <h3>{headerData?.deliveryOffer}</h3>
-                    <div className="flex gap-2 items-center text-sm">
+                    <h3 className="hidden md:inline">{headerData?.deliveryOffer}</h3>
+                    <div className="flex gap-2 items-center text-xs md:text-sm">
                         <select className="bg-transparent">
                             {headerData?.currencyMenu?.options?.map((option, index) => (
                                 <option key={index} value={option}>{option}</option>
@@ -54,31 +57,30 @@ function Header() {
             <div className="w-full bg-[#FFFFFF]">
                 <div className="w-[90%] mx-auto flex h-20 gap-5 items-center justify-between text-[#1E90FF]">
                     <div className="flex gap-5 items-center">
-                        <div className="logo w-24">
-                            <img src={headerData?.logo} alt="Logo" onClick={() => navigate('/')} className="cursor-pointer" />
+                        <div className="logo w-16 md:w-24 ">
+                            <img src={headerData?.logo} alt="Logo" onClick={() => navigate('/')} className="cursor-pointer " />
                         </div>
                         <div className="relative">
-                            <Headset size={30} className="cursor-pointer" onClick={() => setHelpLineBoxOpen(!helpLineBoxOpen)} />
+                            <PiHeadsetFill className="cursor-pointer text-3xl" onClick={() => setHelpLineBoxOpen(!helpLineBoxOpen)} />
                             {helpLineBoxOpen && <HelpLineOnClick handleHelpLineClose={handleHelpLineClose} />}
                         </div>
                     </div>
-                    <div className="search flex relative w-full mx-10">
+                    <div className="search md:flex relative w-full mx-10 hidden ">
                         <input
                             type="text"
                             placeholder="Search by keyword/product name/brands..."
                             className="border border-black py-1 px-2 rounded-md outline-none w-full text-md"
                         />
                         <div className="searchIcon flex gap-2 absolute right-3 top-1/2 -translate-y-1/2">
-                            <Camera className="cursor-pointer" />
-                            <Search className="cursor-pointer" />
+                            <IoCamera className="cursor-pointer text-xl hidden" />
+                            <IoSearchOutline className="cursor-pointer text-xl" />
                         </div>
                     </div>
                     <div className="icons flex gap-5 items-center">
-                        <Bell className="cursor-pointer" />
                         
                         {userLogedIn && 
                             <Badge badgeContent={cartProductQuantity} color="primary">
-                                <ShoppingCart className="cursor-pointer" onClick={()=>{navigate('addtocard')}}/>
+                                <CiShoppingCart className="cursor-pointer text-3xl" onClick={()=>{navigate('addtocard')}}/>
                             </Badge>
                         }
                         <div className="relative">
@@ -89,10 +91,10 @@ function Header() {
                                             <img src={loginUser.userProfilePic} alt="User Profile" className="w-full h-full object-cover" />
                                         </div>
                                     ) : (
-                                        <User />
+                                        <FaUser />
                                     )
                                 ) : (
-                                    <User />
+                                    <FaUser />
                                 )}
                             </i>
                             {userLoginBox && (

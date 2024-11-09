@@ -47,7 +47,7 @@ function LogedIn() {
         <div className='bg'>
             <div className='w-[90%] mx-auto'>
                 <div className='flex w-full h-fit justify-center items-center'>
-                    <div className='w-1/3 h-fit'>
+                    <div className='w-full  md:w-1/2 h-fit'>
                         <form className='w-full flex flex-col gap-3 bg-[#1E90FF] bg-opacity-50 backdrop-blur-md p-10 rounded-[25px] shadow-2xl' onSubmit={formik.handleSubmit}>
                             <div className='w-20 h-20 rounded-full bg-[#1e90ff] mx-auto overflow-hidden flex justify-center items-end'>
                                 <img src="https://i.ibb.co.com/yWLz2bS/people.png" alt="User Icon" className='h-16' />

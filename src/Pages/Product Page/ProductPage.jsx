@@ -12,7 +12,6 @@ function ProductPage() {
   const [selectedVariant, setSelectedVariant] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
-  console.log(loginUser.id)
 
   const userId = loginUser.id;
 
@@ -84,10 +83,10 @@ function ProductPage() {
 
   return (
     <div className="w-full">
-      <div className="w-full pt-16 h-screen bg-gray-100">
-        <div className="w-[90%] mx-auto flex">
+      <div className="w-full pt-16 h-fit pb-10 bg-gray-100">
+        <div className="w-[90%] mx-auto flex flex-col md:flex-row">
           <SwiperSlider product={product} />
-          <div className="pl-10">
+          <div className=" mt-5 md:mt-0 md:pl-10">
             <h2 className="text-4xl font-sans font-medium leading-relaxed">
               {product?.productName}
             </h2>

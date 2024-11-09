@@ -6,7 +6,6 @@ import useFetch from "../../../Hooks/UseFetch";
 function Footer() {
     const {headerData} = useContext(UserContext);
     const [pages, setPages] = useState([]);
-    const [paymentSystem, setPaymentSystem] = useState([])
     const {data} = useFetch("http://localhost:5001/categories");
     useEffect(()=>{
         fetch('http://localhost:5001/pages')
@@ -15,18 +14,11 @@ function Footer() {
             setPages(data);
         })
     }, [])
-    useEffect(()=>{
-        fetch('http://localhost:5001/paymant')
-        .then((res)=>res.json())
-        .then((data)=>{
-            setPaymentSystem(data);
-        })
-    }, [])
 
   return (
-    <div className="w-full h-screen bg-[#212121] relative">
+    <div className="w-full h-fit bg-[#212121] relative">
         <div className="w-[90%] mx-auto">
-            <div className="pt-10 pb-8 border-b border-[#515151]">
+            <div className="py-10 border-b border-[#515151] hidden md:block">
                 <h2 className="text-white text-xl uppercase pb-5 font-bold">Brand Directory</h2>
                 {
                     data.map(category=>(
@@ -48,9 +40,9 @@ function Footer() {
             </div>
 
 
-            <div className="flex gap-8 py-8">
-                <div className=" w-1/4">
-                    <img src={headerData?.logo} alt="" />
+            <div className="flex flex-col md:flex-row gap-8 py-20">
+                <div className="w-full md:w-1/4 flex justify-center">
+                    <img src={headerData?.logo} alt="" className="w-1/2"/>
                 </div>
                 <div className="flex flex-col items-center">
                     <div className="flex gap-5 text-[#999999] mb-4">
@@ -66,30 +58,25 @@ function Footer() {
                             ))
                         }
                     </div>
-                    <div className="flex gap-5 mt-5">
-                        {
-                            paymentSystem.map((payment)=>(
-                                <img key={payment?.paymantSystemId} src={payment?.img} alt="" className="w-12"/>
-                            ))
-                        }
-                    </div>
                 </div>
-                <div className="w-1/4">
+                <div className="w-full md:w-1/4">
                     <h3 className="uppercase text-[20px] font-semibold text-[#999999]">contact us</h3>
-                    <h4 className="flex gap-5 items-center pt-1 text-[#515151]">
-                        <Phone size={18}/>
-                        {headerData?.contact?.number}
-                    </h4>
-                    <h4 className="flex gap-5 items-center pt-1 text-[#515151]">
-                        <Mail size={18}/>
-                        {headerData?.contact?.mail}
-                    </h4>
+                    <div className="flex flex-col justify-center ">
+                        <h4 className="flex gap-5 items-center pt-1 text-[#515151]">
+                            <Phone size={18}/>
+                            {headerData?.contact?.number}
+                        </h4>
+                        <h4 className="flex gap-5 items-center pt-1 text-[#515151]">
+                            <Mail size={18}/>
+                            {headerData?.contact?.mail}
+                        </h4>
+                    </div>
                 </div>
             </div>
 
         </div>
         <div className="h-10 flex justify-center items-center absolute w-full bottom-0 bg-[#242323]">
-            <span className="text-[#515151]">All content on this website is protected by copyright © 2024. All rights reserved by Sabbir. </span>
+            <span className="text-[#515151] text-xs md:text-sm px-5">All content reserved by Sabbir © 2024.</span>
         </div>
     </div>
   )
