@@ -86,7 +86,7 @@ function LogedIn() {
                                 ) : null}
                             </div>
                             <button type="submit" className='bg-[#1E90FF] py-2 rounded-md hover:bg-[#1E90cf] cursor-pointer'>LogIn</button>
-                            <div className='flex justify-between'>
+                            <div className='flex flex-col md:flex-row justify-between'>
                                 <p className='text-xs font-sans font-thin'>Don’t have an account? <span className='text-red-700 cursor-pointer' onClick={() => navigate('/sign-up')}>Sign up</span></p>
                                 <p className='text-xs font-sans font-thin'><span className='text-red-700 cursor-pointer'>Forget password?</span></p>
                             </div>

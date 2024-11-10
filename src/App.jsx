@@ -14,6 +14,7 @@ import LogedIn from './Pages/LogedIn/LogedIn';
 import ProfilePage from './Pages/UserPages/ProfilePage';
 import AddToCartPage from './Pages/UserPages/AddToCartPage';
 import PrivateRoute from './Components/PrivateRoute';
+// import Header2 from './Components/Common/Header/Header2';
 
 
 

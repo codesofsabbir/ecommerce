@@ -40,13 +40,13 @@ function Header() {
                         <FaTwitter className="cursor-pointer text-[#007BFF] hover:text-[#0056b3] text-xs md:text-lg" />
                     </div>
                     <h3 className="hidden md:inline">{headerData?.deliveryOffer}</h3>
-                    <div className="flex gap-2 items-center text-xs md:text-sm">
-                        <select className="bg-transparent">
+                    <div className="flex gap-2 items-center">
+                        <select className="bg-transparent text-xs p-1 rounded-md">
                             {headerData?.currencyMenu?.options?.map((option, index) => (
                                 <option key={index} value={option}>{option}</option>
                             ))}
                         </select>
-                        <select className="bg-transparent">
+                        <select className="bg-transparent text-xs p-1 rounded-md">
                             {headerData?.languageMenu?.options?.map((option, index) => (
                                 <option key={index} value={option}>{option}</option>
                             ))}
@@ -105,6 +105,7 @@ function Header() {
                                 )
                             )}
                         </div>
+                        
                     </div>
                 </div>
             </div>

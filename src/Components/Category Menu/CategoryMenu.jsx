@@ -27,7 +27,7 @@ function CategoryMenu() {
                             <button
                                 key={category.id}
                                 onClick={() => handleNavClick(category.id)}
-                                className={`md:px-2 lg:px-5 py-1 md:text-sm lg-text-md rounded-full transition-all duration-300 font-semibold capitalize ${
+                                className={`md:px-2 lg:px-5 py-1 md:text-sm lg:text-base rounded-full transition-all duration-300 font-semibold capitalize ${
                                     activeNav === category.id ? 'bg-[#0A66C2] text-white' : 'hover:text-[#0A66C2]'
                                 }`}
                             >
