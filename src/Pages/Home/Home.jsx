@@ -2,10 +2,10 @@ import Banner from "../../Components/banner/Banner"
 import BannerSlider from "../../Components/BannerSlider/BannerSlider"
 import CategoryMenu from "../../Components/Category Menu/CategoryMenu"
 import CategoryProduct from "../../Components/Category Product/CategoryProduct"
-
 function Home() {
   return (
     <div>
+      
         <BannerSlider />
         <CategoryMenu />
         <Banner bannerId={0} />

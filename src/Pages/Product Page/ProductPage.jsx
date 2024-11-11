@@ -1,19 +1,21 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import useFetch from '../../Hooks/UseFetch';
 import SwiperSlider from '../../Components/product_img_slider/SwiperSlider';
 import { UserContext } from '../../Hooks/UserContext';
+import { FaStar } from 'react-icons/fa';
 
 function ProductPage() {
   const {loginUser} = useContext(UserContext);
+  const navigate = useNavigate()
   const { id } = useParams();
   const { data: product } = useFetch(`http://localhost:5001/productInfo/${id}`);
   const [selectedVariant, setSelectedVariant] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
-
-  const userId = loginUser.id;
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const userId = loginUser?.id;
 
   const handleIncreaseQuantity = () => {
     if (currentColor && quantity < currentColor.stock) {
@@ -79,6 +81,21 @@ function ProductPage() {
         setSelectedColor(product.variants[0].colors[0].color);
       }
     }
+  }, [product]);
+
+
+  useEffect(() => {
+    const fetchRelatedProducts = () => {
+      if (product) {
+        fetch(`http://localhost:5001/productInfo`)
+        .then((res)=>res.json())
+        .then(data => {
+          const  filterRelatedProduct = data.filter(item => item.subCategory[0] === product.subCategory[0] && item.id !== product.id);
+          setRelatedProducts(filterRelatedProduct);
+        });
+      }
+    };
+    fetchRelatedProducts();
   }, [product]);
 
   return (
@@ -196,6 +213,44 @@ function ProductPage() {
 
             
           </div>
+        </div>
+        <div className='w-[90%] mx-auto mt-10'>
+          <h2 className="text-2xl font-semibold mb-5">Related Products</h2>
+          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            {
+              relatedProducts.map((relatedProduct) => (
+                <div key={relatedProduct.id} className='border mb-4 rounded-md overflow-hidden bg-[#F5F5F5]' onClick={() => navigate(`/product/${relatedProduct.id}`)}>
+                    <div className='w-full h-[220px] flex justify-center items-center'>
+                      <img src={relatedProduct.images[0]} alt='' className='h-[180px]' />
+                    </div>
+                    <div className='px-4 pb-5 pt-2'>
+                      <div className='mb-3'>
+                        {product?.subCategory?.map((subCategoryitem, index) => (
+                          <span key={index} className='pr-2 uppercase text-xs'>
+                            {subCategoryitem}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className='font-semibold text-[14px] h-12 leading-5'>
+                        {product?.productName}
+                      </h3>
+                      <p className='text-[14px] font-bold'>
+                        <strong>Price: </strong>${product?.variants[0].price}
+                      </p>
+                      <div className='flex justify-between'>
+                        <p className='text-[14px] flex gap-2 items-center'>
+                          <span>
+                            <FaStar className='text-yellow-500' />
+                          </span>
+                          {product?.rating}
+                        </p>
+                        <p className='text-[14px]'>({product?.variants[0]?.colors[0]?.sold})</p>
+                      </div>
+                    </div>
+                </div>
+              ))
+            }
+            </div>
         </div>
       </div>
     </div>
