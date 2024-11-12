@@ -23,13 +23,15 @@ function ProductPage() {
   const userId = loginUser?.id;
   const [comments, setComments] = useState([])
   const [commentAnchorEl, setCommentAnchorEl] = useState(null);
-
-    const handleCommentNavOpen = (event) => {
+  const [selectedCommentId, setSelectedCommentId] = useState(null);
+    const handleCommentNavOpen = (event, commentId) => {
       setCommentAnchorEl(event.currentTarget);
+      setSelectedCommentId(commentId);
     }
 
     const handleCommentNavClose = () => {
       setCommentAnchorEl(null)
+      setSelectedCommentId(null)
     };
   const formik = useFormik({
     initialValues: {
@@ -268,7 +270,7 @@ console.log(comments)
             
           </div>
         </div>
-        <div className='w-[90%] mx-auto mt-10'>
+        <div className='w-[90%] mx-auto mt-10 border border-gray-300 rounded-lg p-10'>
           <h2 className="text-2xl font-semibold mb-5">Comments</h2>
           <div className='flex items-center w-full md:w-2/3'>
             
@@ -296,7 +298,7 @@ console.log(comments)
           <div className='ml-16 mt-10'>
             {
               comments?.map((comment)=>( 
-                <div className='flex items-start justify-between w-full md:w-2/3 mb-7' key={comment.id}>
+                <div className='flex items-start justify-between w-full md:w-2/3 mb-7 border border-gray-300 p-5 rounded-md' key={comment.id}>
                   <div className='flex items-start '>
                     <img 
                       src={comment.userImage}
@@ -312,47 +314,48 @@ console.log(comments)
                     loginUser ? 
                     (
                       <div>
-                        <button className='p-1 text-base text-gray-700' onClick={handleCommentNavOpen}><BsThreeDotsVertical /></button>
-                        {
-                          loginUser?.id === comment?.userId ? (
-                            <Menu
-                              anchorEl={commentAnchorEl}
-                              open={Boolean(commentAnchorEl)}
-                              onClose={handleCommentNavClose}
-                              anchorOrigin={{
-                                  vertical: 'bottom',
-                                  horizontal: 'right',
-                              }}
-                              transformOrigin={{
-                                  vertical: 'top',
-                                  horizontal: 'right',
-                              }}
-                              className="mt-5"
-                            >
-                              <MenuItem >Edit</MenuItem>
-                              <MenuItem >Delete</MenuItem>
-                              <MenuItem >Reply</MenuItem>
-                            </Menu>
-                          ) : (
-                            <Menu
-                              anchorEl={commentAnchorEl}
-                              open={Boolean(commentAnchorEl)}
-                              onClose={handleCommentNavClose}
-                              anchorOrigin={{
-                                  vertical: 'bottom',
-                                  horizontal: 'right',
-                              }}
-                              transformOrigin={{
-                                  vertical: 'top',
-                                  horizontal: 'right',
-                              }}
-                              className="mt-5"
-                            >
-                              <MenuItem >Reply</MenuItem>
-                            </Menu>
-                            
-                          )
-                        }
+                        <button className='p-1 text-base text-gray-700' onClick={(event) => handleCommentNavOpen(event, comment.id)}><BsThreeDotsVertical /></button>
+                        {selectedCommentId === comment.id && (
+              <div>
+                {loginUser?.id === comment?.userId ? (
+                  <Menu
+                    anchorEl={commentAnchorEl}
+                    open={Boolean(commentAnchorEl)}
+                    onClose={handleCommentNavClose}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    className="mt-5"
+                  >
+                    <MenuItem>Edit</MenuItem>
+                    <MenuItem>Delete</MenuItem>
+                    <MenuItem>Reply</MenuItem>
+                  </Menu>
+                ) : (
+                  <Menu
+                    anchorEl={commentAnchorEl}
+                    open={Boolean(commentAnchorEl)}
+                    onClose={handleCommentNavClose}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    className="mt-5"
+                  >
+                    <MenuItem>Reply</MenuItem>
+                  </Menu>
+                )}
+              </div>
+            )}
                         
                       </div>
                     )
@@ -367,7 +370,7 @@ console.log(comments)
             }
           </div>
         </div>
-        <div className='w-[90%] mx-auto mt-10'>
+        <div className='w-[90%] mx-auto mt-10 border border-gray-300 rounded-lg p-10'>
           <h2 className="text-2xl font-semibold mb-5">Related Products</h2>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
             {

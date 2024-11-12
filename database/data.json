@@ -1,67 +1,11 @@
 {
   "header": {
     "logo": "https://i.ibb.co.com/MnBCZ5L/epicdeals.png",
-    "deliveryOffer": "free shipping this week order over - $55",
+    "offer": "free shipping this week order over - $55",
     "contact": {
       "number": "+880 130 31 42498",
       "mail": "imsabbiir@gmail.com"
     },
-    "icons": [
-      {
-        "id": "search",
-        "name": "search",
-        "status": true,
-        "link": ""
-      },
-      {
-        "id": "shopping",
-        "name": "shopping",
-        "status": true,
-        "link": ""
-      },
-      {
-        "id": "favourite",
-        "name": "favourite",
-        "status": false,
-        "link": ""
-      },
-      {
-        "id": "user",
-        "name": "user",
-        "status": true,
-        "link": ""
-      }
-    ],
-    "socialMedia": [
-      {
-        "status": true,
-        "id": "sm01",
-        "platform": "facebook",
-        "icon": "",
-        "link": ""
-      },
-      {
-        "status": true,
-        "id": "sm02",
-        "platform": "instagram",
-        "icon": "",
-        "link": ""
-      },
-      {
-        "status": true,
-        "id": "sm03",
-        "platform": "linkedin",
-        "icon": "",
-        "link": ""
-      },
-      {
-        "status": true,
-        "id": "sm04",
-        "platform": "twitter",
-        "icon": "",
-        "link": ""
-      }
-    ],
     "currencyMenu": {
       "label": "USD $",
       "options": [
