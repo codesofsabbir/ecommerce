@@ -5446,5 +5446,23 @@
         "https://www.lerevecraze.com/wp-content/uploads/2024/03/3a36cf8f-5aaa-4e84-a15e-f786bc9b6bc9.jpg"
       ]
     }
+  ],
+  "userComments": [
+    {
+      "id": "9c82",
+      "productId": "58",
+      "comments": "hello",
+      "userId": "SA01",
+      "userImage": "https://i.ibb.co.com/FJpDCQp/sabbir.jpg",
+      "userName": "Sabbir Ahmed"
+    },
+    {
+      "id": "ccd9",
+      "comments": "Is this product available now?",
+      "userId": "MH01",
+      "userImage": "https://i.ibb.co.com/g3XsQgv/mehedi.jpg",
+      "userName": "Mehedi Hasan",
+      "productId": "58"
+    }
   ]
 }

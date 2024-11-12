@@ -5,9 +5,14 @@ import useFetch from '../../Hooks/UseFetch';
 import SwiperSlider from '../../Components/product_img_slider/SwiperSlider';
 import { UserContext } from '../../Hooks/UserContext';
 import { FaStar } from 'react-icons/fa';
+import Avatar from '@mui/material/Avatar';
+import { IoIosSend } from "react-icons/io";
+import { useFormik } from 'formik';
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { Menu, MenuItem } from '@mui/material';
 
 function ProductPage() {
-  const {loginUser} = useContext(UserContext);
+  const {loginUser, userLogedIn} = useContext(UserContext);
   const navigate = useNavigate()
   const { id } = useParams();
   const { data: product } = useFetch(`http://localhost:5001/productInfo/${id}`);
@@ -16,7 +21,43 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const userId = loginUser?.id;
+  const [comments, setComments] = useState([])
+  const [commentAnchorEl, setCommentAnchorEl] = useState(null);
 
+    const handleCommentNavOpen = (event) => {
+      setCommentAnchorEl(event.currentTarget);
+    }
+
+    const handleCommentNavClose = () => {
+      setCommentAnchorEl(null)
+    };
+  const formik = useFormik({
+    initialValues: {
+      
+      comments: '',
+      
+    },
+    onSubmit: (values, { resetForm }) => {
+      
+      const payload = {
+        ...values, 
+        userId: loginUser?.id,
+        userImage: loginUser?.userProfilePic,
+        userName: loginUser?.userName,
+        productId: product?.id,
+      }
+      console.log(payload)
+      fetch('http://localhost:5001/userComments', {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      
+      resetForm();
+    },
+  })
   const handleIncreaseQuantity = () => {
     if (currentColor && quantity < currentColor.stock) {
       setQuantity(quantity + 1);
@@ -24,7 +65,6 @@ function ProductPage() {
       alert(`No more products currently available in stock. Current stock: ${currentColor.stock}`);
     }
   };
-
   const handleDecreaseQuantity = () => {
     setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1)); // Prevent going below 1
   };
@@ -90,7 +130,7 @@ function ProductPage() {
         fetch(`http://localhost:5001/productInfo`)
         .then((res)=>res.json())
         .then(data => {
-          const  filterRelatedProduct = data.filter(item => item.subCategory[0] === product.subCategory[0] && item.id !== product.id);
+          const  filterRelatedProduct = data.filter(item => item.subCategory[0] === product?.subCategory[0] && item.id !== product.id);
           setRelatedProducts(filterRelatedProduct);
         });
       }
@@ -98,6 +138,20 @@ function ProductPage() {
     fetchRelatedProducts();
   }, [product]);
 
+  useEffect(()=>{
+    
+      fetch('http://localhost:5001/userComments')
+    .then((res)=>res.json())
+    .then((data)=>{
+      const filterComments = data.filter((comment)=> comment.productId === product.id)
+      if(filterComments.length>0){
+        setComments(filterComments)
+      }else{
+        setComments([])
+      }
+    })
+  }, [product.id])
+console.log(comments)
   return (
     <div className="w-full">
       <div className="w-full pt-16 h-fit pb-10 bg-gray-100">
@@ -215,6 +269,105 @@ function ProductPage() {
           </div>
         </div>
         <div className='w-[90%] mx-auto mt-10'>
+          <h2 className="text-2xl font-semibold mb-5">Comments</h2>
+          <div className='flex items-center w-full md:w-2/3'>
+            
+            <Avatar 
+              src={userLogedIn && loginUser?.userProfilePic}
+              alt="User Profile" 
+              className="cursor-pointer"
+            />
+
+            <form onSubmit={formik.handleSubmit} className="search relative w-full ml-5 md:ml-10">
+              <input
+                type="text"
+                placeholder="Enter your comments..."
+                name='comments'
+                onChange={formik.handleChange}
+                value={formik.values.comments}
+                className="border border-black py-1 px-2 rounded-md outline-none w-full text-md"
+              />
+              <button type='submit' className="searchIcon flex gap-2 absolute right-3 top-1/2 -translate-y-1/2">
+                <IoIosSend className="cursor-pointer text-xl" />
+              </button>
+            </form>
+            
+          </div>
+          <div className='ml-16 mt-10'>
+            {
+              comments?.map((comment)=>( 
+                <div className='flex items-start justify-between w-full md:w-2/3 mb-7' key={comment.id}>
+                  <div className='flex items-start '>
+                    <img 
+                      src={comment.userImage}
+                      alt="User Profile" 
+                      className="cursor-pointer h-8 w-8 rounded-full !important"
+                    />
+                    <div className='ml-5'>
+                      <h2 className='font-semibold font-sans text-lg'>{comment.userName}</h2>
+                      <h3 className='font-medium text-base capitalize text-gray-700'>{comment.comments}</h3>
+                    </div>
+                  </div>
+                  {
+                    loginUser ? 
+                    (
+                      <div>
+                        <button className='p-1 text-base text-gray-700' onClick={handleCommentNavOpen}><BsThreeDotsVertical /></button>
+                        {
+                          loginUser?.id === comment?.userId ? (
+                            <Menu
+                              anchorEl={commentAnchorEl}
+                              open={Boolean(commentAnchorEl)}
+                              onClose={handleCommentNavClose}
+                              anchorOrigin={{
+                                  vertical: 'bottom',
+                                  horizontal: 'right',
+                              }}
+                              transformOrigin={{
+                                  vertical: 'top',
+                                  horizontal: 'right',
+                              }}
+                              className="mt-5"
+                            >
+                              <MenuItem >Edit</MenuItem>
+                              <MenuItem >Delete</MenuItem>
+                              <MenuItem >Reply</MenuItem>
+                            </Menu>
+                          ) : (
+                            <Menu
+                              anchorEl={commentAnchorEl}
+                              open={Boolean(commentAnchorEl)}
+                              onClose={handleCommentNavClose}
+                              anchorOrigin={{
+                                  vertical: 'bottom',
+                                  horizontal: 'right',
+                              }}
+                              transformOrigin={{
+                                  vertical: 'top',
+                                  horizontal: 'right',
+                              }}
+                              className="mt-5"
+                            >
+                              <MenuItem >Reply</MenuItem>
+                            </Menu>
+                            
+                          )
+                        }
+                        
+                      </div>
+                    )
+                    :
+                    ""
+                  }
+                  
+                  
+                </div>
+                
+              ))
+            }
+          </div>
+        </div>
+        <div className='w-[90%] mx-auto mt-10'>
           <h2 className="text-2xl font-semibold mb-5">Related Products</h2>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
             {
@@ -225,26 +378,26 @@ function ProductPage() {
                     </div>
                     <div className='px-4 pb-5 pt-2'>
                       <div className='mb-3'>
-                        {product?.subCategory?.map((subCategoryitem, index) => (
+                        {relatedProduct?.subCategory?.map((subCategoryitem, index) => (
                           <span key={index} className='pr-2 uppercase text-xs'>
                             {subCategoryitem}
                           </span>
                         ))}
                       </div>
                       <h3 className='font-semibold text-[14px] h-12 leading-5'>
-                        {product?.productName}
+                        {relatedProduct?.productName}
                       </h3>
                       <p className='text-[14px] font-bold'>
-                        <strong>Price: </strong>${product?.variants[0].price}
+                        <strong>Price: </strong>${relatedProduct?.variants[0].price}
                       </p>
                       <div className='flex justify-between'>
                         <p className='text-[14px] flex gap-2 items-center'>
                           <span>
                             <FaStar className='text-yellow-500' />
                           </span>
-                          {product?.rating}
+                          {relatedProduct?.rating}
                         </p>
-                        <p className='text-[14px]'>({product?.variants[0]?.colors[0]?.sold})</p>
+                        <p className='text-[14px]'>({relatedProduct?.variants[0]?.colors[0]?.sold})</p>
                       </div>
                     </div>
                 </div>
