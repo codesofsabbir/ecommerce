@@ -1,27 +1,38 @@
 import { useContext, useEffect, useState } from "react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaUser } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { PiHeadsetFill } from "react-icons/pi";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoSearchOutline, IoCamera } from "react-icons/io5";
 import { UserContext } from "../../../Hooks/UserContext";
-import HelpLineOnClick from "./HelpLineOnClick";
 import { useNavigate } from "react-router-dom";
-import UserLoginButton from "./UserLoginButton";
-import UserNavItem from "./UserNavItem";
 import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
+
 function Header() {
-    const { userLogedIn, loginUser, headerData, setHeaderData, cartProductQuantity } = useContext(UserContext);
+    const { userLogedIn, setUserLogedIn, loginUser, headerData, setHeaderData, cartProductQuantity } = useContext(UserContext);
     const navigate = useNavigate();
-    const [helpLineBoxOpen, setHelpLineBoxOpen] = useState(false);
-    const [userLoginBox, setUserLoginBox] = useState(false);
+    const [userAnchorEl, setUserAnchorEl] = useState(null);
+    const [helpAnchorEl, setHelpAnchorEl] = useState(null);
 
-    const handleHelpLineClose = (isOpen) => {
-        setHelpLineBoxOpen(isOpen);
+    const handleHelpLineOpen = (event) => {
+        setHelpAnchorEl(event.currentTarget);
+    }
+
+    const handleHelpLineClose = () => {
+        setHelpAnchorEl(null)
     };
 
-    const handleUserLoginBox = (isOpen) => {
-        setUserLoginBox(isOpen);
+    const handleUserMenuOpen = (event) => {
+        setUserAnchorEl(event.currentTarget);
     };
+
+    const handleUserMenuClose = () => {
+        setUserAnchorEl(null);
+    };
+
     useEffect(() => {
         fetch('http://localhost:5001/header')
             .then((res) => res.json())
@@ -61,11 +72,32 @@ function Header() {
                             <img src={headerData?.logo} alt="Logo" onClick={() => navigate('/')} className="cursor-pointer " />
                         </div>
                         <div className="relative">
-                            <PiHeadsetFill className="cursor-pointer text-3xl" onClick={() => setHelpLineBoxOpen(!helpLineBoxOpen)} />
-                            {helpLineBoxOpen && <HelpLineOnClick handleHelpLineClose={handleHelpLineClose} />}
+                            <PiHeadsetFill 
+                                onClick={handleHelpLineOpen}
+                                className="cursor-pointer text-3xl"
+                            />
+
+                            <Menu
+                                anchorEl={helpAnchorEl}
+                                open={Boolean(helpAnchorEl)}
+                                onClose={handleHelpLineClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                className="mt-5"
+                            >
+                                <MenuItem >+880 1303 142498</MenuItem>
+                                <MenuItem onClick={() => navigate('/help-center')}>Help Center</MenuItem>
+                                
+                            </Menu>
                         </div>
                     </div>
-                    <div className="search md:flex relative w-full mx-10 hidden ">
+                    <div className="search md:flex relative w-full mx-10 hidden">
                         <input
                             type="text"
                             placeholder="Search by keyword/product name/brands..."
@@ -77,35 +109,69 @@ function Header() {
                         </div>
                     </div>
                     <div className="icons flex gap-5 items-center">
-                        
-                        {userLogedIn && 
+                        {userLogedIn && (
                             <Badge badgeContent={cartProductQuantity} color="primary">
-                                <CiShoppingCart className="cursor-pointer text-3xl" onClick={()=>{navigate('addtocard')}}/>
+                                <CiShoppingCart className="cursor-pointer text-3xl" onClick={() => navigate('addtocard')} />
                             </Badge>
-                        }
+                        )}
                         <div className="relative">
-                            <i className="cursor-pointer" onClick={() => setUserLoginBox(!userLoginBox)}>
-                                {userLogedIn ? (
-                                    loginUser?.userProfilePic ? (
-                                        <div className="h-8 w-8 bg-[#0a66c2] rounded-full overflow-hidden">
-                                            <img src={loginUser.userProfilePic} alt="User Profile" className="w-full h-full object-cover" />
-                                        </div>
-                                    ) : (
-                                        <FaUser />
-                                    )
-                                ) : (
-                                    <FaUser />
-                                )}
-                            </i>
-                            {userLoginBox && (
-                                userLogedIn ? (
-                                    <UserNavItem handleUserLoginBox={handleUserLoginBox} />
-                                ) : (
-                                    <UserLoginButton handleUserLoginBox={handleUserLoginBox} />
+                            <Avatar 
+                                src={userLogedIn && loginUser?.userProfilePic}
+                                alt="User Profile" 
+                                onClick={handleUserMenuOpen} 
+                                className="cursor-pointer"
+                            />
+                            {
+                                userLogedIn ? 
+                                (
+                                    <Menu
+                                        anchorEl={userAnchorEl}
+                                        open={Boolean(userAnchorEl)}
+                                        onClose={handleUserMenuClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        className="mt-5"
+                                    >
+                                        <MenuItem onClick={() => navigate('/user-profile')}>Profile</MenuItem>
+                                        <MenuItem onClick={() => navigate('/track-order')}>My Order</MenuItem>
+                                        <Divider />
+                                        <MenuItem onClick={() => {
+                                            // Logout function
+                                            handleUserMenuClose()
+                                            setUserLogedIn(false)
+                                            navigate('/')
+                                        }}>Logout</MenuItem>
+                                    </Menu>
+                                ) 
+                                : 
+                                ( 
+                                    <Menu
+                                        anchorEl={userAnchorEl}
+                                        open={Boolean(userAnchorEl)}
+                                        onClose={handleUserMenuClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        className="mt-5"
+                                    >
+                                        <MenuItem onClick={() => navigate('/login')}>Log In</MenuItem>
+                                        <MenuItem onClick={() => navigate('/sign-up')}>Sign Up</MenuItem>
+                                    </Menu>
                                 )
-                            )}
+                            }
+                            
                         </div>
-                        
                     </div>
                 </div>
             </div>

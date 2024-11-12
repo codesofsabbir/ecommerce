@@ -5,6 +5,7 @@ import { UserContext } from '../../Hooks/UserContext';
 import useFetch from '../../Hooks/UseFetch';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 function AddToCartPage() {
   const orderTracker = [
@@ -15,6 +16,7 @@ function AddToCartPage() {
     { name: "Out for Delivery", action: "", icon: "MapPinCheckInside" },
     { name: "Delivered", action: "", icon: "House" }
   ];
+  const navigate = useNavigate();
   
   const { loginUser, setCartProductQuantity } = useContext(UserContext);
   const [selectedPaymentSystem, setSelectedPaymentSystem] = useState(0);
@@ -67,8 +69,25 @@ function AddToCartPage() {
       });
       const data = await response.json();
       console.log('Order confirmed:', data);
+
+      
+      const userCart = await fetch('http://localhost:5001/userCart')
+    .then(res => res.json())
+    .then(data => data.filter(item => item.userId === loginUser.id));
+
+  // Send a delete request for each item in the user's cart
+  for (const item of userCart) {
+    await fetch(`http://localhost:5001/userCart/${item.id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  console.log('Cart cleared after order placement');
+  setProducts([]);
+  setCartProductQuantity(0);
       resetForm()
-    }
+    } 
   });
 
   const updateProductQuantity = (id, quantity) => {
@@ -120,7 +139,7 @@ function AddToCartPage() {
       <div className="w-[90%] mx-auto my-10">
         <div className="flex justify-between items-center py-5">
           <h2 className="text-xl md:text-3xl font-semibold text-gray-700">My Cart</h2>
-          <button className="px-3 md:px-5 py-1 md:py-2 bg-[#007BFF] rounded-full text-white text-xs flex gap-2 items-center cursor-pointer">
+          <button className="px-3 md:px-5 py-1 md:py-2 bg-[#007BFF] rounded-full text-white text-xs flex gap-2 items-center cursor-pointer" onClick={()=>{navigate('/')}}>
             <MoveLeft size={20} />Back to Shopping
           </button>
         </div>
