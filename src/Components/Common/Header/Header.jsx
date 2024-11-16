@@ -1,9 +1,17 @@
 import TopHeader from "./TopHeader";
 import BottomHeader from "./BottomHeader";
 import useAxios from "../../../Hooks/useAxios";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../../Hooks/UserContext";
 
 function Header() {
-    const { data: headerData, error, loading } = useAxios('http://localhost:5001/header');
+    const {headerData, setHeaderData} = useContext(UserContext)
+    const { data, error, loading } = useAxios('http://localhost:5001/header');
+    useEffect(()=>{
+        if(data) {
+            setHeaderData(data);
+        }
+    })
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading data: {error.message}</p>;
     return (

@@ -302,8 +302,9 @@ console.log(comments)
                   <div className='flex items-start '>
                     <img 
                       src={comment.userImage}
-                      alt="User Profile" 
-                      className="cursor-pointer h-8 w-8 rounded-full !important"
+                      alt={comment.userName} 
+                      className="cursor-pointer h-8 w-8 rounded-full aspect-square"
+                      loading='lazy'
                     />
                     <div className='ml-5'>
                       <h2 className='font-semibold font-sans text-lg'>{comment.userName}</h2>
@@ -377,7 +378,7 @@ console.log(comments)
               relatedProducts.map((relatedProduct) => (
                 <div key={relatedProduct.id} className='border mb-4 rounded-md overflow-hidden bg-[#F5F5F5]' onClick={() => navigate(`/product/${relatedProduct.id}`)}>
                     <div className='w-full h-[220px] flex justify-center items-center'>
-                      <img src={relatedProduct.images[0]} alt='' className='h-[180px]' />
+                      <img src={relatedProduct.images[0]} alt='' loading='lazy' className='h-[180px] aspect-auto' />
                     </div>
                     <div className='px-4 pb-5 pt-2'>
                       <div className='mb-3'>

@@ -16,8 +16,25 @@ function BottomHeader({headerData}) {
             <div className="w-[90%] mx-auto flex h-20 gap-5 items-center justify-between text-[#1E90FF]">
                 {/* Bottom Menu Right site logo and help center icon */}
                 <div className="flex gap-5 items-center">
-                    <div className="logo w-16 md:w-24 ">
-                        <img src={headerData?.logo} alt="Logo" onClick={() => navigate('/')} className="cursor-pointer " />
+                    <div className="logo ">
+                        {/* <img
+                            loading="lazy"
+                            alt="logo"
+                            srcSet="
+                                /?width=100 100w,
+                                /?width=200 200w,
+                                /?width=400 400w,
+                                /?width=800 800w,
+                            "
+                            sizes="(max-width: 800px) 100vw, 50vw" 
+                            decoding="async"
+                            fetchPriority="high"
+                            src={headerData?.logo} 
+                            width="130" 
+                            height="20" 
+                            onClick={() => navigate('/')} className="cursor-pointer" 
+                            /> */}
+                            <img width="130" height="20" src={headerData?.logo} alt="" onClick={() => navigate('/')} className="cursor-pointer"/>
                     </div>
                     <div className="relative">
                         <HelpIconMenu />

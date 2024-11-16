@@ -18,13 +18,15 @@ import PrivateRoute from './Components/PrivateRoute';
 
 
 function App() {
+  /* this headerData for Logo, contact info, language select and Currency select which use in header and footer thats why it use in App.jsx and provide by usercontext */
+  const [headerData, setHeaderData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [productData, setProductData] = useState();
   const [userLogedIn, setUserLogedIn] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
   const [cartProductQuantity, setCartProductQuantity] = useState(0);
   return (
-    <UserContext.Provider value={{ categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
+    <UserContext.Provider value={{headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
       <BrowserRouter>
       <Header />
         <Routes>

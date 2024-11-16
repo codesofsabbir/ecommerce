@@ -13,7 +13,7 @@ function HelpCenter() {
           {
             data.map((card)=>(
               <div key={card.id} className='flex flex-col items-center justify-center py-5 px-3 bg-[#E8F0FE] rounded-md '>
-                <img src={card.img} alt="" />
+                <img src={card.img} alt="" className=" aspect-square" loading="lazy"/>
                 <h2 className="text-sm md:text-xl font-semibold text-center">{card.title}</h2>
                 <h4 className="text-sm text-gray-500 text-center">{card.subtitle}</h4>
               </div>

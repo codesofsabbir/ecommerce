@@ -64,8 +64,8 @@ function TrackOrder() {
                         return(
                           <div key={orderProduct.productId} className="flex gap-3 justify-between items-center">
                             <div className="">
-                              <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] bg-[#c4c9d1] flex justify-center">
-                                <img src={orderProduct?.productImage} alt="" className='h-[50px] object-cover object-center'/>
+                              <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex justify-center">
+                                <img src={orderProduct?.productImage} alt="" className='h-[50px] w-[50px] object-cover rounded-full border border-gray-700 aspect-square object-center' loading='lazy'/>
                               </div>
                             </div>
                             <div className="w-5/6">

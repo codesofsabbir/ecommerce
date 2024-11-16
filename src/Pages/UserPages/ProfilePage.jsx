@@ -138,11 +138,12 @@ function ProfilePage() {
   return (
     <div className="w-full py-10">
       <div className="flex flex-col md:flex-row w-[90%] mx-auto gap-20">
-        <div className="md:w-1/3">
+        <div className="md:w-fit">
           <img
             src={preview || editableData.userProfilePic || "https://i.ibb.co.com/yWLz2bS/people.png"}
             alt="Profile"
-            className="h-[300px] w-full rounded-md object-cover object-top bg-gray-300"
+            className="h-[300px] w-[300px] rounded-md object-cover object-top bg-gray-300 aspect-square"
+            loading="lazy"
           />
           <input type="file" onChange={handleImgChange} ref={inputFile} className="hidden" />
           <div className="flex mt-5 gap-2">

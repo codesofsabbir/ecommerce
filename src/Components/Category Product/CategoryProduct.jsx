@@ -81,7 +81,7 @@ function CategoryProduct({categoryId}) {
                     filteredProducts.map((product) => (
                         <SwiperSlide key={product.id} className="border mb-4 rounded-md overflow-hidden bg-[#F5F5F5]" onClick={() => navigate(`/product/${product.id}`)}>
                             <div className="w-full h-[220px] flex justify-center items-center">
-                                <img src={product.images[0]} alt="" className="h-[180px]" />
+                                <img src={product.images[0]} alt={product.name} loading="lazy" className="h-[180px] aspect-auto" />
                             </div>
 
                             <div className="px-4 pb-5 pt-2">
