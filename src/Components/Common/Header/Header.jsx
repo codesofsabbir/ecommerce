@@ -3,6 +3,7 @@ import BottomHeader from "./BottomHeader";
 import useAxios from "../../../Hooks/useAxios";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../../Hooks/UserContext";
+import { Outlet } from "react-router-dom";
 
 function Header() {
     const {headerData, setHeaderData} = useContext(UserContext)
@@ -15,10 +16,13 @@ function Header() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading data: {error.message}</p>;
     return (
-        <div>
-            <TopHeader headerData={headerData} />
-            <BottomHeader headerData={headerData}/>
-        </div>
+        <>
+            <div>
+                <TopHeader headerData={headerData} />
+                <BottomHeader headerData={headerData}/>
+            </div>
+            <Outlet />
+        </>
     );
 }
 

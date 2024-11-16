@@ -14,6 +14,8 @@ import LogedIn from './Pages/LogedIn/LogedIn';
 import ProfilePage from './Pages/UserPages/ProfilePage';
 import AddToCartPage from './Pages/UserPages/AddToCartPage';
 import PrivateRoute from './Components/PrivateRoute';
+import OverviewPage from './Private/Pages/OverviewPage';
+import Sidebar from './Private/Components/Common/Sidebar';
 
 
 
@@ -28,19 +30,29 @@ function App() {
   return (
     <UserContext.Provider value={{headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
       <BrowserRouter>
-      <Header />
+      
+        
+
         <Routes>
-          <Route path={"/"} element={<Home />}/>
-          <Route path={"/help-center"}  element={<HelpCenter />} />
-          <Route path="/track-order" element={<PrivateRoute element={<TrackOrder />} />} />
-          <Route path="/user-profile" element={<PrivateRoute element={<ProfilePage />} />} />
-          <Route path="/addtocard" element={<PrivateRoute element={<AddToCartPage />} />} />
-          <Route path={"/sign-up"}  element={<SignUp />} />
-          <Route path={"/login"}  element={<LogedIn />} />
-          <Route path={'/product/:id'} element = {<ProductPage />} />
-          <Route path={'/category/:categoryName'} element = {<CategoryPage />} />
+          <Route path='' element={<Header />}>
+            <Route path='' element={<Footer />}>
+              <Route path={"/"} element={<Home />}/>
+              <Route path={"/help-center"}  element={<HelpCenter />} />
+              <Route path="/track-order" element={<PrivateRoute element={<TrackOrder />} />} />
+              <Route path="/user-profile" element={<PrivateRoute element={<ProfilePage />} />} />
+              <Route path="/addtocard" element={<PrivateRoute element={<AddToCartPage />} />} />
+              <Route path={"/sign-up"}  element={<SignUp />} />
+              <Route path={"/login"}  element={<LogedIn />} />
+              <Route path={'/product/:id'} element = {<ProductPage />} />
+              <Route path={'/category/:categoryName'} element = {<CategoryPage />} />
+            </Route>
+          </Route>
+          <Route path='' element={<Sidebar />}>
+            <Route path="/dashboard" element={<OverviewPage />} />
+          </Route>
+          
         </Routes>
-      <Footer />
+      
       
       </BrowserRouter>
       
