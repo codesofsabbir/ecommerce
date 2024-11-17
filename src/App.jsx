@@ -16,6 +16,7 @@ import AddToCartPage from './Pages/UserPages/AddToCartPage';
 import PrivateRoute from './Components/PrivateRoute';
 import OverviewPage from './Private/Pages/OverviewPage';
 import Sidebar from './Private/Components/Common/Sidebar';
+import ProductList from './Private/Pages/ProductList';
 
 
 
@@ -27,8 +28,9 @@ function App() {
   const [userLogedIn, setUserLogedIn] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
   const [cartProductQuantity, setCartProductQuantity] = useState(0);
+  const [productmodalopen, setProductModalOpen] = useState(false);
   return (
-    <UserContext.Provider value={{headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
+    <UserContext.Provider value={{productmodalopen, setProductModalOpen, headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
       <BrowserRouter>
       
         
@@ -49,6 +51,7 @@ function App() {
           </Route>
           <Route path='' element={<Sidebar />}>
             <Route path="/dashboard" element={<OverviewPage />} />
+            <Route path="/product_list" element={<ProductList />} />
           </Route>
           
         </Routes>
