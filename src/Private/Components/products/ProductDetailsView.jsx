@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react"
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../Hooks/UserContext"
+import { UserContext } from "../../../Hooks/UserContext";
+
 
 function ProductDetailsView() {
     const {setProductModalOpen, productkey, products} = useContext(UserContext)

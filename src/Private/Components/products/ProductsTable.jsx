@@ -3,45 +3,27 @@ import { Edit, Search, Trash2, Eye, Plus } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../Hooks/UserContext";
-
-
-
+import useAxios from "../../../Hooks/useAxios";
 
 const ProductsTable = () => {
-	const {setProductModalOpen, setProductKey, products, setProducts} = useContext(UserContext);
+	const {setProductModalOpen, setProductKey} = useContext(UserContext);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [filteredProducts, setFilteredProducts] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
 	const navigate = useNavigate();
 
-	// Fetch products from API on mount
-	useEffect(() => {
-		fetch("http://localhost:5001/products")
-			.then((res) => {
-				if (!res.ok) throw new Error("Failed to fetch products");
-				return res.json();
-			})
-			.then((data) => {
-				setProducts(data);
-				setFilteredProducts(data);
-			})
-			.catch((error) => setError(error.message))
-			.finally(() => setLoading(false));
-	}, [setProducts]);
+	const { data: products = [], error, loading } = useAxios("http://localhost:5001/productInfo");
 
 	useEffect(() => {
-        const filtered = products.filter((product) => 
-            product.product_name.toLowerCase().includes(searchTerm) || 
-            product.category.some(cat => cat.toLowerCase().includes(searchTerm)) // If category is an array
-        );
-        setFilteredProducts(filtered);
-    }, [searchTerm, products]);
+        setFilteredProducts(products);
+    }, [products]);
+
+	if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading data: {error.message}</p>;
 
 	const handleDelete = (id) => {
 		if (window.confirm("Are you sure you want to delete this product?")) {
 			// Make DELETE request or handle removal logic
-			setProducts(products.filter((p) => p.id !== id));
+			
 			setFilteredProducts(filteredProducts.filter((p) => p.id !== id));
 		}
 	};
@@ -115,26 +97,24 @@ const ProductsTable = () => {
 											transition={{ duration: 0.3 }}
 										>
 											<td className="px-6 py-4 whitespace-normal text-sm font-medium dark:text-gray-100 text-[#1E1E1E] flex gap-2 items-center">
-												<img src={product.product_img} alt="" className="w-10 h-10 rounded-full" />
+												<img src={product?.images[0]} alt="" className="w-10 h-10 rounded-full" />
 												<p className="break-words">{product.product_name}</p>
 											</td>
 
 											<td className="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300 text-[#1e1e1e]">
 												<ul>
-													{product.category.map((cat, index) => (
-														<li key={index} className=" capitalize">{cat}</li>
-													))}
+													{product?.category}
 												</ul>
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300 text-[#1e1e1e]">
 												<ul>
-													{product.subcategory.map((cat, index) => (
+													{product?.subCategory?.map((cat, index) => (
 														<li key={index} className=" capitalize">{cat}</li>
 													))}
 												</ul>
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300 text-[#1e1e1e]">
-												${product.price}
+												${product?.price}
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap text-sm dark:text-gray-300 text-[#1e1e1e]">
 												{Number(product.total_product) - Number(product.sale)}

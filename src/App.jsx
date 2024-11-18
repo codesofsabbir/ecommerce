@@ -17,6 +17,7 @@ import PrivateRoute from './Components/PrivateRoute';
 import OverviewPage from './Private/Pages/OverviewPage';
 import Sidebar from './Private/Components/Common/Sidebar';
 import ProductList from './Private/Pages/ProductList';
+import UsersPage from './Private/Pages/UsersPage';
 
 
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='' element={<Sidebar />}>
             <Route path="/dashboard" element={<OverviewPage />} />
             <Route path="/product_list" element={<ProductList />} />
+            <Route path="/users" element={<UsersPage />} />
           </Route>
           
         </Routes>

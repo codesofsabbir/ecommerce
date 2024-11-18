@@ -9,11 +9,12 @@ import SalesTrendChart from "../components/products/SalesTrendChart";
 import ProductsTable from "../components/products/ProductsTable";
 import { Helmet } from "react-helmet";
 import ReactDOMServer from "react-dom/server";
-import ProductDetailsView from "../components/products/ProductDetailsView";
+
 import { useContext } from "react";
 
 import '../App.css'
 import { UserContext } from "../../Hooks/UserContext";
+import ProductDetailsView from "../Components/products/ProductDetailsView";
 const svgIcon = encodeURIComponent(
 	ReactDOMServer.renderToStaticMarkup(<ShoppingBag stroke="#8B5CF6" />)
   );
