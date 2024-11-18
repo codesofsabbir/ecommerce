@@ -40,12 +40,12 @@ function TrackOrder() {
                     {
                       order?.orderTracker.map((tracker, index)=>{
                         const IconComponent = Icons[tracker.icon]
-                        
+                        const isBlue = index <= order.orderStage
                         return (
                           <div
                             key={index}
                             className={`w-7 h-7 rounded-full flex items-center justify-center 
-                            ${tracker.action === 'done' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
+                            ${isBlue ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
                           >
                             {IconComponent && <IconComponent size={16} />}
                           </div>
@@ -54,7 +54,7 @@ function TrackOrder() {
                     }
                     </div>
                     <div className="absolute top-1/2 left-0 bg-[#e8f0fe] w-full h-2 -translate-y-1/2 rounded ">
-                      <div className={`h-full bg-[#0a66c2]`} style={{ width: `${percent * 20}%` }}></div>
+                      <div className={`h-full bg-[#0a66c2]`} style={{ width: `${percent * 25}%` }}></div>
                     </div>
                   </div>
                   <div className="border-b pb-4 mb-6 flex flex-col gap-5">

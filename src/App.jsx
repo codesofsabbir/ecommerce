@@ -18,6 +18,10 @@ import OverviewPage from './Private/Pages/OverviewPage';
 import Sidebar from './Private/Components/Common/Sidebar';
 import ProductList from './Private/Pages/ProductList';
 import UsersPage from './Private/Pages/UsersPage';
+import SalesPage from './Private/Pages/SalesPage';
+import OrdersPage from './Private/Pages/OrdersPage';
+import AnalyticsPage from './Private/Pages/AnalyticsPage';
+import SettingsPage from './Private/Pages/SettingsPage';
 
 
 
@@ -54,6 +58,10 @@ function App() {
             <Route path="/dashboard" element={<OverviewPage />} />
             <Route path="/product_list" element={<ProductList />} />
             <Route path="/users" element={<UsersPage />} />
+            <Route path="/sales" element={<SalesPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
           
         </Routes>
