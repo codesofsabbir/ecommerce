@@ -52,15 +52,15 @@ function OrderSummaryForm({
           <div className="pt-5 flex flex-col space-y-3">
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span>${subTotal.toFixed(2)}</span>
+              <span>{subTotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <span>Delivery Fee</span>
-              <span>${deliveryFee.toFixed(2)}</span>
+              <span>{subTotal != 0 ? deliveryFee.toFixed(2): 0}</span>
             </div>
             <div className="flex justify-between font-bold">
               <span>Total</span>
-              <span>${(subTotal + deliveryFee).toFixed(2)}</span>
+              <span>{(subTotal + deliveryFee).toFixed(2)}</span>
             </div>
           </div>
           <Button ref={submitRef} type="submit" variant="contained" color="primary" className="mt-5 w-full">

@@ -7,8 +7,16 @@ import { useNavigate } from 'react-router-dom';
 import useAxios from '../../Hooks/useAxios';
 import CartTable from '../../Components/AddToCard/CartTable';
 import OrderSummaryForm from '../../Components/AddToCard/OrderSummaryForm';
+import axios from 'axios';
 
 function AddToCartPage() {
+  const navigate = useNavigate();
+  const { loginUser, setCartProductQuantity } = useContext(UserContext);
+  const [products, setProducts] = useState([]);
+  const [selectedPaymentSystem, setSelectedPaymentSystem] = useState(0);
+  const submitRef = useRef(null);
+  const { data: paymentSystem } = useAxios("http://localhost:5001/paymant");
+  const { data: cartData, loading: cartLoading, error: cartError } = useAxios('http://localhost:5001/userCart');
   const orderTracker = [
     { name: "Order Placed", icon: "CircleEllipsis" },
     { name: "Order Confirmed", icon: "ShoppingBag" },
@@ -16,14 +24,46 @@ function AddToCartPage() {
     { name: "In Transit", icon: "Truck" },
     { name: "Delivered", icon: "House" }
   ];
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!cartLoading && !cartError && cartData) {
+      const userCart = cartData.filter(item => item.userId === loginUser.id);
+      setProducts(userCart);
+      setCartProductQuantity(userCart.length);
+    }
+  }, [loginUser.id, cartLoading, cartData, cartError, setCartProductQuantity]);
+
+  const updateProductQuantity = async (id, quantity) => {
+    try{
+      const response = await axios.patch(`http://localhost:5001/userCart/${id}`,
+        {quantity},
+        {headers: {"Content-Type": "application/json"}}
+      );
+      setProducts(prevProducts => prevProducts.map(product =>
+        product.id === id ? response.data : product
+      ));
+    }catch(error){
+      console.error('Error updatign quantity:', error);
+    }
+  };
   
-  const { loginUser, setCartProductQuantity } = useContext(UserContext);
-  const [selectedPaymentSystem, setSelectedPaymentSystem] = useState(0);
-  const [products, setProducts] = useState([]);
-  const submitRef = useRef(null);
-  const { data: paymentSystem } = useAxios("http://localhost:5001/paymant");
-  
+  const handleQuantityChange = (id, quantity, isIncreasing) => {
+    const newQuantity = isIncreasing ? quantity + 1 : Math.max(quantity - 1, 1);
+    setProducts(prevProducts =>
+      prevProducts.map(product => product.id === id ? { ...product, quantity: newQuantity } : product)
+    );
+    updateProductQuantity(id, newQuantity);
+  };
+
+  const handleRemoveProduct = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5001/userCart/${id}`);
+      setProducts(prevProducts => prevProducts.filter(product => product.id !== id));
+    } catch (error) {
+      console.error('Error removing product:', error);
+    }
+  };
+
   const formik = useFormik({
     initialValues: { phone: '', address: '' },
     validationSchema: Yup.object({
@@ -33,110 +73,49 @@ function AddToCartPage() {
       address: Yup.string().required('Please confirm your Address')
     }),
     onSubmit: async (values, { resetForm }) => {
-      const orderId = `order_${Date.now()}`;
-      const today = new Date();
-      const orderDate = today.toISOString().split("T")[0];
-      const deliveryDate = new Date(today.setDate(today.getDate() + 7)).toISOString().split("T")[0];
-      
-      const orderData = {
-        phone: values.phone,
-        address: values.address,
-        orderPaymentMethod: paymentSystem[selectedPaymentSystem]?.paymantSystemName,
-        userId: loginUser.id,
-        userName: loginUser.userName,
-        totalAmount: (subTotal + deliveryFee).toFixed(2),
-        deliveryStatus: 0,
-        orderId,
-        orderDate,
-        deliveryDate,
-        orderTracker,
-        orderStage: 0,
-        orderProducts: products.map(product => ({
-          productId: product.id,
-          productImage: product.image,
-          productName: product.productName,
-          color: product.color,
-          variantType: product.variantType,
-          quantity: product.quantity,
-          price: product.price,
-          total: (product.price * product.quantity).toFixed(2)
-        }))
-      };
-      console.log(orderData)
-
-      
-      
-      const response = await fetch('http://localhost:5001/trackOrder', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      });
-      const data = await response.json();
-      console.log('Order confirmed:', data);
-
-      
-      const userCart = await fetch('http://localhost:5001/userCart')
-    .then(res => res.json())
-    .then(data => data.filter(item => item.userId === loginUser.id));
-
-  // Send a delete request for each item in the user's cart
-  for (const item of userCart) {
-    await fetch(`http://localhost:5001/userCart/${item.id}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-
-  console.log('Cart cleared after order placement');
-  setProducts([]);
-  setCartProductQuantity(0);
-      resetForm()
-    } 
+      if(products.length>0){
+        const orderId = `order_${Date.now()}`;
+        const today = new Date();
+        const orderDate = today.toISOString().split("T")[0];
+        const deliveryDate = new Date(today.setDate(today.getDate() + 7)).toISOString().split("T")[0];
+        const orderData = {
+          ...values,
+          orderPaymentMethod: paymentSystem[selectedPaymentSystem]?.paymantSystemName,
+          userId: loginUser.id,
+          userName: loginUser.userName,
+          totalAmount: (subTotal + deliveryFee).toFixed(2),
+          orderId,
+          orderDate,
+          deliveryDate,
+          orderTracker,
+          orderStage: 0,
+          orderProducts: products.map(product => ({
+            ...product,
+            total: (product.price * product.quantity).toFixed(2)
+          }))
+        };
+        try{
+          await axios.post('http://localhost:5001/trackOrder', orderData, {
+            headers: { 'Content-Type': 'application/json' }
+          });
+          await Promise.all(products.map(product => 
+            axios.delete(`http://localhost:5001/userCart/${product.id}`)
+          ))
+          setProducts([]);
+          setCartProductQuantity(0);
+          resetForm()
+          navigate('/order-success');
+        }catch(error){
+          console.error('Error placing order:', error);
+        } 
+      }else{
+        alert("There have no product in your Cart! Please select product first and place the order. Thank You.")
+      }
+    }
   });
 
-  const updateProductQuantity = (id, quantity) => {
-    fetch(`http://localhost:5001/userCart/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ quantity })
-    })
-    .then(response => response.json())
-    .then(updatedProduct => {
-      setProducts(prevProducts => prevProducts.map(product =>
-        product.id === id ? updatedProduct : product
-      ));
-    });
-  };
-
-  const handleQuantityChange = (id, quantity, isIncreasing) => {
-    const newQuantity = isIncreasing ? quantity + 1 : Math.max(quantity - 1, 1);
-    setProducts(prevProducts =>
-      prevProducts.map(product => product.id === id ? { ...product, quantity: newQuantity } : product)
-    );
-    updateProductQuantity(id, newQuantity);
-  };
-
-  const handleRemoveProduct = (id) => {
-    fetch(`http://localhost:5001/userCart/${id}`, { method: "DELETE" })
-      .then(response => {
-        if (response.ok) {
-          setProducts(prevProducts => prevProducts.filter(product => product.id !== id));
-        }
-      });
-  };
-
-  useEffect(() => {
-    fetch('http://localhost:5001/userCart')
-      .then(res => res.json())
-      .then(data => {
-        const userCart = data.filter(item => item.userId === loginUser.id);
-        setProducts(userCart);
-        setCartProductQuantity(userCart.length);
-      });
-  }, [loginUser.id, setCartProductQuantity]);
-
   const subTotal = products.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const deliveryFee = subTotal > 300 ? 0 : 5.00;
+  const deliveryFee = subTotal === 0 || subTotal > 5500 ? 0 : 200;
 
   return (
     <div className="w-full">

@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-function SwiperSlider({product}) {
+function SwiperSlider({productImg}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
   return (
@@ -22,7 +22,7 @@ function SwiperSlider({product}) {
                 modules={[FreeMode, Navigation, Thumbs]}
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
-            {product?.images?.map((image, index) => (
+            {productImg?.map((image, index) => (
                 <SwiperSlide key={index} className=''>
                     <img src={image} className="w-full h-[400px] object-cover" />
                 </SwiperSlide>
@@ -37,7 +37,7 @@ function SwiperSlider({product}) {
             modules={[FreeMode, Navigation, Thumbs]}
             className="mt-4"
         >
-            {product?.images?.map((image, index) => (
+            {productImg?.map((image, index) => (
                 <SwiperSlide key={index} className=''>
                     <img src={image} className={`object-cover md:h-[100px] w-full ${index === activeIndex ? 'border-4 border-[#1E90FF]': ''}`} />
                 </SwiperSlide>

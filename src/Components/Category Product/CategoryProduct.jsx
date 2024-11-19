@@ -1,52 +1,52 @@
-import { useContext, useEffect, useRef, useState } from "react"
-import { UserContext } from "../../Hooks/UserContext"
+import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/grid";
 import { Grid } from "swiper/modules";
 import SliderButton from "../SliderButton/SliderButton";
-import useFetch from "../../Hooks/UseFetch";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import useAxios from "../../Hooks/useAxios";
 CategoryProduct.propTypes = {
     categoryId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
+const summarizeTitle = (title) => {
+    const words = title.split(' ');
+    return words.length > 11 ? words.slice(0, 11).join(' ') + ' ...' : title;
+};
 function CategoryProduct({categoryId}) {
-    const {productData, setProductData} = useContext(UserContext);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const swiperRef = useRef(null)
     const navigate = useNavigate()
 
-    const {data} = useFetch("http://localhost:5001/categories");
-    useEffect(()=>{
-        fetch('http://localhost:5001/productInfo')
-        .then(res=>res.json())
-        .then((data)=>{
-            setProductData(data)
-        })
-    }, [setProductData]);
+    const {data: categories=[], error: categoryError, loading: categoryLoading} = useAxios("http://localhost:5001/categories");
+    const {data: productData=[], error: productError, loading: productLoading} = useAxios("http://localhost:5001/productsInfo");
 
     useEffect(() => {
-        if (productData && data && data[categoryId]) {
-            const categoryName = data[categoryId].name.toLowerCase().trim()
+        if (productData && categories && categories[categoryId]) {
+            const categoryName = categories[categoryId].name.toLowerCase().trim()
             const filtered = productData.filter((product) =>
                 product.category.toLowerCase().trim().includes(categoryName)
             );
             setFilteredProducts(filtered);
         }
-    }, [productData, data, categoryId]);
+    }, [productData, categories, categoryId]);
 
-    if (!data || !data[categoryId]) {
+    if (categoryLoading || productLoading) return <p>Loading...</p>;
+    if (categoryError || productError) return <p>Error: {categoryError || productError}</p>;
+
+    if (!categories[categoryId]) {
         return <div>No category found or loading...</div>;
     }
+    
   return (
     <div className="w-full mt-10">
         <div className="w-[90%] mx-auto">
             <div className="mb-5 flex justify-between items-center">
                 <div>
-                    <h2 className="text-xl md:text-3xl uppercase font-semibold text-[#0A66C2]">{data[categoryId].name}</h2>
-                    <span className="text-xs md:text-[14px] text-gray-500">{data[categoryId].tagline}</span>
+                    <h2 className="text-xl md:text-3xl uppercase font-semibold text-[#0A66C2]">{categories[categoryId].name}</h2>
+                    <span className="text-xs md:text-[14px] text-gray-500">{categories[categoryId].tagline}</span>
                 </div>
                 <SliderButton swiperRef={swiperRef}/>
             </div>
@@ -92,9 +92,9 @@ function CategoryProduct({categoryId}) {
                                         </span>
                                     ))}
                                 </div>
-                                <h3 className="font-semibold text-[14px] h-12 leading-5">{product?.productName}</h3>
-                                <p className="text-[14px] font-bold">
-                                    <strong>Price: </strong>${product?.variants[0].price}
+                                <h3 className="text-[15px] h-12 leading-5">{summarizeTitle(product?.productName)}</h3>
+                                <p className="text-[16px] pb-2">
+                                    <strong>Price: {product?.productPrice} tk</strong>
                                 </p>
                                 <div className="flex justify-between">
                                     <p className="text-[14px] flex gap-2 items-center">

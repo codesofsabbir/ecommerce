@@ -1,71 +1,58 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useFetch from '../../Hooks/UseFetch';
 import { FaStar } from 'react-icons/fa';
 import PriceRange from '../../Components/Category Product/PriceRange';
+import useAxios from '../../Hooks/useAxios';
 
-function convertToTitleCase(str) {
-  return str.split('-').join(' ');
-}
+const convertToTitleCase = (str) => str.replace(/-/g, ' ');
+const summarizeTitle = (title) => {
+  const words = title.split(' ');
+  return words.length > 11 ? words.slice(0, 11).join(' ') + ' ...' : title;
+};
 
 function CategoryPage() {
   const navigate = useNavigate();
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 0 }); // Default min is 0, max will be set later
-  const { data: productInfo = [] } = useFetch('http://localhost:5001/productInfo');
   const { categoryName } = useParams();
+  const { data: productInfo = [], error, loading } = useAxios('http://localhost:5001/productsInfo');
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 0 });
+  const [selectedBrands, setSelectedBrands] = useState([]);
   const normalizedCategory = categoryName?.toLowerCase().trim();
   const displayName = convertToTitleCase(categoryName);
 
-  // Filter products based on category
-  const filtered = useMemo(() => {
-    if (productInfo && normalizedCategory) {
+  const filteredProducts = useMemo(() => {
+    if (!productInfo || !normalizedCategory) return []; 
       return productInfo.filter((product) =>
         product?.subCategory.some((subItem) =>
           subItem.toLowerCase().trim().replace(/\s+/g, '-').includes(normalizedCategory)
         )
       );
-    }
-    return [];
   }, [productInfo, normalizedCategory]);
 
-  // Set the filtered products and determine the max price when `filtered` changes
   useEffect(() => {
-    setFilteredProducts(filtered);
-
-    // Set the max price based on the filtered products
-    if (filtered.length > 0) {
-      const prices = filtered.map(product => product.variants[0]?.price);
-      const maxPrice = Math.max(...prices);
-      setPriceRange({ min: 0, max: maxPrice }); // Set min to 0 and max to the highest price
+    if (filteredProducts.length) {
+      const maxPrice = Math.max(...filteredProducts.map((p) => p.productPrice));
+      setPriceRange({ min: 0, max: maxPrice }); 
     } else {
-      setPriceRange({ min: 0, max: 0 }); // Reset if no products
+      setPriceRange({ min: 0, max: 0 });
     }
-  }, [filtered]);
+  }, [filteredProducts]);
 
-  // Handle brand selection
   const handleBrandSelection = (brand) => {
-    setSelectedBrands((prevSelected) =>
-      prevSelected.includes(brand)
-        ? prevSelected.filter((b) => b !== brand) // Remove brand if already selected
-        : [...prevSelected, brand] // Add brand if not selected
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
     );
   };
 
-  // Filter products by selected brands
-  const brandFilteredProducts = useMemo(() => {
-    if (selectedBrands.length === 0) return filteredProducts; // Show all if no brand selected
-    return filteredProducts.filter((product) => selectedBrands.includes(product.brand));
-  }, [filteredProducts, selectedBrands]);
+  const displayedProducts = useMemo(()=>{
+    return filteredProducts
+    .filter((product)=> selectedBrands.length ? selectedBrands.includes(product.brand) : true)
+    .filter((product)=> product.productPrice >= priceRange.min && product.productPrice <= priceRange.max);
+  }, [filteredProducts, selectedBrands, priceRange]);
 
-  // Filter products by price range
-  const priceFilteredProducts = useMemo(() => {
-    return brandFilteredProducts.filter((product) => {
-      const productPrice = product.variants[0]?.price; // Assuming you want to filter by the first variant's price
-      return productPrice >= priceRange.min && productPrice <= priceRange.max;
-    });
-  }, [brandFilteredProducts, priceRange]);
+  const uniqueBrands = [...new Set(filteredProducts.map((p)=> p.brand))];
+
+  if(error) return <p>{error}</p>
+  if(loading) return <p>Loading...</p>
 
   return (
     <div className='w-full'>
@@ -81,20 +68,15 @@ function CategoryPage() {
             />
             <div className='mt-5'>
               <h2 className='text-lg font-semibold text-gray-700 mb-2'>Select Brand</h2>
-              {filteredProducts
-                .filter(
-                  (product, index, self) =>
-                    index === self.findIndex((p) => p.brand === product.brand)
-                )
-                .map((uniqueProduct, index) => (
-                  <div key={index} className='flex gap-3 items-center'>
+              {uniqueBrands.map((brand) => (
+                  <div key={brand} className='flex gap-3 items-center'>
                     <input
                       type='checkbox'
-                      value={uniqueProduct.brand}
-                      onChange={() => handleBrandSelection(uniqueProduct.brand)}
-                      checked={selectedBrands.includes(uniqueProduct.brand)}
+                      value={brand}
+                      onChange={() => handleBrandSelection(brand)}
+                      checked={selectedBrands.includes(brand)}
                     />
-                    <li className='list-none text-md font-sans font-semibold text-gray-500'>{uniqueProduct.brand}</li>
+                    <span className='list-none text-md font-sans font-semibold text-gray-500'>{brand}</span>
                   </div>
                 ))}
             </div>
@@ -104,8 +86,8 @@ function CategoryPage() {
               <h2 className='text-2xl font-semibold capitalize'>{displayName}</h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {priceFilteredProducts?.length > 0 ? (
-                priceFilteredProducts.map((product) => (
+              {displayedProducts?.length > 0 ? (
+                displayedProducts.map((product) => (
                   <div
                     key={product.id}
                     className='border mb-4 rounded-md overflow-hidden bg-[#F5F5F5]'
@@ -122,11 +104,11 @@ function CategoryPage() {
                           </span>
                         ))}
                       </div>
-                      <h3 className='font-semibold text-[14px] h-12 leading-5'>
-                        {product?.productName}
+                      <h3 className='font-regular text-[15px] h-12 leading-5'>
+                        {summarizeTitle(product?.productName)}
                       </h3>
-                      <p className='text-[14px] font-bold'>
-                        <strong>Price: </strong>${product?.variants[0].price}
+                      <p className='text-[16px] pb-2'>
+                        <strong>Price: {product?.productPrice} tk</strong>
                       </p>
                       <div className='flex justify-between'>
                         <p className='text-[14px] flex gap-2 items-center'>
