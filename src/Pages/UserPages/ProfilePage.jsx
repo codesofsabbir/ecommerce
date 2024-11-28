@@ -12,9 +12,10 @@ function ProfilePage() {
   const [editableData, setEditableData] = useState({
     userName: loginUser.userName,
     userPhone: loginUser.userPhone,
-    userAddress: loginUser.userAddress,
+    division: loginUser.division,
+    district: loginUser.district,
+    upazila: loginUser.upazila,
     userProfilePic: loginUser.userProfilePic,
-    
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -156,7 +157,7 @@ function ProfilePage() {
         </div>
 
         <div className="md:w-2/3">
-          {['userName', 'userPhone', 'userAddress'].map((field, idx) => (
+          {['userName', 'userPhone', 'division', 'district', 'upazila'].map((field, idx) => (
             <label key={idx} className="text-gray-600 flex items-center gap-2 mb-2 w-full justify-between">
               <span className="capitalize">{field.replace("user", "")}:</span>
               <input

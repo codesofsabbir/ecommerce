@@ -1,26 +1,27 @@
 import { motion } from "framer-motion";
-
 import Header from "../Components/Common/Header";
 import StatCard from "../components/common/StatCard";
-
 import { AlertTriangle, DollarSign, Package, TrendingUp, ShoppingBag } from "lucide-react";
 import CategoryDistributionChart from "../components/overview/CategoryDistributionChart";
 import SalesTrendChart from "../components/products/SalesTrendChart";
 import ProductsTable from "../components/products/ProductsTable";
 import { Helmet } from "react-helmet";
 import ReactDOMServer from "react-dom/server";
-
-import { useContext } from "react";
-
+import { useState } from "react";
 import '../App.css'
-import { UserContext } from "../../Hooks/UserContext";
 import ProductDetailsView from "../Components/products/ProductDetailsView";
+import useAxios from "../../Hooks/useAxios";
 const svgIcon = encodeURIComponent(
 	ReactDOMServer.renderToStaticMarkup(<ShoppingBag stroke="#8B5CF6" />)
   );
 const svgFavicon = `data:image/svg+xml,${svgIcon}`;
 const ProductList = () => {
-	const {productmodalopen} = useContext(UserContext);
+	const { data: products = [], error, loading } = useAxios("http://localhost:5001/productsInfo");
+	const [viewProductId, setViewProductId] = useState("");
+	const [productmodalopen, setProductModalOpen] = useState(false);
+	console.log(productmodalopen);
+	if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading data: {error.message}</p>;
 	return (
 		<div className='flex-1 overflow-auto relative z-10'>
 			<Helmet>
@@ -37,15 +38,15 @@ const ProductList = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 				>
-					<StatCard name='Total Products' icon={Package} value={1234} color='#6366F1' />
+					<StatCard name='Total Products' icon={Package} value={products.length} color='#6366F1' />
 					<StatCard name='Top Selling' icon={TrendingUp} value={89} color='#10B981' />
 					<StatCard name='Low Stock' icon={AlertTriangle} value={23} color='#F59E0B' />
 					<StatCard name='Total Revenue' icon={DollarSign} value={"$543,210"} color='#EF4444' />
 				</motion.div>
 
-				<ProductsTable />
+				<ProductsTable products={products} loading={loading} error={error} setViewProductId={setViewProductId} setProductModalOpen={setProductModalOpen}/>
 				{
-					productmodalopen? <ProductDetailsView /> : ''
+					productmodalopen? <ProductDetailsView viewProductId={viewProductId} setProductModalOpen={setProductModalOpen}/> : ''
 				}
 
 				{/* CHARTS */}

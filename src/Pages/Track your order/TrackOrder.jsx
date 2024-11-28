@@ -30,7 +30,7 @@ function TrackOrder() {
                     <div>
                       <h2 className="uppercase text-sm md:text-base font-semibold"><span className="text-[#1E90FF]">#{order.orderId}</span></h2>
                       <h4 className='text-sm font-semibold text-gray-700'>{order.phone}</h4>
-                      <address className='text-sm font-semibold text-gray-500'>{order.address}</address>
+                      <address className='text-sm font-semibold text-gray-500'>{order.division}, {order.district}, {order.upazila}, {order.code}</address>
                     </div>
                     <div className='hidden md:block'>
                       <h4 className="font-medium">Order Data: <span className="font-semibold text-[#1e90ff]">{order.orderDate}</span></h4>

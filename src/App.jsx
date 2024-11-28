@@ -13,7 +13,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import LogedIn from './Pages/LogedIn/LogedIn';
 import ProfilePage from './Pages/UserPages/ProfilePage';
 import AddToCartPage from './Pages/UserPages/AddToCartPage';
-import PrivateRoute from './Components/PrivateRoute';
+import PrivateRoute from './Private/Components/PrivateRoute';
 import OverviewPage from './Private/Pages/OverviewPage';
 import Sidebar from './Private/Components/Common/Sidebar';
 import ProductList from './Private/Pages/ProductList';
@@ -22,6 +22,9 @@ import SalesPage from './Private/Pages/SalesPage';
 import OrdersPage from './Private/Pages/OrdersPage';
 import AnalyticsPage from './Private/Pages/AnalyticsPage';
 import SettingsPage from './Private/Pages/SettingsPage';
+import Error from './Pages/ErrorPage/Error';
+import Protected from './Components/Protected';
+import AdminLogin from './Private/Pages/AdminLogin';
 
 
 
@@ -30,38 +33,44 @@ function App() {
   const [headerData, setHeaderData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [productData, setProductData] = useState();
+  const [adminLogIn, setAdminLogIn] = useState(false);
+  const [adminUser, setAdminUser] = useState(null);
   const [userLogedIn, setUserLogedIn] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
   const [cartProductQuantity, setCartProductQuantity] = useState(0);
-  const [productmodalopen, setProductModalOpen] = useState(false);
+  const [orderSuccessMessageBoxIsOpen, setOrderSuccessMessageBoxIsOpen] = useState(false)
   return (
-    <UserContext.Provider value={{productmodalopen, setProductModalOpen, headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
+    <div className={`${orderSuccessMessageBoxIsOpen ? "h-screen overflow-hidden": ""}`}>
+      <UserContext.Provider value={{orderSuccessMessageBoxIsOpen, setOrderSuccessMessageBoxIsOpen, adminUser, setAdminUser, adminLogIn, setAdminLogIn, headerData, setHeaderData, categoryData, setCategoryData, productData, setProductData, userLogedIn, setUserLogedIn, loginUser, setLoginUser, cartProductQuantity, setCartProductQuantity}}>
       <BrowserRouter>
-      
-        
-
         <Routes>
           <Route path='' element={<Header />}>
             <Route path='' element={<Footer />}>
+              <Route path={"/*"} element={<Error />}/>
               <Route path={"/"} element={<Home />}/>
               <Route path={"/help-center"}  element={<HelpCenter />} />
-              <Route path="/track-order" element={<PrivateRoute element={<TrackOrder />} />} />
-              <Route path="/user-profile" element={<PrivateRoute element={<ProfilePage />} />} />
-              <Route path="/addtocard" element={<PrivateRoute element={<AddToCartPage />} />} />
+              <Route path={""} element={<Protected />} >
+                <Route path="/track-order" element={<TrackOrder />} />
+                <Route path="/user-profile" element={<ProfilePage />} />
+                <Route path="/addtocard" element={<AddToCartPage />} />
+              </Route>
               <Route path={"/sign-up"}  element={<SignUp />} />
               <Route path={"/login"}  element={<LogedIn />} />
               <Route path={'/product/:id'} element = {<ProductPage />} />
               <Route path={'/category/:categoryName'} element = {<CategoryPage />} />
             </Route>
           </Route>
-          <Route path='' element={<Sidebar />}>
-            <Route path="/dashboard" element={<OverviewPage />} />
-            <Route path="/product_list" element={<ProductList />} />
-            <Route path="/users" element={<UsersPage />} />
-            <Route path="/sales" element={<SalesPage />} />
-            <Route path="/orders" element={<OrdersPage />} />
-            <Route path="/analytics" element={<AnalyticsPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
+          <Route path={'admin'} element={<AdminLogin />} />
+          <Route path='' element={<PrivateRoute />}>
+            <Route path='' element={<Sidebar />}>
+              <Route path="/dashboard" element={<OverviewPage />} />
+              <Route path="/product_list" element={<ProductList />} />
+              <Route path="/users" element={<UsersPage />} />
+              <Route path="/sales" element={<SalesPage />} />
+              <Route path="/orders" element={<OrdersPage />} />
+              <Route path="/analytics" element={<AnalyticsPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Route>
           </Route>
           
         </Routes>
@@ -72,6 +81,7 @@ function App() {
       
 
     </UserContext.Provider>
+    </div>
   )
 }
 

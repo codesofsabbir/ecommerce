@@ -3,7 +3,7 @@ import { X, Minus, Plus } from 'lucide-react';
 
 function CartTable({ products, handleQuantityChange, handleRemoveProduct }) {
   return (
-    <div className="overflow-y-auto w-full lg:w-2/3">
+    <div className="overflow-y-auto w-full lg:w-3/5">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>

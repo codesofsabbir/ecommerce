@@ -64,6 +64,7 @@ function ProductComment({userLogedIn, loginUser, product}) {
             />
 
             <form onSubmit={formik.handleSubmit} className="search relative w-full ml-5 md:ml-10">
+              
               <input
                 type="text"
                 placeholder="Enter your comments..."
@@ -71,8 +72,9 @@ function ProductComment({userLogedIn, loginUser, product}) {
                 onChange={formik.handleChange}
                 value={formik.values.comments}
                 className="border border-black py-1 px-2 rounded-md outline-none w-full text-md"
+                disabled={!userLogedIn}
               />
-              <button type='submit' className="searchIcon flex gap-2 absolute right-3 top-1/2 -translate-y-1/2">
+              <button type='submit' className="searchIcon flex gap-2 absolute right-3 top-1/2 -translate-y-1/2" disabled={!userLogedIn}>
                 <IoIosSend className="cursor-pointer text-xl" />
               </button>
             </form>

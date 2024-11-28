@@ -8,10 +8,11 @@ import useAxios from '../../Hooks/useAxios';
 import CartTable from '../../Components/AddToCard/CartTable';
 import OrderSummaryForm from '../../Components/AddToCard/OrderSummaryForm';
 import axios from 'axios';
+import OrderSuccess from '../../Components/OrderSuccess';
 
 function AddToCartPage() {
   const navigate = useNavigate();
-  const { loginUser, setCartProductQuantity } = useContext(UserContext);
+  const { loginUser, setCartProductQuantity, orderSuccessMessageBoxIsOpen, setOrderSuccessMessageBoxIsOpen } = useContext(UserContext);
   const [products, setProducts] = useState([]);
   const [selectedPaymentSystem, setSelectedPaymentSystem] = useState(0);
   const submitRef = useRef(null);
@@ -65,12 +66,14 @@ function AddToCartPage() {
   };
 
   const formik = useFormik({
-    initialValues: { phone: '', address: '' },
+    initialValues: { phone: '', division: '', district: '', upazila: '', code: '' },
     validationSchema: Yup.object({
       phone: Yup.string()
         .required('Phone number is required')
         .matches(/^\d{11}$/, 'Phone number must be exactly 11 digits'),
-      address: Yup.string().required('Please confirm your Address')
+      division: Yup.string().required('Please confirm your division'),
+      district: Yup.string().required('Please confirm your district'),
+      upazila: Yup.string().required('Please confirm your upazila'),
     }),
     onSubmit: async (values, { resetForm }) => {
       if(products.length>0){
@@ -98,16 +101,18 @@ function AddToCartPage() {
           await axios.post('http://localhost:5001/trackOrder', orderData, {
             headers: { 'Content-Type': 'application/json' }
           });
+          console.log(orderData)
           await Promise.all(products.map(product => 
             axios.delete(`http://localhost:5001/userCart/${product.id}`)
           ))
           setProducts([]);
           setCartProductQuantity(0);
           resetForm()
-          navigate('/order-success');
+          setOrderSuccessMessageBoxIsOpen(true);
         }catch(error){
           console.error('Error placing order:', error);
         } 
+        
       }else{
         alert("There have no product in your Cart! Please select product first and place the order. Thank You.")
       }
@@ -118,7 +123,7 @@ function AddToCartPage() {
   const deliveryFee = subTotal === 0 || subTotal > 5500 ? 0 : 200;
 
   return (
-    <div className="w-full">
+    <div className={`w-full h-screen overflow-hidden`}>
       <div className="w-[90%] mx-auto my-10">
 
         <div className="flex justify-between items-center py-5">
@@ -129,6 +134,11 @@ function AddToCartPage() {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-between gap-5">
+
+          {
+            orderSuccessMessageBoxIsOpen ? <OrderSuccess setOrderSuccessMessageBoxIsOpen={setOrderSuccessMessageBoxIsOpen}/> : null
+          }
+          
 
           <CartTable 
             products={products}

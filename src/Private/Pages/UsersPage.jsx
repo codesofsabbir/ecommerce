@@ -1,7 +1,5 @@
 import { UserCheck, UserPlus, UsersIcon, UserX } from "lucide-react";
 import { motion } from "framer-motion";
-
-import Header from "../components/common/Header";
 import StatCard from "../components/common/StatCard";
 import UsersTable from "../components/users/UsersTable";
 import UserGrowthChart from "../components/users/UserGrowthChart";
@@ -9,6 +7,8 @@ import UserActivityHeatmap from "../components/users/UserActivityHeatmap";
 import UserDemographicsChart from "../components/users/UserDemographicsChart";
 import { Helmet } from "react-helmet";
 import ReactDOMServer from "react-dom/server";
+import Header from "../Components/Common/Header";
+import useAxios from "../../Hooks/useAxios";
 const svgIcon = encodeURIComponent(
 	ReactDOMServer.renderToStaticMarkup(<UsersIcon stroke="#EC4899" />)
   );
@@ -21,6 +21,9 @@ const userStats = {
 };
 
 const UsersPage = () => {
+	const { data: userData = [], loading } = useAxios("http://localhost:5001/usersInfo");
+	if(loading) return <p>Loading...</p>
+	console.log(userData.length)
 	return (
 		<div className='flex-1 overflow-auto relative z-10'>
 			<Helmet>
@@ -40,20 +43,20 @@ const UsersPage = () => {
 					<StatCard
 						name='Total Users'
 						icon={UsersIcon}
-						value={userStats.totalUsers.toLocaleString()}
+						value={userData.length}
 						color='#6366F1'
 					/>
 					<StatCard name='New Users Today' icon={UserPlus} value={userStats.newUsersToday} color='#10B981' />
 					<StatCard
 						name='Active Users'
 						icon={UserCheck}
-						value={userStats.activeUsers.toLocaleString()}
+						value={userData.filter((user) => user.activeStatus === true).length}
 						color='#F59E0B'
 					/>
 					<StatCard name='Churn Rate' icon={UserX} value={userStats.churnRate} color='#EF4444' />
 				</motion.div>
 
-				<UsersTable />
+				<UsersTable userData={userData}/>
 
 				{/* USER CHARTS */}
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8'>

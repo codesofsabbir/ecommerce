@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Phone, User, Lock, Eye, EyeClosed, MapPin } from 'lucide-react';
+import { Phone, User, Lock, Eye, EyeClosed } from 'lucide-react';
+import { allDivision, districtsOf, upazilasOf } from '@bangladeshi/bangladesh-address';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -14,8 +15,11 @@ function SignUp() {
             userPhone: '',
             userPassword: '',
             confirmPassword: '',
-            userAddress: '',
-            userProfilePic: ''
+            userProfilePic: '',
+            division: "",
+            district: "",
+            upazila: ""
+
         },
         validationSchema: Yup.object({
             userName: Yup.string()
@@ -24,14 +28,18 @@ function SignUp() {
             userPhone: Yup.string()
                 .required('Phone number is required')
                 .matches(/^\d{11}$/, 'Phone number must be exactly 11 digits'),
+            division: Yup.string()
+                .required('Please confirm your Division'),
+                district: Yup.string()
+                .required('Please confirm your District'),
+                upazila: Yup.string()
+                .required('Please confirm your Upazila'),
             userPassword: Yup.string()
                 .required('Password is required')
                 .min(6, 'Password must be at least 6 characters'),
             confirmPassword: Yup.string()
                 .required('Please confirm your password')
                 .oneOf([Yup.ref('userPassword'), null], 'Passwords must match'),            
-            userAddress: Yup.string()
-                .required('Please confirm your Address')
         }),
         onSubmit: async (values, { resetForm }) => {
             const { confirmPassword, ...dataToSubmit } = values;
@@ -54,7 +62,6 @@ function SignUp() {
             } catch (error) {
                 console.error('Error:', error);
             }
-            
         }
     });
 
@@ -130,20 +137,56 @@ function SignUp() {
                                     <div className="text-red-500 text-xs">{formik.errors.confirmPassword}</div>
                                 ) : null}
                             </div>
-                            <div className='relative h-fit'>
-                                <input 
-                                    type='text'
-                                    name="userAddress" 
-                                    value={formik.values.userAddress} 
-                                    onChange={formik.handleChange} 
-                                    onBlur={formik.handleBlur}
-                                    placeholder='Address' 
-                                    className='w-full rounded-md bg-transparent border border-white outline-none px-10 py-2 text-md font-thin text-black placeholder:text-black' 
-                                />
-                                <MapPin className='absolute top-1/2 left-2 -translate-y-1/2' />
-                                {formik.touched.userAddress && formik.errors.userAddress ? (
-                                    <div className="text-red-500 text-xs">{formik.errors.userAddress}</div>
-                                ) : null}
+                            <div className='flex gap-5'>
+                            <select
+                                name="division"
+                                id="division"
+                                onChange={formik.handleChange}
+                                value={formik.values.division}
+                                className='w-full rounded-md bg-transparent border border-white outline-none p-2 text-md font-thin text-black placeholder:text-black'
+                            >
+                                <option value="" disabled>Select Division</option>
+                                {allDivision().map((division) => (
+                                    <option key={division} value={division}>
+                                        {division}
+                                    </option>
+                                ))}
+                            </select>
+
+                            <select
+                                name="district"
+                                id="district"
+                                disabled={!formik.values.division}
+                                onChange={formik.handleChange}
+                                value={formik.values.district}
+                                className='w-full rounded-md bg-transparent border border-white outline-none p-2 text-md font-thin text-black placeholder:text-black'
+                            >
+                                <option value="" disabled>Select District</option>
+                                {formik.values.division &&
+                                    districtsOf(formik.values.division).map((district) => (
+                                        <option key={district} value={district}>
+                                            {district}
+                                        </option>
+                                    ))}
+                            </select>
+
+                            <select
+                                name="upazila"
+                                id="upazila"
+                                disabled={!formik.values.district}
+                                onChange={formik.handleChange}
+                                value={formik.values.upazila}
+                                className='w-full rounded-md bg-transparent border border-white outline-none p-2 text-md font-thin text-black placeholder:text-black'
+                            >
+                                <option value="" disabled>Select Upazila</option>
+                                {formik.values.district &&
+                                    upazilasOf(formik.values.district).map((upazilaObj) => (
+                                        <option key={upazilaObj.upazila} value={upazilaObj.upazila}>
+                                            {upazilaObj.upazila}
+                                        </option>
+                                    ))}
+                            </select>
+                            
                             </div>
                             <button type="submit" className='bg-[#1E90FF] py-2 rounded-md hover:bg-[#1E90cf] cursor-pointer'>Sign Up</button>
                             <div className='flex justify-between'>

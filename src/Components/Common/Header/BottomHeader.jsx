@@ -17,23 +17,6 @@ function BottomHeader({headerData}) {
                 {/* Bottom Menu Right site logo and help center icon */}
                 <div className="flex gap-5 items-center">
                     <div className="logo ">
-                        {/* <img
-                            loading="lazy"
-                            alt="logo"
-                            srcSet="
-                                /?width=100 100w,
-                                /?width=200 200w,
-                                /?width=400 400w,
-                                /?width=800 800w,
-                            "
-                            sizes="(max-width: 800px) 100vw, 50vw" 
-                            decoding="async"
-                            fetchPriority="high"
-                            src={headerData?.logo} 
-                            width="130" 
-                            height="20" 
-                            onClick={() => navigate('/')} className="cursor-pointer" 
-                            /> */}
                             <img width="130" height="20" src={headerData?.logo} alt="" onClick={() => navigate('/')} className="cursor-pointer"/>
                     </div>
                     <div className="relative">
