@@ -8,6 +8,7 @@ import axios from "axios";
 // import { UserContext } from "../../../Hooks/UserContext";
 function ProductsTable({products, loading, error, setViewProductId, setProductModalOpen}) {
 	const {data: categories = []} = useAxios('http://localhost:5001/categories')
+	console.log(categories)
 	const navigate = useNavigate()
 	const [searchTerm, setSearchTerm] = useState('')
 	const [filteredProducts, setFilterdProducts] = useState([])
@@ -58,9 +59,9 @@ function ProductsTable({products, loading, error, setViewProductId, setProductMo
 
 	const handleCategoryChange = (e) => {
         const selected = e.target.value
-        setSelectedCategory(selected.toLowerCase())
+        setSelectedCategory(selected)
 		setSelectedSubCategory("");
-		const category = categories.find((cat) => cat.name.toLowerCase() === selected.toLowerCase());
+		const category = categories.find((cat) => cat.name.toLowerCase() === selected);
         setFilteredSubCategories(category?.subcategories || []);
         console.log(selectedCategory)
     }
@@ -113,7 +114,7 @@ function ProductsTable({products, loading, error, setViewProductId, setProductMo
 					Select a Category
 				</option>
 				{categories?.map((category) => (
-					<option key={category} value={category.name} >
+					<option key={category} value={category.name?.toLowerCase()} >
 					{category.name}
 					</option>
 				))}

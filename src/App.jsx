@@ -25,6 +25,8 @@ import SettingsPage from './Private/Pages/SettingsPage';
 import Error from './Pages/ErrorPage/Error';
 import Protected from './Components/Protected';
 import AdminLogin from './Private/Pages/AdminLogin';
+// import AddProduct from './Private/Pages/AddProduct';
+import ProductEntryForm from './Private/Pages/ProductEntryForm';
 
 
 
@@ -65,6 +67,9 @@ function App() {
             <Route path='' element={<Sidebar />}>
               <Route path="/dashboard" element={<OverviewPage />} />
               <Route path="/product_list" element={<ProductList />} />
+              {/* <Route path="/add-product" element={<AddProduct />} /> */}
+              <Route path="/add-product" element={<ProductEntryForm />} />
+
               <Route path="/users" element={<UsersPage />} />
               <Route path="/sales" element={<SalesPage />} />
               <Route path="/orders" element={<OrdersPage />} />

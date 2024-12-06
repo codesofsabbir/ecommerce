@@ -40,7 +40,7 @@ const OrdersPage = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 				>
-					<StatCard name='Total Orders' icon={ShoppingBag} value={orderStats.totalOrders} color='#6366F1' />
+					<StatCard name='Total Orders' icon={ShoppingBag} value={orderData.length} color='#6366F1' />
 					<StatCard name='Pending Orders' icon={Clock} value={orderStats.pendingOrders} color='#F59E0B' />
 					<StatCard
 						name='Completed Orders'

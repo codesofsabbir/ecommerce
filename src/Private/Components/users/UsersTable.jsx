@@ -16,7 +16,6 @@ const UsersTable = ({userData}) => {
 	const handleChange = (e) => {
         const { name, value } = e.target;
         setAddress((prev) => {
-			// Clear dependent fields only when a higher-level field changes
 			const resetDependentFields = {};
 			if (name === "division") {
 				resetDependentFields.district = "";
@@ -35,36 +34,28 @@ const UsersTable = ({userData}) => {
 	const rowsPerPage = 5;
 	useEffect(() => {
 		const results = userData.filter((user) => {
-			const result = searchTerm.toLowerCase();
-			const userName = user.userName?.toLowerCase() || "";
-			const phone = user.userPhone?.toLowerCase() || "";
+			const searchTermMatch = searchTerm
+				? user.userName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				  user.userPhone?.toLowerCase().includes(searchTerm.toLowerCase())
+				: true;
 	
-			// Basic search
-			return userName.includes(result) || phone.includes(result);
+			const activeStatusMatch = selectedActiveStatus
+				? (selectedActiveStatus === "active" && user.activeStatus) ||
+				  (selectedActiveStatus === "deactive" && !user.activeStatus)
+				: true;
+	
+			const addressMatch =
+				(address.division ? user.division === address.division : true) &&
+				(address.district ? user.district === address.district : true) &&
+				(address.upazila ? user.upazila === address.upazila : true);
+	
+			return searchTermMatch && activeStatusMatch && addressMatch;
 		});
 	
-		// Active status filter
-		const filteredByStatus = selectedActiveStatus
-			? results.filter((user) => {
-				  if (selectedActiveStatus === "active") return user.activeStatus === true;
-				  if (selectedActiveStatus === "deactive") return user.activeStatus === false;
-				  console.log(selectedActiveStatus)
-				  return true;
-			  })
-			: results;
-	
-		// Address filters
-		const filteredByAddress = filteredByStatus.filter((user) => {
-			const divisionMatch = address.division ? user.division === address.division : true;
-			const districtMatch = address.district ? user.district === address.district : true;
-			const upazilaMatch = address.upazila ? user.upazila === address.upazila : true;
-			return divisionMatch && districtMatch && upazilaMatch;
-		});
-		
-	
-		setFilteredUser(filteredByAddress);
+		setFilteredUser(results);
 		setCurrentPage(1);
 	}, [userData, searchTerm, selectedActiveStatus, address]);
+	
 	
 
 	const totalRows = filteredUser.length;
@@ -72,14 +63,26 @@ const UsersTable = ({userData}) => {
 	const startIndex = (currentPage - 1) * rowsPerPage;
 	const endIndex = startIndex + rowsPerPage;
 	const paginatedUser = filteredUser.slice(startIndex, endIndex);
-	const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+	const getPaginationNumbers = () => {
+		const numbers = [];
+		for (let i = 1; i <= totalPages; i++) {
+			if (i === 1 || i === totalPages || Math.abs(currentPage - i) <= 1) {
+				numbers.push(i);
+			} else if (numbers[numbers.length - 1] !== "...") {
+				numbers.push("...");
+			}
+		}
+		return numbers;
+	};
+
 	const handlePageChange = (pageNumber) => {
 		setCurrentPage(pageNumber);
-	  };
-	  const handleActiveStatusChange = (e) => {
+	};
+
+	const handleActiveStatusChange = (e) => {
 		const selected = e.target.value
 		setSelectedActiveStatus(selected.toLowerCase());
-	  }
+	}
 	return (
 		<motion.div
 			className='dark:bg-gray-800 bg-white bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700'
@@ -256,40 +259,25 @@ const UsersTable = ({userData}) => {
 							>
 								Previous
 							</button>
-							{pageNumbers.map((number, index) => {
-								const isFirstFew = index < 3;
-								const isLastFew = index >= totalPages - 3;
-								const isNearCurrent = Math.abs(currentPage - number) <= 1;
-
-								if (isFirstFew || isLastFew || isNearCurrent) {
-									return (
-										<button
-											key={number}
-											className={`px-3 py-1 border-l border-gray-500 ${
-												currentPage === number
-													? "bg-gray-600 text-white"
-													: "hover:bg-gray-200 dark:hover:bg-gray-600"
-											}`}
-											onClick={() => handlePageChange(number)}
-										>
-											{number}
-										</button>
-									);
-								}
-
-								if (index === 3 || index === totalPages - 4) {
-									return (
-										<span
-											key={`ellipsis-${index}`}
-											className="px-3 py-1 border-l border-gray-500 select-none"
-										>
-											...
-										</span>
-									);
-								}
-
-								return null;
-							})}
+							{getPaginationNumbers().map((number, index) =>
+    number === "..." ? (
+        <span key={`ellipsis-${index}`} className="px-3 py-1 select-none">
+            ...
+        </span>
+    ) : (
+        <button
+            key={number}
+            className={`px-3 py-1 ${
+                currentPage === number
+                    ? "bg-gray-600 text-white"
+                    : "hover:bg-gray-200 dark:hover:bg-gray-600"
+            }`}
+            onClick={() => handlePageChange(number)}
+        >
+            {number}
+        </button>
+    )
+)}
 							<button
 								className={`px-3 py-1 border-l border-gray-500  ${
 									currentPage === totalPages
